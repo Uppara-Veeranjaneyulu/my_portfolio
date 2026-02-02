@@ -6,6 +6,15 @@
     /* font-family:'Courier New', Courier, monospace; */
 }
 
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
 :root {
     --bg-color: #030303f0;
     --secondary-bg: #022b0a;
@@ -80,6 +89,7 @@ nav {
 
 .nav-links a:hover {
     color: red;
+    text-decoration: underline;
 }
 
 
@@ -110,11 +120,12 @@ nav {
 
 
 .profile-img {
-    width: 290px;
-    height: 290px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #012c0cf7;    
+    margin-right:800px;
+    width: 300px;
+    /* height: 5q00px; */
+    border-radius: 10%;
+    object-fit:scale-down;
+    border: 2px solid #012c0cf7;    
     box-shadow: 0 10px 30px rgba(5, 68, 1, 0.966);
 }
 
@@ -181,7 +192,7 @@ h2 {
 
 .project-card {
     background-color: var(--secondary-bg);
-    border-radius: 1px;
+    border-radius: 40px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -200,7 +211,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12rem;
+    font-size: 10rem;
     color: white;
 }
 
