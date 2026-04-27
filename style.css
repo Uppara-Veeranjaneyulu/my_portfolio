@@ -367,6 +367,10 @@ nav {
     align-items: center;
 }
 
+.hidden-project {
+    display: none;
+}
+
 .hero-image {
     display: flex;
     justify-content: flex-end;
@@ -639,9 +643,12 @@ nav {
 .project-links {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .project-links a {
+    display: inline-flex;
+    align-items: center;
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-primary);

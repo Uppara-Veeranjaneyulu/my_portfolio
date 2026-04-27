@@ -164,3 +164,27 @@ if(themeToggle && themeIcon) {
         themeIcon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     });
 }
+
+// 10. View More Projects Button
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+const viewMoreContainer = document.getElementById('viewMoreContainer');
+if(viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', () => {
+        const hiddenProjects = document.querySelectorAll('.hidden-project');
+        hiddenProjects.forEach(proj => {
+            proj.style.display = 'block';
+            // Slight delay to allow CSS to register the display change before animating opacity
+            setTimeout(() => {
+                proj.classList.add('visible');
+            }, 50);
+        });
+        if (viewMoreContainer) {
+            viewMoreContainer.style.display = 'none'; // Hide the entire container
+        } else {
+            viewMoreBtn.style.display = 'none'; 
+        }
+        
+        // Re-trigger observer for newly visible items if necessary
+        hiddenProjects.forEach(el => observer.observe(el));
+    });
+}

@@ -151,7 +151,32 @@
 
             <div class="projects-list">
 
-                <!-- Project 1 -->
+                <!-- 1. Polyverse -->
+                <div class="project-item reveal">
+                    <div class="project-info">
+                        <span class="project-category">Federated Social Network</span>
+                        <h3 class="project-name">Polyverse</h3>
+                        <p class="project-description">
+                            A federated social network built on ActivityPub, featuring decentralized identity (DID),
+                            cryptographic key management, and data autonomy.
+                        </p>
+                        <ul class="tech-list">
+                            <li>SvelteKit 5</li>
+                            <li>Fedify</li>
+                            <li>Neon PostgreSQL</li>
+                            <li>TailwindCSS 4</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://polyverse-pp.vercel.app" target="_blank" class="link-external">Live
+                                Deployment ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. CraveQuick -->
                 <div class="project-item reveal">
                     <div class="project-info">
                         <span class="project-category">Full Stack Architecture</span>
@@ -169,69 +194,102 @@
                             <li>Razorpay</li>
                         </ul>
                         <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
                             <a href="https://cravequick.vercel.app/" target="_blank" class="link-external">Live
                                 Deployment ↗</a>
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank"
-                                class="link-source">Source Code ↗</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- 3. GeoGuide -->
                 <div class="project-item reveal">
                     <div class="project-info">
-                        <span class="project-category">AI Integration & SaaS</span>
-                        <h3 class="project-name">AI Fusion</h3>
+                        <span class="project-category">Full Stack & AI</span>
+                        <h3 class="project-name">GeoGuide – Smart Travel Companion</h3>
                         <p class="project-description">
-                            Developed a production-ready SaaS platform enabling seamless interactions with multiple LLMs
-                            including GPT, Gemini, and Claude. Engineered comprehensive authentication, usage tracking,
-                            and rate limiting systems utilizing Next.js, Firebase, and Clerk.
+                            Smart travel assistant with real-time weather, navigation, AI-powered travel insights, and
+                            multilingual support. Built during a hackathon.
                         </p>
                         <ul class="tech-list">
-                            <li>Next.js</li>
+                            <li>React</li>
+                            <li>MongoDB</li>
+                            <li>Gemini API</li>
                             <li>Firebase</li>
-                            <li>Clerk Auth</li>
-                            <li>Tailwind CSS</li>
-                            <li>LLM APIs</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank"
-                                class="link-source">Source Code ↗</a>
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://geoguidehackathon.vercel.app/" target="_blank" class="link-external">Live
+                                Deployment ↗</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- 4. Secure Exam Portal -->
                 <div class="project-item reveal">
                     <div class="project-info">
-                        <span class="project-category">Data Engineering</span>
-                        <h3 class="project-name">TrendPulse Analytics</h3>
+                        <span class="project-category">Security & Backend</span>
+                        <h3 class="project-name">Secure Exam Portal</h3>
                         <p class="project-description">
-                            Built a sophisticated data-driven system to track influencer engagement metrics. Implemented
-                            algorithms to calculate dynamic marketing scores, facilitating real-time corporate bidding
-                            and campaign analytics.
+                            A web application for secure online examinations with role-based access control, data
+                            encryption via Fernet, and integrity verification.
                         </p>
                         <ul class="tech-list">
-                            <li>Python</li>
-                            <li>Data Structures</li>
-                            <li>Statistical Analysis</li>
+                            <li>Python (Flask)</li>
+                            <li>SQLite</li>
+                            <li>Cryptography</li>
+                            <li>Bcrypt</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank"
-                                class="link-source">Source Code ↗</a>
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="project-item reveal">
+                <div class="view-more-container reveal" id="viewMoreContainer"
+                    style="display: flex; justify-content: center; padding: 1rem 0;">
+                    <button id="viewMoreBtn" class="btn-primary"
+                        style="padding: 1rem 2.5rem; border-radius: var(--rad-sm);">View More</button>
+                </div>
+
+                <!-- 5. Task Manager App -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Mobile App & AI</span>
+                        <h3 class="project-name">Task Manager App</h3>
+                        <p class="project-description">
+                            A comprehensive Flutter application with cloud sync, offline SQLite support, Google ML Kit
+                            AI integration, and biometric security.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Flutter</li>
+                            <li>Firebase</li>
+                            <li>SQLite</li>
+                            <li>Provider</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/task-manager-flutter-app" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank"
+                                class="link-external">Live Deployment ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. MERN ThinkBoard -->
+                <div class="project-item hidden-project reveal">
                     <div class="project-info">
                         <span class="project-category">Backend & Infrastructure</span>
                         <h3 class="project-name">ThinkBoard MERN API</h3>
                         <p class="project-description">
                             Designed a resilient RESTful API for a note-taking application. Integrated Upstash Redis for
-                            distributed rate limiting to ensure high availability, alongside secure environment
-                            configuration and robust MongoDB schemas.
+                            distributed rate limiting to ensure high availability.
                         </p>
                         <ul class="tech-list">
                             <li>Express.js</li>
@@ -241,16 +299,197 @@
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank"
-                                class="link-source">Source Code ↗</a>
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. AI Fusion -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">AI Integration & SaaS</span>
+                        <h3 class="project-name">AI Fusion</h3>
+                        <p class="project-description">
+                            Developed a production-ready SaaS platform enabling seamless interactions with multiple LLMs
+                            including GPT, Gemini, and Claude.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Next.js</li>
+                            <li>Firebase</li>
+                            <li>Clerk Auth</li>
+                            <li>LLM APIs</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. TrendPulse Analytics -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Data Engineering</span>
+                        <h3 class="project-name">TrendPulse Analytics</h3>
+                        <p class="project-description">
+                            Built a sophisticated data-driven system to track influencer engagement metrics. Implemented
+                            algorithms to calculate dynamic marketing scores.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Python</li>
+                            <li>Data Structures</li>
+                            <li>Statistical Analysis</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. CineHub -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Frontend & API</span>
+                        <h3 class="project-name">CineHub</h3>
+                        <p class="project-description">
+                            Movie & TV discovery platform powered by TMDB API with search, trending titles, and
+                            watchlist management.
+                        </p>
+                        <ul class="tech-list">
+                            <li>React</li>
+                            <li>Tailwind CSS</li>
+                            <li>TMDB API</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://cinehubs.netlify.app/" target="_blank" class="link-external">Live
+                                Deployment ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. E-Commerce App -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Frontend App</span>
+                        <h3 class="project-name">E-Commerce App</h3>
+                        <p class="project-description">
+                            Responsive e-commerce platform featuring product browsing, search, cart management, and a
+                            demo checkout flow.
+                        </p>
+                        <ul class="tech-list">
+                            <li>React</li>
+                            <li>Vite</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank" class="link-external">Live
+                                Deployment ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. DNA Sequence Analysis -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Algorithm & Data Structures</span>
+                        <h3 class="project-name">DNA Sequence Analysis</h3>
+                        <p class="project-description">
+                            Implemented Brute Force, Rabin-Karp, Boyer-Moore & KMP algorithms to efficiently detect
+                            patterns in DNA sequences for mutation analysis.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Java</li>
+                            <li>Algorithms</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Kuladeep-Reddy-C/SEM-DAA" target="_blank" class="link-source"><i
+                                    class="fab fa-github" style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
+                                GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Smart Home Gas Detection -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Embedded Systems</span>
+                        <h3 class="project-name">Smart Home Gas Detection</h3>
+                        <p class="project-description">
+                            Safety system detecting gas leaks, triggering automatic window opening and alarms.
+                            Integrated with fire detection and smart locks.
+                        </p>
+                        <ul class="tech-list">
+                            <li>C Programming</li>
+                            <li>Tinkercad</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
+                                target="_blank" class="link-external">Live Demo ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. LuxuryCarsHub -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Frontend Web App</span>
+                        <h3 class="project-name">LuxuryCarsHub</h3>
+                        <p class="project-description">
+                            Responsive front-end web app showcasing luxury cars with interactive sections, single-page
+                            navigation, and simulated payment system.
+                        </p>
+                        <ul class="tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. Personal Portfolio -->
+                <div class="project-item hidden-project reveal">
+                    <div class="project-info">
+                        <span class="project-category">Portfolio</span>
+                        <h3 class="project-name">Personal Portfolio</h3>
+                        <p class="project-description">
+                            The codebase for this portfolio, showcasing advanced CSS, JavaScript animations, clean
+                            architecture, and responsive design.
+                        </p>
+                        <ul class="tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank"
+                                class="link-source"><i class="fab fa-github"
+                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            <a href="https://veeranji.vercel.app" target="_blank" class="link-external">Live Deployment
+                                ↗</a>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <div class="projects-footer reveal">
-                <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary">View complete
-                    repository archive</a>
+            <div class="projects-footer reveal" style="display: flex; justify-content: center; padding-top: 0.5rem;">
+                <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary"
+                    style="border-radius: var(--rad-sm);">View more on Github</a>
             </div>
         </div>
     </section>
