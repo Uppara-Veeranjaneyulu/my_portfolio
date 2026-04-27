@@ -165,13 +165,13 @@ h5 {
 }
 
 .accent-dot {
-    color: #22c55e;
+    color: var(--text-primary);
 }
 
 .loader-bar {
     width: 200px;
     height: 3px;
-    background: rgba(34, 197, 94, 0.2);
+    background: var(--border);
     border-radius: 10px;
     overflow: hidden;
     margin: 0 auto;
@@ -179,7 +179,7 @@ h5 {
 
 .loader-bar-fill {
     height: 100%;
-    background: #22c55e;
+    background: var(--text-primary);
     border-radius: 10px;
     animation: loadBar 1.5s ease-in-out forwards;
 }
