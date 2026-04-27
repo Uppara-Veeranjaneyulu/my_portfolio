@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     if(loader) {
         setTimeout(() => {
             loader.classList.add('hidden');
-        }, 800);
+        }, 1800);
     }
 });
 

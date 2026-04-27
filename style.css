@@ -141,17 +141,47 @@ h1, h2, h3, h4, h5 {
     visibility: hidden;
 }
 
+.loader-content {
+    text-align: center;
+}
+
 .loader-logo {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 700;
     letter-spacing: -0.05em;
     color: var(--text-primary);
+    margin-bottom: 2rem;
     animation: pulse 1.5s infinite;
 }
 
+.accent-dot {
+    color: #22c55e;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(34, 197, 94, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loader-bar-fill {
+    height: 100%;
+    background: #22c55e;
+    border-radius: 10px;
+    animation: loadBar 1.5s ease-in-out forwards;
+}
+
+@keyframes loadBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
 @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 /* ---- NAVIGATION ---- */
