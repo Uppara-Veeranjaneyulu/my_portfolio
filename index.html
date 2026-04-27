@@ -4,61 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Uppara Veeranjaneyulu – Aspiring Data Analyst & Full Stack Developer. Explore my projects, skills, and experience.">
-    <title>Veeranjaneyulu | Portfolio</title>
+    <meta name="description" content="Uppara Veeranjaneyulu – Full Stack Engineer & Data Analyst. Portfolio of professional work, architecture, and engineering.">
+    <title>Veeranjaneyulu | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Inter for pristine Apple-like minimalist typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- Custom cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-
-    <!-- Page Loader -->
+    <!-- Minimal Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
-            <div class="loader-logo">V<span>.</span></div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-            </div>
+            <div class="loader-logo">V.</div>
         </div>
     </div>
-
-    <!-- Animated Background -->
-    <canvas id="bgCanvas"></canvas>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navigation -->
     <header id="header">
         <nav>
-            <a href="#hero" class="logo">
-                <span class="logo-bracket">&lt;</span>Veeranji<span class="logo-dot">.</span><span
-                    class="logo-bracket">/&gt;</span>
-            </a>
+            <a href="#hero" class="logo">Veeranjaneyulu.</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
-                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">Profile</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Work</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Expertise</a></li>
                 <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
             <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
+                <a href="#contact" class="btn-primary">Get in Touch</a>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
-                    <span></span><span></span><span></span>
+                    <span></span><span></span>
                 </button>
             </div>
         </nav>
@@ -67,10 +44,9 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#hero" onclick="closeMobileMenu()">Home</a></li>
-            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
-            <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
-            <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">Profile</a></li>
+            <li><a href="#projects" onclick="closeMobileMenu()">Work</a></li>
+            <li><a href="#skills" onclick="closeMobileMenu()">Expertise</a></li>
             <li><a href="#resume" onclick="closeMobileMenu()">Resume</a></li>
             <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
         </ul>
@@ -78,131 +54,62 @@
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <div class="hero-content">
-            <div class="hero-left">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
+        <div class="hero-container">
+            <div class="hero-content reveal">
+                <div class="availability-badge">
+                    <span class="pulse-dot"></span> Available for new opportunities
                 </div>
                 <h1 class="hero-title">
-                    <span class="line">Hi, I'm</span>
-                    <span class="line gradient-text">Uppara</span>
-                    <span class="line gradient-text">Veeranjaneyulu</span>
+                    Engineering intelligent systems.
                 </h1>
-                <div class="hero-roles">
-                    <span class="static-text">I'm a </span>
-                    <span class="dynamic-text" id="dynamicText"></span>
-                    <span class="cursor-blink">|</span>
-                </div>
-                <p class="hero-desc">
-                    Aspiring Data Analyst & Full Stack Developer passionate about building data-driven applications that
-                    solve real-world problems.
+                <p class="hero-subtitle">
+                    I am Uppara Veeranjaneyulu, a Full Stack Developer and Data Analyst specializing in building scalable architectures, intuitive user interfaces, and data-driven ecosystems.
                 </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn-primary">
-                        <span>View Projects</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn-secondary">
-                        <span>Get In Touch</span>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">Explore Work</a>
+                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary">
+                        <i class="fab fa-github"></i> GitHub Profile
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-num" data-target="11">0</span><span>+</span>
-                        <p>Projects</p>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-num" data-target="20">0</span><span>+</span>
-                        <p>Technologies</p>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-num" data-target="3">0</span><span>+</span>
-                        <p>Years Learning</p>
-                    </div>
-                </div>
             </div>
-            <div class="hero-right">
-                <div class="profile-wrapper">
-                    <div class="profile-glow"></div>
-                    <div class="profile-ring ring-1"></div>
-                    <div class="profile-ring ring-2"></div>
-                    <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" class="profile-img" id="profileImg">
-
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll Down</span>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about">
-        <div class="section-header">
-            <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <p class="about-intro">
-                    I'm a Computer Science student at <span class="highlight">Amrita Vishwa Vidyapeetham</span>,
-                    deeply passionate about building intelligent, data-driven web applications
-                    and solving complex problems with clean, elegant code.
-                </p>
-                <p>
-                    My journey spans from embedded systems to full-stack MERN development,
-                    data analytics with Python, and AI-driven applications.
-                    I love hackathons, open source, and learning something new every day.
-                </p>
-                <div class="about-links">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-chip">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
-                        class="social-chip">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="mailto:uupparaveeranji@gmail.com" class="social-chip">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                </div>
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Professional Profile</h2>
+                <p class="section-meta">01 / Overview</p>
             </div>
-            <div class="education-cards">
-                <h3 class="edu-heading"><i class="fas fa-graduation-cap"></i> Education</h3>
-                <div class="edu-card reveal">
-                    <div class="edu-icon"><i class="fas fa-university"></i></div>
-                    <div class="edu-info">
-                        <h4>B.Tech – Computer Science & Engineering</h4>
-                        <p class="edu-inst">Amrita Vishwa Vidyapeetham, Coimbatore</p>
-                        <div class="edu-meta">
-                            <span class="edu-year"><i class="fas fa-calendar-alt"></i> 2023 – 2027</span>
-                            <span class="edu-grade"><i class="fas fa-star"></i> CGPA: 7.45</span>
-                        </div>
+            
+            <div class="about-grid">
+                <div class="about-bio reveal">
+                    <p class="lead-text">
+                        Currently pursuing a B.Tech in Computer Science & Engineering at Amrita Vishwa Vidyapeetham, I blend academic rigor with practical, production-level engineering.
+                    </p>
+                    <p>
+                        My expertise spans the complete software lifecycle—from developing robust backend microservices and designing elegant frontend interfaces, to deploying machine learning models and analyzing complex datasets. I approach engineering as a craft, focusing on clean architecture, performance optimization, and seamless user experiences.
+                    </p>
+                    <div class="social-links-inline">
+                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="mailto:uupparaveeranji@gmail.com"><i class="fas fa-envelope"></i> uupparaveeranji@gmail.com</a>
                     </div>
                 </div>
-                <div class="edu-card reveal">
-                    <div class="edu-icon"><i class="fas fa-school"></i></div>
-                    <div class="edu-info">
-                        <h4>Higher Secondary – Class XII</h4>
-                        <p class="edu-inst">Narayana Junior College</p>
-                        <div class="edu-meta">
-                            <span class="edu-year"><i class="fas fa-calendar-alt"></i> 2023</span>
-                            <span class="edu-grade"><i class="fas fa-star"></i> 982 / 1000</span>
-                        </div>
+
+                <div class="education-timeline reveal">
+                    <h3 class="timeline-title">Education</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 – 2027</div>
+                        <h4 class="timeline-degree">B.Tech – Computer Science & Engineering</h4>
+                        <p class="timeline-inst">Amrita Vishwa Vidyapeetham, Coimbatore</p>
+                        <p class="timeline-grade">CGPA: 7.45</p>
                     </div>
-                </div>
-                <div class="edu-card reveal">
-                    <div class="edu-icon"><i class="fas fa-book"></i></div>
-                    <div class="edu-info">
-                        <h4>Secondary Education – Class X</h4>
-                        <p class="edu-inst">Narayana E.M High School</p>
-                        <div class="edu-meta">
-                            <span class="edu-year"><i class="fas fa-calendar-alt"></i> 2021</span>
-                            <span class="edu-grade"><i class="fas fa-star"></i> 600 / 600</span>
-                        </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 – 2023</div>
+                        <h4 class="timeline-degree">Higher Secondary – Class XII</h4>
+                        <p class="timeline-inst">Narayana Junior College</p>
+                        <p class="timeline-grade">Score: 98.2%</p>
                     </div>
                 </div>
             </div>
@@ -210,513 +117,224 @@
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <div class="section-header">
-            <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-            <div class="section-line"></div>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-            <button class="filter-btn" data-filter="data">Data/Algo</button>
-            <button class="filter-btn" data-filter="ai">AI / ML</button>
-        </div>
-
-        <div class="projects-grid" id="projectsGrid">
-
-            <!-- CraveQuick -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">🚀</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">MERN Stack</span>
-                        <span class="badge-cat">Elite UI</span>
-                    </div>
-                </div>
-                <h3>CraveQuick – Elite Food Delivery Ecosystem</h3>
-                <p>High-performance food delivery platform with multi-role architecture (Consumer, Partner, Admin).
-                    Features real-time GPS tracking, Razorpay integration, and premium glassmorphism UI.</p>
-                <div class="tech-stack">
-                    <span>React
-                        19</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span><span>Razorpay</span><span>Framer
-                        Motion</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://cravequick.vercel.app/" target="_blank" class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Live
-                    </a>
-                </div>
+    <section id="projects" class="section-padding dark-surface">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Selected Work</h2>
+                <p class="section-meta">02 / Engineering</p>
             </div>
 
-            <!-- GeoGuide -->
-            <div class="project-card reveal" data-cat="fullstack ai">
-                <div class="project-top">
-                    <div class="project-emoji">🌍</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Full Stack</span>
-                        <span class="badge-cat ai">AI</span>
+            <div class="projects-list">
+                
+                <!-- Project 1 -->
+                <div class="project-item reveal">
+                    <div class="project-info">
+                        <span class="project-category">Full Stack Architecture</span>
+                        <h3 class="project-name">CraveQuick</h3>
+                        <p class="project-description">
+                            Architected a high-performance food delivery ecosystem featuring a multi-role architecture (Consumer, Partner, Admin). Implemented real-time geospatial tracking via Socket.io, secure payment processing with Razorpay, and a highly responsive React frontend.
+                        </p>
+                        <ul class="tech-list">
+                            <li>React 19</li>
+                            <li>Node.js</li>
+                            <li>MongoDB</li>
+                            <li>Socket.io</li>
+                            <li>Razorpay</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://cravequick.vercel.app/" target="_blank" class="link-external">Live Deployment ↗</a>
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank" class="link-source">Source Code ↗</a>
+                        </div>
                     </div>
                 </div>
-                <h3>GeoGuide – Smart Travel Companion</h3>
-                <p>Smart travel assistant with real-time weather, navigation, AI-powered travel insights, and
-                    multilingual support. Built during a hackathon.</p>
-                <div class="tech-stack">
-                    <span>React</span><span>MongoDB</span><span>Gemini API</span><span>Firebase</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon" target="_blank"
-                        class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://geoguidehackathon.vercel.app/" target="_blank" class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Live
-                    </a>
-                </div>
-            </div>
 
-            <!-- AI Fusion -->
-            <div class="project-card reveal" data-cat="fullstack ai">
-                <div class="project-top">
-                    <div class="project-emoji">🤖</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">SaaS</span>
-                        <span class="badge-cat ai">AI</span>
+                <!-- Project 2 -->
+                <div class="project-item reveal">
+                    <div class="project-info">
+                        <span class="project-category">AI Integration & SaaS</span>
+                        <h3 class="project-name">AI Fusion</h3>
+                        <p class="project-description">
+                            Developed a production-ready SaaS platform enabling seamless interactions with multiple LLMs including GPT, Gemini, and Claude. Engineered comprehensive authentication, usage tracking, and rate limiting systems utilizing Next.js, Firebase, and Clerk.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Next.js</li>
+                            <li>Firebase</li>
+                            <li>Clerk Auth</li>
+                            <li>Tailwind CSS</li>
+                            <li>LLM APIs</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank" class="link-source">Source Code ↗</a>
+                        </div>
                     </div>
                 </div>
-                <h3>AI Fusion – Multi-Model AI Chat SaaS</h3>
-                <p>Production-ready SaaS platform enabling users to chat with GPT, Gemini, and Claude. Includes auth,
-                    usage tracking, rate limiting, and modern UI.</p>
-                <div class="tech-stack">
-                    <span>Next.js</span><span>Firebase</span><span>Clerk</span><span>Tailwind</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                </div>
-            </div>
 
-            <!-- MERN ThinkBoard -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">📝</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">MERN</span>
+                <!-- Project 3 -->
+                <div class="project-item reveal">
+                    <div class="project-info">
+                        <span class="project-category">Data Engineering</span>
+                        <h3 class="project-name">TrendPulse Analytics</h3>
+                        <p class="project-description">
+                            Built a sophisticated data-driven system to track influencer engagement metrics. Implemented algorithms to calculate dynamic marketing scores, facilitating real-time corporate bidding and campaign analytics.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Python</li>
+                            <li>Data Structures</li>
+                            <li>Statistical Analysis</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank" class="link-source">Source Code ↗</a>
+                        </div>
                     </div>
                 </div>
-                <h3>ThinkBoard – MERN Note Taking App</h3>
-                <p>Full-stack note-taking app with REST API, rate limiting via Upstash Redis, and secure environment
-                    configuration.</p>
-                <div class="tech-stack">
-                    <span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span><span>Redis</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                </div>
-            </div>
 
-            <!-- CineHub -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">🎬</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">React</span>
+                <!-- Project 4 -->
+                <div class="project-item reveal">
+                    <div class="project-info">
+                        <span class="project-category">Backend & Infrastructure</span>
+                        <h3 class="project-name">ThinkBoard MERN API</h3>
+                        <p class="project-description">
+                            Designed a resilient RESTful API for a note-taking application. Integrated Upstash Redis for distributed rate limiting to ensure high availability, alongside secure environment configuration and robust MongoDB schemas.
+                        </p>
+                        <ul class="tech-list">
+                            <li>Express.js</li>
+                            <li>Node.js</li>
+                            <li>MongoDB</li>
+                            <li>Redis</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank" class="link-source">Source Code ↗</a>
+                        </div>
                     </div>
                 </div>
-                <h3>CineHub – Movie Recommendation App</h3>
-                <p>Movie & TV discovery platform powered by TMDB API with search, trending titles, and watchlist
-                    management.</p>
-                <div class="tech-stack">
-                    <span>React</span><span>Tailwind CSS</span><span>TMDB API</span><span>Axios</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://cinehubs.netlify.app/" target="_blank" class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Live
-                    </a>
-                </div>
+
             </div>
-
-            <!-- E-Commerce -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">🛒</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Vite</span>
-                    </div>
-                </div>
-                <h3>E-Commerce App</h3>
-                <p>Responsive e-commerce platform featuring product browsing, search, cart management, and a demo
-                    checkout flow.</p>
-                <div class="tech-stack">
-                    <span>React</span><span>Vite</span><span>Tailwind CSS</span><span>FakeStore API</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank" class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Live
-                    </a>
-                </div>
+            
+            <div class="projects-footer reveal">
+                <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary">View complete repository archive</a>
             </div>
-
-            <!-- TrendPulse -->
-            <div class="project-card reveal" data-cat="data">
-                <div class="project-top">
-                    <div class="project-emoji">📊</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Data</span>
-                    </div>
-                </div>
-                <h3>InfluencerTracker (TrendPulse)</h3>
-                <p>Data-driven system to track influencer engagement and facilitate company bidding based on a marketing
-                    score with real-time analytics.</p>
-                <div class="tech-stack">
-                    <span>Python</span><span>Data Structures</span><span>Git</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- DNA Sequence -->
-            <div class="project-card reveal" data-cat="data">
-                <div class="project-top">
-                    <div class="project-emoji">🧬</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Algorithm</span>
-                    </div>
-                </div>
-                <h3>DNA Sequence Analysis – KMP Algorithm</h3>
-                <p>Implemented Brute Force, Rabin-Karp, Boyer-Moore & KMP to efficiently detect patterns in DNA
-                    sequences for mutation analysis.</p>
-                <div class="tech-stack">
-                    <span>Java</span><span>Algorithms</span><span>Git</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Kuladeep-Reddy-C/SEM-DAA" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Smart Home -->
-            <div class="project-card reveal" data-cat="data">
-                <div class="project-top">
-                    <div class="project-emoji">🏠</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Embedded</span>
-                    </div>
-                </div>
-                <h3>Smart Home Gas Detection System</h3>
-                <p>Safety system detecting gas leaks, triggering automatic window opening and alarms. Integrated with
-                    fire detection and smart locks.</p>
-                <div class="tech-stack">
-                    <span>C Programming</span><span>Embedded Systems</span><span>Tinkercad</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final" target="_blank"
-                        class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Demo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Luxury Cars -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">🚗</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Frontend</span>
-                    </div>
-                </div>
-                <h3>Luxury Cars Landing Page</h3>
-                <p>Responsive front-end web app showcasing luxury cars with interactive sections, single-page
-                    navigation, and simulated payment system.</p>
-                <div class="tech-stack">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- Portfolio -->
-            <div class="project-card reveal" data-cat="fullstack">
-                <div class="project-top">
-                    <div class="project-emoji">👨‍💻</div>
-                    <div class="project-badges">
-                        <span class="badge-cat">Portfolio</span>
-                    </div>
-                </div>
-                <h3>Personal Portfolio Website</h3>
-                <p>This portfolio! Responsive, modern UI featuring smooth navigation, dark green theme, glassmorphism,
-                    advanced animations and unique interactions.</p>
-                <div class="tech-stack">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank" class="proj-btn">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://veeranji.vercel.app/" target="_blank" class="proj-btn live">
-                        <i class="fas fa-external-link-alt"></i> Live
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="more-projects">
-            <a href="https://github.com/Uppara-Veeranjaneyulu" class="btn-primary" target="_blank">
-                <span>View All on GitHub</span>
-                <i class="fab fa-github"></i>
-            </a>
         </div>
     </section>
 
     <!-- SKILLS SECTION -->
-    <section id="skills">
-        <div class="section-header">
-            <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
-            <div class="section-line"></div>
-        </div>
-
-        <div class="skills-grid">
-
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
-                    <h3>Languages</h3>
-                </div>
-                <div class="skill-items">
-                    <div class="skill-item" data-level="90">
-                        <div class="si-top"><span>Python</span><span class="si-pct">90%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-level="80">
-                        <div class="si-top"><span>JavaScript</span><span class="si-pct">80%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-level="75">
-                        <div class="si-top"><span>Java</span><span class="si-pct">75%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-level="70">
-                        <div class="si-top"><span>C</span><span class="si-pct">70%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-level="85">
-                        <div class="si-top"><span>SQL</span><span class="si-pct">85%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-level="95">
-                        <div class="si-top"><span>HTML / CSS</span><span class="si-pct">95%</span></div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="--pct: 95%"></div>
-                        </div>
-                    </div>
-                </div>
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Core Competencies</h2>
+                <p class="section-meta">03 / Expertise</p>
             </div>
 
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <div class="skill-cat-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Frameworks & Libraries</h3>
+            <div class="skills-layout">
+                <div class="skill-block reveal">
+                    <h3>Software Engineering</h3>
+                    <p class="skill-desc">Building robust, scalable applications from database to user interface.</p>
+                    <div class="skill-tags">
+                        <span>JavaScript (ES6+)</span>
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>React.js</span>
+                        <span>Next.js</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>C</span>
+                    </div>
                 </div>
-                <div class="skill-pills">
-                    <span class="s-pill"><i class="fab fa-react"></i> React.js</span>
-                    <span class="s-pill"><i class="fab fa-node-js"></i> Node.js</span>
-                    <span class="s-pill"><i class="fas fa-server"></i> Express.js</span>
-                    <span class="s-pill"><i class="fas fa-n"></i> Next.js</span>
-                    <span class="s-pill"><i class="fas fa-project-diagram"></i> Socket.io</span>
-                    <span class="s-pill"><i class="fas fa-magic"></i> Framer Motion</span>
-                    <span class="s-pill"><i class="fab fa-python"></i> Pandas</span>
-                    <span class="s-pill"><i class="fas fa-cube"></i> NumPy</span>
-                </div>
-            </div>
 
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <div class="skill-cat-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Data Analytics</h3>
+                <div class="skill-block reveal">
+                    <h3>Data Architecture & Analytics</h3>
+                    <p class="skill-desc">Extracting insights and modeling complex data structures.</p>
+                    <div class="skill-tags">
+                        <span>SQL</span>
+                        <span>MongoDB</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Power BI</span>
+                        <span>Statistical Analysis</span>
+                        <span>Redis</span>
+                    </div>
                 </div>
-                <div class="skill-pills">
-                    <span class="s-pill"><i class="fas fa-chart-pie"></i> Power BI</span>
-                    <span class="s-pill"><i class="fas fa-broom"></i> Data Cleaning</span>
-                    <span class="s-pill"><i class="fas fa-microscope"></i> EDA</span>
-                    <span class="s-pill"><i class="fas fa-calculator"></i> Statistical Analysis</span>
-                    <span class="s-pill"><i class="fas fa-database"></i> Data Modeling</span>
-                </div>
-            </div>
 
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <div class="skill-cat-icon"><i class="fas fa-database"></i></div>
-                    <h3>Databases</h3>
+                <div class="skill-block reveal">
+                    <h3>Infrastructure & Tooling</h3>
+                    <p class="skill-desc">Modern deployment, version control, and development environments.</p>
+                    <div class="skill-tags">
+                        <span>Git / GitHub</span>
+                        <span>Docker</span>
+                        <span>Linux</span>
+                        <span>Firebase</span>
+                        <span>Postman</span>
+                        <span>Socket.io</span>
+                    </div>
                 </div>
-                <div class="skill-pills">
-                    <span class="s-pill"><i class="fas fa-database"></i> MySQL</span>
-                    <span class="s-pill"><i class="fas fa-leaf"></i> MongoDB</span>
-                    <span class="s-pill"><i class="fas fa-fire"></i> Firebase</span>
-                    <span class="s-pill"><i class="fas fa-bolt"></i> Redis</span>
-                </div>
-            </div>
-
-            <div class="skill-category reveal">
-                <div class="skill-cat-header">
-                    <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Tools & Platforms</h3>
-                </div>
-                <div class="skill-pills">
-                    <span class="s-pill"><i class="fab fa-git-alt"></i> Git</span>
-                    <span class="s-pill"><i class="fab fa-github"></i> GitHub</span>
-                    <span class="s-pill"><i class="fab fa-docker"></i> Docker</span>
-                    <span class="s-pill"><i class="fab fa-linux"></i> Linux</span>
-                    <span class="s-pill"><i class="fas fa-flask"></i> Postman</span>
-                    <span class="s-pill"><i class="fas fa-terminal"></i> VS Code</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- RESUME SECTION -->
-    <section id="resume">
-        <div class="section-header">
-            <h2 class="section-title">My <span class="gradient-text">Resume</span></h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="resume-wrapper">
-            <div class="resume-actions">
-                <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" class="btn-primary" download>
-                    <i class="fas fa-download"></i>
-                    <span>Download PDF</span>
-                </a>
-                <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" class="btn-secondary" target="_blank">
-                    <i class="fas fa-external-link-alt"></i>
-                    <span>Open in New Tab</span>
-                </a>
-            </div>
-            <div class="resume-viewer">
-                <iframe src="Uppara_Veeranjaneyulu_Resume_update1.pdf" title="Resume"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <div class="section-header">
-            <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Let's build something amazing together</h3>
-                <p>Whether you have a project in mind, a question, or just want to connect — my inbox is always open!
-                </p>
-                <div class="contact-cards">
-                    <a href="mailto:uupparaveeranji@gmail.com" class="social-chip">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
-                        class="social-chip">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-chip">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
+    <!-- RESUME & CONTACT SECTION -->
+    <section id="resume" class="section-padding dark-surface">
+        <div class="container">
+            <div class="contact-resume-grid">
+                
+                <!-- Resume Side -->
+                <div class="resume-side reveal">
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                    <p class="section-meta">04 / Documentation</p>
+                    <p class="contact-text">
+                        A comprehensive overview of my academic background, technical skills, and engineering projects. Available for download in PDF format.
+                    </p>
+                    <div class="resume-actions">
+                        <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" download class="btn-primary">Download Resume</a>
+                        <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" target="_blank" class="btn-secondary">View Document</a>
+                    </div>
                 </div>
-            </div>
-            <div class="contact-form-wrap">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+                <!-- Contact Side -->
+                <div class="contact-side reveal" id="contact">
+                    <h2 class="section-title">Initiate Contact</h2>
+                    <p class="section-meta">05 / Connect</p>
+                    
+                    <form id="contactForm" class="minimal-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Project Collaboration">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary submit-btn" id="submitBtn">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                    <div class="form-message" id="formMessage"></div>
-                </form>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full" id="submitBtn">Transmit Message</button>
+                        <div id="formMessage" class="form-msg"></div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-bracket">&lt;</span>Veeranji<span class="logo-dot">.</span><span
-                    class="logo-bracket">/&gt;</span>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a href="#hero" class="logo">Veeranjaneyulu.</a>
+                    <p>&copy; 2025. Engineered with precision.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank">LinkedIn</a>
+                    <a href="mailto:uupparaveeranji@gmail.com">Email</a>
+                </div>
             </div>
-            <p class="footer-tagline">Building the future, one line at a time.</p>
-            <div class="social-links">
-                <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" title="GitHub" id="footerGithub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank" title="LinkedIn"
-                    id="footerLinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://instagram.com/veeranji_uppara" target="_blank" title="Instagram" id="footerInstagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:uupparaveeranji@gmail.com" title="Email" id="footerEmail">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p class="footer-copy">&copy; 2025 Uppara Veeranjaneyulu · All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" title="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
