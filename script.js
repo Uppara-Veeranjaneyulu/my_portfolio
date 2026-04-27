@@ -144,3 +144,23 @@ if (contactForm) {
             });
     });
 }
+
+// 8. Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+// Initialize icon based on current theme
+if (themeIcon) {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    themeIcon.className = currentTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+if(themeToggle && themeIcon) {
+    themeToggle.addEventListener('click', () => {
+        const root = document.documentElement;
+        const current = root.getAttribute('data-theme') || 'dark';
+        const newTheme = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', newTheme);
+        themeIcon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+}
