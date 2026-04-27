@@ -213,6 +213,7 @@ h5 {
     width: 100%;
     height: var(--nav-height);
     background: transparent;
+    border-bottom: 1px solid var(--border);
     z-index: 1000;
     transition: all var(--t-mid);
 }
