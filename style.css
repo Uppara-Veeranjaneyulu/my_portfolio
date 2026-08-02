@@ -1,8 +1,3 @@
-/* ==========================================
-   MINIMALIST LUXURY PORTFOLIO THEME
-   Apple-grade monochrome & stark contrast
-   ========================================== */
-
 :root {
     /* Monochrome Palette */
     --bg-color: #000000;
@@ -301,15 +296,21 @@ nav {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 6px;
     z-index: 1001;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
 }
 
 .hamburger span {
     width: 24px;
     height: 2px;
     background: var(--text-primary);
-    transition: all var(--t-fast);
+    transition: transform var(--t-fast), opacity var(--t-fast);
+    display: block;
 }
 
 /* ---- BUTTONS ---- */
@@ -823,27 +824,34 @@ footer {
 }
 
 /* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+    body {
+        zoom: 1;
+    }
+}
+
 @media (max-width: 900px) {
 
     .about-grid,
     .contact-resume-grid {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
     }
 
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 
     .hero-image {
         justify-content: center;
         order: -1;
+        transform: none;
     }
 
     .hero-img-wrapper {
-        max-width: 300px;
+        max-width: 240px;
     }
 
     .hero-actions {
@@ -851,11 +859,60 @@ footer {
     }
 
     .hero-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.2rem, 7vw, 3.5rem);
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        zoom: 1;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .section-padding {
+        padding: 3rem 0;
+    }
+
+    #hero {
+        padding-top: calc(var(--nav-height) + 1rem);
+        padding-bottom: 3rem;
+    }
+
+    .hero-img-wrapper {
+        max-width: 220px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        word-break: break-word;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+    }
+
+    .lead-text {
+        font-size: 1.25rem;
+    }
+
+    .social-links-inline {
+        flex-direction: column;
+        gap: 0.8rem;
+        word-break: break-all;
+    }
+
+    .education-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+        left: -1.85rem;
+    }
+
     .nav-links {
         display: none;
     }
@@ -864,14 +921,44 @@ footer {
         display: flex;
     }
 
+    /* Animated Hamburger X State */
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
     #header .btn-primary {
         display: none;
     }
 
     .btn-primary,
     .btn-secondary {
-        padding: 0.55rem 1.25rem;
-        font-size: 0.85rem;
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .project-item {
+        padding: 1.25rem;
+    }
+
+    .project-name {
+        font-size: 1.5rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+    }
+
+    .project-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .skills-layout {
+        gap: 2rem;
     }
 
     .form-row {
@@ -889,14 +976,46 @@ footer {
         font-size: 0.9rem;
     }
 
-    .project-item {
-        padding: 2rem;
-    }
-
     .footer-content {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         text-align: center;
+    }
+
+    .footer-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-img-wrapper {
+        max-width: 180px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn-primary,
+    .hero-actions .btn-secondary {
+        width: 100%;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .resume-actions .btn-primary,
+    .resume-actions .btn-secondary {
+        width: 100%;
     }
 }
 
@@ -927,9 +1046,10 @@ footer {
 }
 
 .mobile-menu a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--text-secondary);
+    transition: color var(--t-fast);
 }
 
 .mobile-menu a:hover {
