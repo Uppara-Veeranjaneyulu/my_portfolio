@@ -72,6 +72,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    zoom: 1.33;
+    /* scale entire page layout to 133% — like browser zoom */
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -106,7 +108,7 @@ button {
 }
 
 .section-padding {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .dark-surface {
@@ -137,7 +139,7 @@ h5 {
 
 .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
 }
 
@@ -244,6 +246,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    position: relative;
 }
 
 .logo {
@@ -255,6 +258,9 @@ nav {
 .nav-links {
     display: flex;
     gap: 2.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-link {
@@ -359,10 +365,10 @@ nav {
 
 /* ---- HERO SECTION ---- */
 #hero {
-    min-height: 100vh;
     display: flex;
-    align-items: center;
-    padding-top: var(--nav-height);
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + 2rem);
+    padding-bottom: 4rem;
 }
 
 .hero-container {
@@ -508,7 +514,7 @@ nav {
 .about-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 6rem;
+    gap: 3rem;
 }
 
 .lead-text {
@@ -528,7 +534,7 @@ nav {
 .social-links-inline {
     display: flex;
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .social-links-inline a {
@@ -556,7 +562,7 @@ nav {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .timeline-item::before {
@@ -598,15 +604,15 @@ nav {
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    margin-bottom: 4rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .project-item {
     background: var(--bg-color);
     border: 1px solid var(--border);
     border-radius: var(--rad-lg);
-    padding: 3rem;
+    padding: 1.5rem;
     transition: transform var(--t-mid), border-color var(--t-mid);
 }
 
@@ -785,7 +791,7 @@ nav {
 
 /* ---- FOOTER ---- */
 footer {
-    padding: 4rem 0;
+    padding: 1.8rem 0;
     border-top: 1px solid var(--border);
 }
 

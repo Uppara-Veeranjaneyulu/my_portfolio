@@ -1,5 +1,11 @@
 'use strict';
 
+// Always start at top on reload — disable browser scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 
 document.addEventListener("contextmenu", (e) => {
     e.preventDefault();
