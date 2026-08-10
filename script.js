@@ -184,7 +184,8 @@ if (contactForm) {
     const iconMap = {
         system: 'fas fa-desktop',
         light: 'fas fa-sun',
-        dark: 'fas fa-moon'
+        dark: 'fas fa-moon',
+        matrix: 'fas fa-code'
     };
 
     function getSavedPreference() {
@@ -436,9 +437,23 @@ if (viewMoreBtn) {
                 appendLine(`  <span class="cmd-text">education</span>  - Academic background & scores`);
                 appendLine(`  <span class="cmd-text">resume</span>     - Resume details & download link`);
                 appendLine(`  <span class="cmd-text">contact</span>    - Email, LinkedIn & GitHub`);
-                appendLine(`  <span class="cmd-text">theme</span>      - Change theme (<span class="cmd-text">light</span>, <span class="cmd-text">dark</span>, <span class="cmd-text">system</span>)`);
+                appendLine(`  <span class="cmd-text">matrix</span>     - Toggle Matrix Rain Mode`);
+                appendLine(`  <span class="cmd-text">theme</span>      - Change theme (<span class="cmd-text">light</span>, <span class="cmd-text">dark</span>, <span class="cmd-text">system</span>, <span class="cmd-text">matrix</span>)`);
                 appendLine(`  <span class="cmd-text">clear</span>      - Clear terminal screen`);
                 appendLine(`  <span class="cmd-text">exit</span>       - Close terminal window`);
+                break;
+
+            case 'matrix':
+                const currT = document.documentElement.getAttribute('data-theme');
+                const nextT = currT === 'matrix' ? 'dark' : 'matrix';
+                localStorage.setItem('portfolio-theme', nextT);
+                document.documentElement.setAttribute('data-theme', nextT);
+                const matIconMap = { system: 'fas fa-desktop', light: 'fas fa-sun', dark: 'fas fa-moon', matrix: 'fas fa-code' };
+                const matThemeIcon = document.getElementById('currentThemeIcon');
+                if (matThemeIcon && matIconMap[nextT]) {
+                    matThemeIcon.className = matIconMap[nextT];
+                }
+                appendLine(`<span class="cli-success">Matrix Code Rain Mode ${nextT === 'matrix' ? 'ENABLED' : 'DISABLED'}.</span>`);
                 break;
 
             case 'about':
@@ -823,4 +838,79 @@ if (viewMoreBtn) {
             playButtonPop();
         }
     });
+})();
+
+// 12. Matrix Code Rain Canvas Engine
+(function initMatrixRain() {
+    const canvas = document.getElementById('matrixCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrameId = null;
+
+    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$&*';
+    const alphabet = katakana + latin;
+
+    const fontSize = 16;
+    let columns = 0;
+    let rainDrops = [];
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        columns = Math.floor(canvas.width / fontSize);
+        rainDrops = Array(columns).fill(1);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function draw() {
+        // Subtle trailing fade background
+        ctx.fillStyle = 'rgba(3, 10, 5, 0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#00ff66';
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            const x = i * fontSize;
+            const y = rainDrops[i] * fontSize;
+
+            ctx.fillText(text, x, y);
+
+            if (y > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+        }
+
+        animationFrameId = requestAnimationFrame(draw);
+    }
+
+    // Start/stop loop based on data-theme="matrix"
+    const observer = new MutationObserver(() => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'matrix') {
+            if (!animationFrameId) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                draw();
+            }
+        } else {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // Initial check
+    if (document.documentElement.getAttribute('data-theme') === 'matrix') {
+        draw();
+    }
 })();

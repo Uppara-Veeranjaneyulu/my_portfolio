@@ -32,6 +32,8 @@
 </head>
 
 <body>
+    <!-- Matrix Code Rain Canvas -->
+    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
     <!-- Minimal Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
@@ -79,6 +81,11 @@
                         <button type="button" class="theme-dropdown-item" data-theme-val="dark" role="menuitem">
                             <i class="fas fa-moon"></i>
                             <span>Dark</span>
+                            <i class="fas fa-check check-icon"></i>
+                        </button>
+                        <button type="button" class="theme-dropdown-item" data-theme-val="matrix" role="menuitem">
+                            <i class="fas fa-code"></i>
+                            <span>Matrix</span>
                             <i class="fas fa-check check-icon"></i>
                         </button>
                     </div>
@@ -689,6 +696,48 @@
                         placeholder="Type a command (e.g. help, projects, skills)...">
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- UV-AI Assistant Floating Trigger -->
+    <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Ask UV-AI Assistant" title="Ask UV-AI Assistant">
+        <i class="fas fa-robot"></i>
+        <span class="ai-btn-text">Ask UV-AI</span>
+        <span class="ai-online-pulse"></span>
+    </button>
+
+    <!-- UV-AI Chat Drawer -->
+    <div class="ai-chat-window" id="aiChatWindow" aria-hidden="true">
+        <div class="ai-chat-header">
+            <div class="ai-header-info">
+                <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h4 class="ai-title">UV-AI Assistant</h4>
+                    <span class="ai-status"><span class="status-dot"></span> Online • Instant Answers</span>
+                </div>
+            </div>
+            <div class="ai-header-actions">
+                <button type="button" class="ai-action-btn" id="aiClearBtn" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="ai-action-btn" id="aiCloseBtn" title="Close Chat">&times;</button>
+            </div>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody">
+            <div class="ai-msg assistant">
+                <div class="msg-bubble">
+                    Hi! I'm <strong>UV-AI</strong>, Uppara's portfolio assistant. Ask me anything about his projects, skills, CGPA, or availability!
+                </div>
+            </div>
+        </div>
+        <div class="ai-prompt-chips">
+            <button type="button" class="ai-chip" data-prompt="What is Uppara's CGPA and degree?">🎓 CGPA & Degree</button>
+            <button type="button" class="ai-chip" data-prompt="What are his top projects?">🚀 Top Projects</button>
+            <button type="button" class="ai-chip" data-prompt="What is his tech stack?">💻 Tech Stack</button>
+            <button type="button" class="ai-chip" data-prompt="Is he available for internships or full-time roles?">💼 Availability</button>
+            <button type="button" class="ai-chip" data-prompt="How can I contact Uppara?">📧 Contact Info</button>
+        </div>
+        <div class="ai-chat-input-area">
+            <input type="text" id="aiInput" class="ai-input" placeholder="Ask AI about Uppara..." autocomplete="off">
+            <button type="button" id="aiSendBtn" class="ai-send-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
