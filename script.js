@@ -327,11 +327,17 @@ if (viewMoreBtn) {
     }
 
     if (cliCloseBtn) {
-        cliCloseBtn.addEventListener('click', closeTerminal);
+        cliCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeTerminal();
+        });
     }
 
     if (cliCloseDot) {
-        cliCloseDot.addEventListener('click', closeTerminal);
+        cliCloseDot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeTerminal();
+        });
     }
 
     // Draggable Window Logic
@@ -344,7 +350,7 @@ if (viewMoreBtn) {
     if (cliHeader && cliWindow) {
         cliHeader.addEventListener('mousedown', (e) => {
             if (e.target.closest('button') || e.target.closest('.dot')) return;
-            
+
             isDragging = true;
             dragStartX = e.clientX;
             dragStartY = e.clientY;
@@ -524,7 +530,7 @@ if (viewMoreBtn) {
     }
 
     function escapeHTML(str) {
-        return str.replace(/[&<>'"]/g, 
+        return str.replace(/[&<>'"]/g,
             tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
         );
     }
@@ -551,4 +557,101 @@ if (viewMoreBtn) {
             }
         }
     });
+})();
+
+// 10. Live GitHub Metrics Integration
+(function initGitHubMetrics() {
+    const username = 'Uppara-Veeranjaneyulu';
+    const ghReposCount = document.getElementById('ghReposCount');
+    const ghStarsCount = document.getElementById('ghStarsCount');
+    const ghFollowersCount = document.getElementById('ghFollowersCount');
+    const ghAvatar = document.getElementById('ghAvatar');
+    const ghName = document.getElementById('ghName');
+    const ghBio = document.getElementById('ghBio');
+    const ghLanguagesList = document.getElementById('ghLanguagesList');
+
+    if (!ghReposCount || !ghLanguagesList) return;
+
+    // 1. Fetch Profile Data
+    fetch(`https://api.github.com/users/${username}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.public_repos !== undefined) {
+                animateCounter(ghReposCount, data.public_repos);
+                animateCounter(ghFollowersCount, data.followers);
+                if (data.avatar_url && ghAvatar) ghAvatar.src = data.avatar_url;
+                if (data.name && ghName) ghName.textContent = data.name;
+                if (data.bio && ghBio) ghBio.textContent = data.bio;
+            }
+        })
+        .catch(err => console.error('GitHub Profile Fetch Error:', err));
+
+    // 2. Fetch Repositories to calculate total stars & top languages
+    fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+        .then(res => res.json())
+        .then(repos => {
+            if (!Array.isArray(repos)) return;
+
+            let totalStars = 0;
+            const langMap = {};
+            let totalLangCount = 0;
+
+            repos.forEach(repo => {
+                totalStars += (repo.stargazers_count || 0);
+                if (repo.language) {
+                    langMap[repo.language] = (langMap[repo.language] || 0) + 1;
+                    totalLangCount++;
+                }
+            });
+
+            animateCounter(ghStarsCount, totalStars);
+
+            // Sort languages by count
+            const sortedLangs = Object.entries(langMap)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            if (sortedLangs.length > 0) {
+                ghLanguagesList.innerHTML = '';
+                sortedLangs.forEach(([lang, count]) => {
+                    const percent = Math.round((count / totalLangCount) * 100);
+                    const langItem = document.createElement('div');
+                    langItem.className = 'lang-item';
+                    langItem.innerHTML = `
+                        <div class="lang-info">
+                            <span class="lang-name">${lang}</span>
+                            <span class="lang-percent">${percent}%</span>
+                        </div>
+                        <div class="lang-bar-bg">
+                            <div class="lang-bar-fill" style="width: 0%;"></div>
+                        </div>
+                    `;
+                    ghLanguagesList.appendChild(langItem);
+                    setTimeout(() => {
+                        const fill = langItem.querySelector('.lang-bar-fill');
+                        if (fill) fill.style.width = `${percent}%`;
+                    }, 150);
+                });
+            }
+        })
+        .catch(err => console.error('GitHub Repos Fetch Error:', err));
+
+    function animateCounter(el, target) {
+        if (!el) return;
+        let start = 0;
+        const duration = 1200;
+        const stepTime = 30;
+        const steps = duration / stepTime;
+        const increment = Math.max(1, target / steps);
+
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                el.textContent = target;
+                clearInterval(timer);
+            } else {
+                el.textContent = Math.floor(start);
+            }
+        }, stepTime);
+    }
 })();

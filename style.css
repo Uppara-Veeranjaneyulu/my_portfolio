@@ -1166,13 +1166,18 @@ footer {
     position: fixed;
     inset: 0;
     pointer-events: none;
+    visibility: hidden;
+    display: none;
     z-index: 10000;
     opacity: 0;
-    transition: opacity var(--t-mid);
+    transition: opacity var(--t-mid), visibility var(--t-mid);
 }
 
 .cli-modal.open {
     opacity: 1;
+    visibility: visible;
+    display: block;
+    z-index: 10000;
 }
 
 .cli-window {
@@ -1190,12 +1195,20 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--rad-lg);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-    display: flex;
+    display: none;
     flex-direction: column;
     overflow: hidden;
     resize: both;
-    pointer-events: all;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 10001;
     font-family: 'Consolas', 'Monaco', 'Fira Code', 'Courier New', monospace;
+}
+
+.cli-modal.open .cli-window {
+    display: flex;
+    pointer-events: all;
+    visibility: visible;
 }
 
 .cli-header {
@@ -1295,7 +1308,7 @@ footer {
 
 .cli-line {
     word-break: break-word;
-    white-space: pre-wrap;
+    white-space: normal;
 }
 
 .cli-line.intro {

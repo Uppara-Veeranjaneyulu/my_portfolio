@@ -53,11 +53,13 @@
                 <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
             </ul>
             <div class="nav-right">
-                <button type="button" class="cli-trigger-btn" id="cliTriggerBtn" aria-label="Developer Mode" title="Developer Terminal (Ctrl + ~)">
+                <button type="button" class="cli-trigger-btn" id="cliTriggerBtn" aria-label="Developer Mode"
+                    title="Developer Terminal (Ctrl + ~)">
                     <i class="fas fa-terminal"></i>
                 </button>
                 <div class="theme-dropdown" id="themeDropdown">
-                    <button type="button" class="theme-dropdown-btn" id="themeDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select theme" title="Theme options">
+                    <button type="button" class="theme-dropdown-btn" id="themeDropdownBtn" aria-haspopup="true"
+                        aria-expanded="false" aria-label="Select theme" title="Theme options">
                         <i class="fas fa-desktop" id="currentThemeIcon"></i>
                     </button>
                     <div class="theme-dropdown-menu" id="themeDropdownMenu" role="menu">
@@ -667,18 +669,21 @@
                     <span class="dot yellow" id="cliMinDot" title="Reset Position & Size"></span>
                     <span class="dot green"></span>
                 </div>
-                <div class="cli-title"><i class="fas fa-terminal"></i> uv@portfolio:~ <span class="drag-hint">(drag to move)</span></div>
-                <button type="button" class="cli-close-btn" id="cliCloseBtn" aria-label="Close terminal">&times;</button>
+                <div class="cli-title"><i class="fas fa-terminal"></i> uv@portfolio:~ <span class="drag-hint">(drag to
+                        move)</span></div>
+                <button type="button" class="cli-close-btn" id="cliCloseBtn"
+                    aria-label="Close terminal">&times;</button>
             </div>
             <div class="cli-body" id="cliBody">
                 <div class="cli-output" id="cliOutput">
                     <div class="cli-line intro">Welcome to <span class="highlight">UV Developer Terminal v1.0</span></div>
-                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view commands. Drag header to move, bottom-right to resize.</div>
+                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view available commands.</div>
                     <div class="cli-line divider">--------------------------------------------------</div>
                 </div>
                 <div class="cli-input-line">
                     <span class="cli-prompt-user">uv@portfolio:~$</span>
-                    <input type="text" id="cliInput" class="cli-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. help, projects, skills)...">
+                    <input type="text" id="cliInput" class="cli-input" autocomplete="off" spellcheck="false"
+                        placeholder="Type a command (e.g. help, projects, skills)...">
                 </div>
             </div>
         </div>
