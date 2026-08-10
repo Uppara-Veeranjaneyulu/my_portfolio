@@ -275,7 +275,34 @@ nav {
     gap: 1.5rem;
 }
 
-/* ---- Developer CLI Trigger & Theme Dropdown ---- */
+/* ---- SFX Toggle, Developer CLI Trigger & Theme Dropdown ---- */
+.sfx-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--t-fast);
+    font-size: 0.9rem;
+}
+
+.sfx-toggle-btn:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.sfx-toggle-btn.active {
+    color: #00e676;
+    border-color: rgba(0, 230, 118, 0.4);
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.2);
+}
+
 .cli-trigger-btn {
     width: 40px;
     height: 40px;

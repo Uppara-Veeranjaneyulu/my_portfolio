@@ -655,3 +655,172 @@ if (viewMoreBtn) {
         }, stepTime);
     }
 })();
+
+// 11. Interactive Audio Feedback Synthesizer (SFX Mode)
+(function initSFXManager() {
+    const sfxToggleBtn = document.getElementById('sfxToggleBtn');
+    const sfxIcon = document.getElementById('sfxIcon');
+    let audioCtx = null;
+    let isSFXEnabled = localStorage.getItem('portfolio-sfx') === 'on';
+
+    function getAudioContext() {
+        if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+                audioCtx = new AudioContextClass();
+            }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        return audioCtx;
+    }
+
+    function playKeyClick() {
+        if (!isSFXEnabled) return;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        try {
+            // Synthetic mechanical key click (12ms noise burst with highpass filter)
+            const bufferSize = ctx.sampleRate * 0.012;
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'highpass';
+            filter.frequency.value = 1800;
+
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.12, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.012);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+
+            noise.start();
+        } catch (e) {
+            // Ignore web audio exceptions
+        }
+    }
+
+    function playButtonPop() {
+        if (!isSFXEnabled) return;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        try {
+            // Subtle 25ms sine pop sound
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.025);
+
+            gain.gain.setValueAtTime(0.08, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.025);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.025);
+        } catch (e) {
+            // Ignore
+        }
+    }
+
+    function playChime(enable) {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        try {
+            const now = ctx.currentTime;
+            const osc1 = ctx.createOscillator();
+            const osc2 = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc1.type = 'sine';
+            osc2.type = 'sine';
+
+            if (enable) {
+                osc1.frequency.setValueAtTime(523.25, now);
+                osc2.frequency.setValueAtTime(659.25, now + 0.08);
+            } else {
+                osc1.frequency.setValueAtTime(659.25, now);
+                osc2.frequency.setValueAtTime(523.25, now + 0.08);
+            }
+
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc1.start(now);
+            osc1.stop(now + 0.08);
+            osc2.start(now + 0.08);
+            osc2.stop(now + 0.2);
+        } catch (e) {
+            // Ignore
+        }
+    }
+
+    function updateSFXState(enabled, notify = true) {
+        isSFXEnabled = enabled;
+        localStorage.setItem('portfolio-sfx', enabled ? 'on' : 'off');
+
+        if (sfxToggleBtn && sfxIcon) {
+            if (enabled) {
+                sfxToggleBtn.classList.add('active');
+                sfxIcon.className = 'fas fa-volume-up';
+                sfxToggleBtn.setAttribute('title', 'Sound Effects (SFX Mode: ON)');
+            } else {
+                sfxToggleBtn.classList.remove('active');
+                sfxIcon.className = 'fas fa-volume-mute';
+                sfxToggleBtn.setAttribute('title', 'Sound Effects (SFX Mode: OFF)');
+            }
+        }
+
+        if (notify) {
+            playChime(enabled);
+        }
+    }
+
+    // Initial state setup (muted by default)
+    updateSFXState(isSFXEnabled, false);
+
+    // Toggle button listener
+    if (sfxToggleBtn) {
+        sfxToggleBtn.addEventListener('click', () => {
+            updateSFXState(!isSFXEnabled);
+        });
+    }
+
+    // Key click listener for CLI input
+    const cliInput = document.getElementById('cliInput');
+    if (cliInput) {
+        cliInput.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== 'Escape') {
+                playKeyClick();
+            }
+        });
+    }
+
+    // Button click audio feedback for interactive elements
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('button, .theme-dropdown-item, .nav-link, .btn-primary, .btn-secondary');
+        if (btn && btn !== sfxToggleBtn) {
+            playButtonPop();
+        }
+    });
+})();
