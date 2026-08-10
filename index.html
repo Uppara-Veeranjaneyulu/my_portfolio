@@ -7,6 +7,22 @@
     <meta name="description"
         content="Uppara Veeranjaneyulu – Full Stack Engineer & Data Analyst. Portfolio of professional work, architecture, and engineering.">
     <title>Portfolio</title>
+    <script>
+        (function () {
+            const saved = localStorage.getItem('portfolio-theme') || 'system';
+            let theme = saved;
+            if (saved === 'system') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Inter for pristine Apple-like minimalist typography -->
@@ -37,9 +53,31 @@
                 <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
             </ul>
             <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-                    <i class="fas fa-moon" id="themeIcon"></i>
+                <button type="button" class="cli-trigger-btn" id="cliTriggerBtn" aria-label="Developer Mode" title="Developer Terminal (Ctrl + ~)">
+                    <i class="fas fa-terminal"></i>
                 </button>
+                <div class="theme-dropdown" id="themeDropdown">
+                    <button type="button" class="theme-dropdown-btn" id="themeDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select theme" title="Theme options">
+                        <i class="fas fa-desktop" id="currentThemeIcon"></i>
+                    </button>
+                    <div class="theme-dropdown-menu" id="themeDropdownMenu" role="menu">
+                        <button type="button" class="theme-dropdown-item" data-theme-val="system" role="menuitem">
+                            <i class="fas fa-desktop"></i>
+                            <span>System</span>
+                            <i class="fas fa-check check-icon"></i>
+                        </button>
+                        <button type="button" class="theme-dropdown-item" data-theme-val="light" role="menuitem">
+                            <i class="fas fa-sun"></i>
+                            <span>Light</span>
+                            <i class="fas fa-check check-icon"></i>
+                        </button>
+                        <button type="button" class="theme-dropdown-item" data-theme-val="dark" role="menuitem">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark</span>
+                            <i class="fas fa-check check-icon"></i>
+                        </button>
+                    </div>
+                </div>
                 <a href="#contact" class="btn-primary">Get in Touch</a>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
                     <span></span><span></span>
@@ -619,6 +657,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Draggable & Resizable Developer CLI Terminal -->
+    <div class="cli-modal" id="cliModal" aria-hidden="true" role="dialog" aria-label="Developer Terminal">
+        <div class="cli-window" id="cliWindow">
+            <div class="cli-header" id="cliHeader">
+                <div class="cli-dots">
+                    <span class="dot red" id="cliCloseDot" title="Close Terminal"></span>
+                    <span class="dot yellow" id="cliMinDot" title="Reset Position & Size"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="cli-title"><i class="fas fa-terminal"></i> uv@portfolio:~ <span class="drag-hint">(drag to move)</span></div>
+                <button type="button" class="cli-close-btn" id="cliCloseBtn" aria-label="Close terminal">&times;</button>
+            </div>
+            <div class="cli-body" id="cliBody">
+                <div class="cli-output" id="cliOutput">
+                    <div class="cli-line intro">Welcome to <span class="highlight">UV Developer Terminal v1.0</span></div>
+                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view commands. Drag header to move, bottom-right to resize.</div>
+                    <div class="cli-line divider">--------------------------------------------------</div>
+                </div>
+                <div class="cli-input-line">
+                    <span class="cli-prompt-user">uv@portfolio:~$</span>
+                    <input type="text" id="cliInput" class="cli-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. help, projects, skills)...">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>

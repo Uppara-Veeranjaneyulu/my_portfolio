@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="128" fill="#09090b"/>
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
+  <g transform="translate(0, 10)">
+    <text x="225" y="315" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="210" font-weight="800" fill="#ffffff" letter-spacing="-8" text-anchor="middle">UV</text>
+    <circle cx="380" cy="295" r="24" fill="#ffffff"/>
+  </g>
+</svg>

@@ -275,7 +275,8 @@ nav {
     gap: 1.5rem;
 }
 
-.theme-toggle {
+/* ---- Developer CLI Trigger & Theme Dropdown ---- */
+.cli-trigger-btn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -284,13 +285,117 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--t-fast);
     background: transparent;
+    cursor: pointer;
+    transition: all var(--t-fast);
+    font-size: 0.9rem;
 }
 
-.theme-toggle:hover {
+.cli-trigger-btn:hover {
     background: var(--surface-hover);
-    transform: rotate(30deg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-dropdown-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--t-fast);
+    font-size: 0.95rem;
+}
+
+.theme-dropdown-btn:hover,
+.theme-dropdown.open .theme-dropdown-btn {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+}
+
+.theme-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 140px;
+    background: var(--surface-color);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-md);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--t-fast), transform var(--t-fast), visibility var(--t-fast);
+    z-index: 1100;
+}
+
+[data-theme="light"] .theme-dropdown-menu {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.theme-dropdown.open .theme-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--rad-sm);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.theme-dropdown-item i:not(.check-icon) {
+    font-size: 0.85rem;
+    width: 16px;
+    text-align: center;
+}
+
+.theme-dropdown-item .check-icon {
+    margin-left: auto;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity var(--t-fast);
+}
+
+.theme-dropdown-item:hover {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.theme-dropdown-item.active {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.theme-dropdown-item.active .check-icon {
+    opacity: 1;
 }
 
 .hamburger {
@@ -1054,4 +1159,229 @@ footer {
 
 .mobile-menu a:hover {
     color: var(--text-primary);
+}
+
+/* ---- DEVELOPER CLI TERMINAL MODAL ---- */
+.cli-modal {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity var(--t-mid);
+}
+
+.cli-modal.open {
+    opacity: 1;
+}
+
+.cli-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 680px;
+    height: 440px;
+    min-width: 320px;
+    min-height: 240px;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: #090a0f;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--rad-lg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    resize: both;
+    pointer-events: all;
+    font-family: 'Consolas', 'Monaco', 'Fira Code', 'Courier New', monospace;
+}
+
+.cli-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    background: #12141c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: grab;
+    user-select: none;
+}
+
+.cli-header:active {
+    cursor: grabbing;
+}
+
+.cli-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cli-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: opacity var(--t-fast);
+}
+
+.cli-dots .dot:hover {
+    opacity: 0.8;
+}
+
+.cli-dots .dot.red {
+    background: #ff5f56;
+}
+
+.cli-dots .dot.yellow {
+    background: #ffbd2e;
+}
+
+.cli-dots .dot.green {
+    background: #27c93f;
+}
+
+.cli-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #a1a1a6;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.drag-hint {
+    font-size: 0.72rem;
+    color: #6e6e73;
+    font-weight: 400;
+}
+
+.cli-close-btn {
+    background: none;
+    border: none;
+    color: #86868b;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color var(--t-fast);
+    padding: 0 4px;
+}
+
+.cli-close-btn:hover {
+    color: #ffffff;
+}
+
+.cli-body {
+    flex: 1;
+    padding: 1.25rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #090a0f;
+    color: #e1e1e6;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.cli-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.cli-line {
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.cli-line.intro {
+    color: #a1a1a6;
+}
+
+.cli-line.divider {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.cli-line .highlight {
+    color: #00e676;
+    font-weight: 600;
+}
+
+.cli-line .cmd-text {
+    color: #ffd166;
+    font-weight: 600;
+}
+
+.cli-prompt-entry {
+    color: #00e676;
+    font-weight: 600;
+    margin-right: 0.4rem;
+}
+
+.cli-cmd-echo {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.cli-link {
+    color: #64b5f6;
+    text-decoration: underline;
+    transition: opacity var(--t-fast);
+}
+
+.cli-link:hover {
+    opacity: 0.8;
+}
+
+.cli-error {
+    color: #ff5252;
+}
+
+.cli-success {
+    color: #00e676;
+}
+
+.cli-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.cli-prompt-user {
+    color: #00e676;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.88rem;
+}
+
+.cli-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.88rem;
+    caret-color: #00e676;
+}
+
+@media (max-width: 520px) {
+    .cli-modal {
+        padding: 0.75rem;
+    }
+
+    .cli-window {
+        height: 80vh;
+    }
+
+    .cli-body {
+        padding: 0.85rem;
+        font-size: 0.8rem;
+    }
 }

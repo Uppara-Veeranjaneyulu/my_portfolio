@@ -173,25 +173,100 @@ if (contactForm) {
     });
 }
 
-// 8. Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
+// 8. 3-Option Theme Dropdown Manager (System / Light / Dark)
+(function initThemeManager() {
+    const themeDropdown = document.getElementById('themeDropdown');
+    const themeDropdownBtn = document.getElementById('themeDropdownBtn');
+    const dropdownItems = document.querySelectorAll('.theme-dropdown-item');
+    const currentThemeIcon = document.getElementById('currentThemeIcon');
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Initialize icon based on current theme
-if (themeIcon) {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    themeIcon.className = currentTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
-}
+    const iconMap = {
+        system: 'fas fa-desktop',
+        light: 'fas fa-sun',
+        dark: 'fas fa-moon'
+    };
 
-if (themeToggle && themeIcon) {
-    themeToggle.addEventListener('click', () => {
+    function getSavedPreference() {
+        return localStorage.getItem('portfolio-theme') || 'system';
+    }
+
+    function applyTheme(preference) {
         const root = document.documentElement;
-        const current = root.getAttribute('data-theme') || 'dark';
-        const newTheme = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', newTheme);
-        themeIcon.className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        let effectiveTheme = preference;
+
+        if (preference === 'system') {
+            effectiveTheme = mediaQuery.matches ? 'dark' : 'light';
+        }
+
+        root.setAttribute('data-theme', effectiveTheme);
+        localStorage.setItem('portfolio-theme', preference);
+
+        // Update trigger button icon
+        if (currentThemeIcon && iconMap[preference]) {
+            currentThemeIcon.className = iconMap[preference];
+        }
+
+        // Update active UI state on dropdown items
+        dropdownItems.forEach(item => {
+            if (item.getAttribute('data-theme-val') === preference) {
+                item.classList.add('active');
+                item.setAttribute('aria-selected', 'true');
+            } else {
+                item.classList.remove('active');
+                item.setAttribute('aria-selected', 'false');
+            }
+        });
+    }
+
+    // Toggle dropdown menu visibility
+    if (themeDropdownBtn && themeDropdown) {
+        themeDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = themeDropdown.classList.toggle('open');
+            themeDropdownBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!themeDropdown.contains(e.target)) {
+                themeDropdown.classList.remove('open');
+                themeDropdownBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    // Initial application of saved/system theme
+    const initialPref = getSavedPreference();
+    applyTheme(initialPref);
+
+    // Event listeners for theme dropdown items
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const val = item.getAttribute('data-theme-val');
+            if (val) {
+                applyTheme(val);
+                if (themeDropdown && themeDropdownBtn) {
+                    themeDropdown.classList.remove('open');
+                    themeDropdownBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
     });
-}
+
+    // Listen for OS system theme changes live when in System mode
+    const handleSystemChange = () => {
+        if (getSavedPreference() === 'system') {
+            applyTheme('system');
+        }
+    };
+
+    if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleSystemChange);
+    } else if (mediaQuery.addListener) {
+        mediaQuery.addListener(handleSystemChange);
+    }
+})();
 
 // 10. View More Projects Button
 const viewMoreBtn = document.getElementById('viewMoreBtn');
@@ -216,3 +291,264 @@ if (viewMoreBtn) {
         hiddenProjects.forEach(el => observer.observe(el));
     });
 }
+
+// 9. Developer CLI Terminal (Developer Mode)
+(function initCLITerminal() {
+    const cliTriggerBtn = document.getElementById('cliTriggerBtn');
+    const cliModal = document.getElementById('cliModal');
+    const cliWindow = document.getElementById('cliWindow');
+    const cliHeader = document.getElementById('cliHeader');
+    const cliCloseBtn = document.getElementById('cliCloseBtn');
+    const cliCloseDot = document.getElementById('cliCloseDot');
+    const cliMinDot = document.getElementById('cliMinDot');
+    const cliMaxDot = document.getElementById('cliMaxDot');
+    const cliInput = document.getElementById('cliInput');
+    const cliOutput = document.getElementById('cliOutput');
+    const cliBody = document.getElementById('cliBody');
+
+    if (!cliModal || !cliInput || !cliOutput) return;
+
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    function openTerminal() {
+        cliModal.classList.add('open');
+        cliModal.setAttribute('aria-hidden', 'false');
+        setTimeout(() => cliInput.focus(), 100);
+    }
+
+    function closeTerminal() {
+        cliModal.classList.remove('open');
+        cliModal.setAttribute('aria-hidden', 'true');
+    }
+
+    if (cliTriggerBtn) {
+        cliTriggerBtn.addEventListener('click', openTerminal);
+    }
+
+    if (cliCloseBtn) {
+        cliCloseBtn.addEventListener('click', closeTerminal);
+    }
+
+    if (cliCloseDot) {
+        cliCloseDot.addEventListener('click', closeTerminal);
+    }
+
+    // Draggable Window Logic
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let initialWinLeft = 0;
+    let initialWinTop = 0;
+
+    if (cliHeader && cliWindow) {
+        cliHeader.addEventListener('mousedown', (e) => {
+            if (e.target.closest('button') || e.target.closest('.dot')) return;
+            
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+
+            const rect = cliWindow.getBoundingClientRect();
+            initialWinLeft = rect.left;
+            initialWinTop = rect.top;
+
+            cliWindow.style.transform = 'none';
+            cliWindow.style.left = `${initialWinLeft}px`;
+            cliWindow.style.top = `${initialWinTop}px`;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - dragStartX;
+            const dy = e.clientY - dragStartY;
+            cliWindow.style.left = `${Math.max(10, Math.min(window.innerWidth - 100, initialWinLeft + dx))}px`;
+            cliWindow.style.top = `${Math.max(10, Math.min(window.innerHeight - 50, initialWinTop + dy))}px`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    }
+
+    // Yellow Dot: Reset Position & Size
+    if (cliMinDot && cliWindow) {
+        cliMinDot.addEventListener('click', () => {
+            cliWindow.style.top = '50%';
+            cliWindow.style.left = '50%';
+            cliWindow.style.transform = 'translate(-50%, -50%)';
+            cliWindow.style.width = '680px';
+            cliWindow.style.height = '440px';
+        });
+    }
+
+    // Keyboard Shortcuts: Ctrl + ~ or Esc
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === '~')) {
+            e.preventDefault();
+            if (cliModal.classList.contains('open')) {
+                closeTerminal();
+            } else {
+                openTerminal();
+            }
+        } else if (e.key === 'Escape' && cliModal.classList.contains('open')) {
+            closeTerminal();
+        }
+    });
+
+    function appendLine(content, className = '') {
+        const line = document.createElement('div');
+        line.className = `cli-line ${className}`;
+        line.innerHTML = content;
+        cliOutput.appendChild(line);
+        cliBody.scrollTop = cliBody.scrollHeight;
+    }
+
+    function processCommand(cmdRaw) {
+        const cmd = cmdRaw.trim();
+        if (!cmd) return;
+
+        // Push to history
+        commandHistory.push(cmd);
+        historyIndex = commandHistory.length;
+
+        // Echo command line
+        appendLine(`<span class="cli-prompt-entry">uv@portfolio:~$</span> <span class="cli-cmd-echo">${escapeHTML(cmd)}</span>`);
+
+        const parts = cmd.split(' ');
+        const mainCmd = parts[0].toLowerCase();
+        const args = parts.slice(1);
+
+        switch (mainCmd) {
+            case 'help':
+            case 'commands':
+            case '?':
+                appendLine(`<span class="highlight">Available Commands:</span>`);
+                appendLine(`  <span class="cmd-text">about</span>      - Profile overview & bio`);
+                appendLine(`  <span class="cmd-text">projects</span>   - Selected work & repositories`);
+                appendLine(`  <span class="cmd-text">skills</span>     - Technical expertise & stack`);
+                appendLine(`  <span class="cmd-text">education</span>  - Academic background & scores`);
+                appendLine(`  <span class="cmd-text">resume</span>     - Resume details & download link`);
+                appendLine(`  <span class="cmd-text">contact</span>    - Email, LinkedIn & GitHub`);
+                appendLine(`  <span class="cmd-text">theme</span>      - Change theme (<span class="cmd-text">light</span>, <span class="cmd-text">dark</span>, <span class="cmd-text">system</span>)`);
+                appendLine(`  <span class="cmd-text">clear</span>      - Clear terminal screen`);
+                appendLine(`  <span class="cmd-text">exit</span>       - Close terminal window`);
+                break;
+
+            case 'about':
+            case 'bio':
+            case 'whoami':
+                appendLine(`<span class="highlight">Uppara Veeranjaneyulu</span>`);
+                appendLine(`Software Engineer & Data Analyst pursuing B.Tech in CSE at Amrita Vishwa Vidyapeetham.`);
+                appendLine(`Specializing in full-stack architecture, microservices, federated social web, and machine learning.`);
+                break;
+
+            case 'projects':
+            case 'work':
+                appendLine(`<span class="highlight">Selected Projects:</span>`);
+                appendLine(`1. <span class="cmd-text">Polyverse</span> - Federated Social Network (SvelteKit 5, Fedify, Neon Postgres)`);
+                appendLine(`   <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank" class="cli-link">GitHub</a> | <a href="https://polyverse-pp.vercel.app" target="_blank" class="cli-link">Live Demo</a>`);
+                appendLine(`2. <span class="cmd-text">CraveQuick</span> - High-Performance Food Delivery Ecosystem (React 19, Node, MongoDB, Socket.io)`);
+                appendLine(`   <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank" class="cli-link">GitHub</a> | <a href="https://cravequick.vercel.app/" target="_blank" class="cli-link">Live Demo</a>`);
+                appendLine(`3. <span class="cmd-text">GeoGuide</span> - Smart Travel Companion with AI insights`);
+                break;
+
+            case 'skills':
+            case 'tech':
+                appendLine(`<span class="highlight">Technical Expertise:</span>`);
+                appendLine(`  <span class="cmd-text">Languages:</span> C, C++, Python, Java, JavaScript, TypeScript, SQL, HTML/CSS`);
+                appendLine(`  <span class="cmd-text">Full Stack:</span> React, SvelteKit, Node.js, Express, MongoDB, PostgreSQL, TailwindCSS`);
+                appendLine(`  <span class="cmd-text">AI & Data:</span> Data Analytics, Pandas, NumPy, Machine Learning, PowerBI`);
+                appendLine(`  <span class="cmd-text">Tools & Cloud:</span> Git, GitHub, Docker, Postman, Vercel, Socket.io`);
+                break;
+
+            case 'education':
+            case 'edu':
+                appendLine(`<span class="highlight">Education Timeline:</span>`);
+                appendLine(`  • B.Tech CSE @ Amrita Vishwa Vidyapeetham (2023 - 2027) | CGPA: 7.45`);
+                appendLine(`  • Class XII @ Narayana Junior College (2021 - 2023) | Score: 98.2%`);
+                appendLine(`  • Class X @ Narayana E.M High School (2021) | Score: 100%`);
+                break;
+
+            case 'resume':
+                appendLine(`<span class="highlight">Resume Highlights:</span>`);
+                appendLine(`Full-stack & data analytics engineer. View or download resume below:`);
+                appendLine(`<a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" target="_blank" class="cli-link">Download Resume (PDF)</a>`);
+                break;
+
+            case 'contact':
+            case 'email':
+            case 'socials':
+                appendLine(`<span class="highlight">Contact & Socials:</span>`);
+                appendLine(`  • Email: <a href="mailto:uupparaveeranji@gmail.com" class="cli-link">uupparaveeranji@gmail.com</a>`);
+                appendLine(`  • LinkedIn: <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank" class="cli-link">linkedin.com/in/uppara-veeranjaneyulu-44003728b/</a>`);
+                appendLine(`  • GitHub: <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="cli-link">github.com/Uppara-Veeranjaneyulu</a>`);
+                appendLine(`  • LeetCode: <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" class="cli-link">leetcode.com/u/Veeranji-Uppara/</a>`);
+                break;
+
+            case 'theme':
+                if (args[0] && ['light', 'dark', 'system'].includes(args[0].toLowerCase())) {
+                    const themeVal = args[0].toLowerCase();
+                    localStorage.setItem('portfolio-theme', themeVal);
+                    let effectiveTheme = themeVal;
+                    if (themeVal === 'system') {
+                        effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    document.documentElement.setAttribute('data-theme', effectiveTheme);
+                    const iconMap = { system: 'fas fa-desktop', light: 'fas fa-sun', dark: 'fas fa-moon' };
+                    const currentThemeIcon = document.getElementById('currentThemeIcon');
+                    if (currentThemeIcon && iconMap[themeVal]) {
+                        currentThemeIcon.className = iconMap[themeVal];
+                    }
+                    appendLine(`<span class="cli-success">Theme updated to '${themeVal}'.</span>`);
+                } else {
+                    appendLine(`<span class="cli-error">Usage: theme [light | dark | system]</span>`);
+                }
+                break;
+
+            case 'clear':
+            case 'cls':
+                cliOutput.innerHTML = '';
+                break;
+
+            case 'exit':
+            case 'close':
+            case 'quit':
+                closeTerminal();
+                break;
+
+            default:
+                appendLine(`<span class="cli-error">Command not found: '${escapeHTML(cmd)}'. Type <span class="cmd-text">help</span> for available commands.</span>`);
+                break;
+        }
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+        );
+    }
+
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const val = cliInput.value;
+            cliInput.value = '';
+            processCommand(val);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex > 0) {
+                historyIndex--;
+                cliInput.value = commandHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                cliInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = commandHistory.length;
+                cliInput.value = '';
+            }
+        }
+    });
+})();
