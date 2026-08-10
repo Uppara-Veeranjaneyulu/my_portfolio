@@ -55,7 +55,8 @@
                 <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
             </ul>
             <div class="nav-right">
-                <button type="button" class="sfx-toggle-btn" id="sfxToggleBtn" aria-label="Toggle Sound Effects" title="Sound Effects (SFX Mode: OFF)">
+                <button type="button" class="sfx-toggle-btn" id="sfxToggleBtn" aria-label="Toggle Sound Effects"
+                    title="Sound Effects (SFX Mode: OFF)">
                     <i class="fas fa-volume-mute" id="sfxIcon"></i>
                 </button>
                 <button type="button" class="cli-trigger-btn" id="cliTriggerBtn" aria-label="Developer Mode"
@@ -686,8 +687,10 @@
             </div>
             <div class="cli-body" id="cliBody">
                 <div class="cli-output" id="cliOutput">
-                    <div class="cli-line intro">Welcome to <span class="highlight">UV Developer Terminal v1.0</span></div>
-                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view available commands.</div>
+                    <div class="cli-line intro">Welcome to <span class="highlight">UV Developer Terminal v1.0</span>
+                    </div>
+                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view available commands.
+                    </div>
                     <div class="cli-line divider">--------------------------------------------------</div>
                 </div>
                 <div class="cli-input-line">
@@ -700,9 +703,9 @@
     </div>
 
     <!-- UV-AI Assistant Floating Trigger -->
-    <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Ask UV-AI Assistant" title="Ask UV-AI Assistant">
-        <i class="fas fa-robot"></i>
-        <span class="ai-btn-text">Ask UV-AI</span>
+    <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Ask UV-AI Assistant"
+        title="Ask UV-AI Assistant">
+        <span class="ai-btn-text">Ask AI</span>
         <span class="ai-online-pulse"></span>
     </button>
 
@@ -710,34 +713,38 @@
     <div class="ai-chat-window" id="aiChatWindow" aria-hidden="true">
         <div class="ai-chat-header">
             <div class="ai-header-info">
-                <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+                <div class="ai-avatar">UV</div>
                 <div>
                     <h4 class="ai-title">UV-AI Assistant</h4>
                     <span class="ai-status"><span class="status-dot"></span> Online • Instant Answers</span>
                 </div>
             </div>
             <div class="ai-header-actions">
-                <button type="button" class="ai-action-btn" id="aiClearBtn" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="ai-action-btn" id="aiClearBtn" title="Clear Chat"><i
+                        class="fas fa-trash-alt"></i></button>
                 <button type="button" class="ai-action-btn" id="aiCloseBtn" title="Close Chat">&times;</button>
             </div>
         </div>
         <div class="ai-chat-body" id="aiChatBody">
             <div class="ai-msg assistant">
                 <div class="msg-bubble">
-                    Hi! I'm <strong>UV-AI</strong>, Uppara's portfolio assistant. Ask me anything about his projects, skills, CGPA, or availability!
+                    Hi! I'm <strong>UV-AI</strong>, Uppara's portfolio assistant. Ask me anything about his projects,
+                    skills, CGPA, or availability!
                 </div>
             </div>
         </div>
         <div class="ai-prompt-chips">
-            <button type="button" class="ai-chip" data-prompt="What is Uppara's CGPA and degree?">🎓 CGPA & Degree</button>
-            <button type="button" class="ai-chip" data-prompt="What are his top projects?">🚀 Top Projects</button>
-            <button type="button" class="ai-chip" data-prompt="What is his tech stack?">💻 Tech Stack</button>
-            <button type="button" class="ai-chip" data-prompt="Is he available for internships or full-time roles?">💼 Availability</button>
-            <button type="button" class="ai-chip" data-prompt="How can I contact Uppara?">📧 Contact Info</button>
+            <button type="button" class="ai-chip" data-prompt="What is Uppara's CGPA and degree?">CGPA & Degree</button>
+            <button type="button" class="ai-chip" data-prompt="What are his top projects?">Top Projects</button>
+            <button type="button" class="ai-chip" data-prompt="What is his tech stack?">Tech Stack</button>
+            <button type="button" class="ai-chip"
+                data-prompt="Is he available for internships or full-time roles?">Availability</button>
+            <button type="button" class="ai-chip" data-prompt="How can I contact Uppara?">Contact Info</button>
         </div>
         <div class="ai-chat-input-area">
             <input type="text" id="aiInput" class="ai-input" placeholder="Ask AI about Uppara..." autocomplete="off">
-            <button type="button" id="aiSendBtn" class="ai-send-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
+            <button type="button" id="aiSendBtn" class="ai-send-btn" aria-label="Send Message"><i
+                    class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 

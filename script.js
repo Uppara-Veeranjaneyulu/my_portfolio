@@ -914,3 +914,170 @@ if (viewMoreBtn) {
         draw();
     }
 })();
+
+// 13. "Ask UV-AI" Portfolio Assistant Engine
+(function initUVAIAssistant() {
+    const aiTriggerBtn = document.getElementById('aiTriggerBtn');
+    const aiChatWindow = document.getElementById('aiChatWindow');
+    const aiCloseBtn = document.getElementById('aiCloseBtn');
+    const aiClearBtn = document.getElementById('aiClearBtn');
+    const aiInput = document.getElementById('aiInput');
+    const aiSendBtn = document.getElementById('aiSendBtn');
+    const aiChatBody = document.getElementById('aiChatBody');
+    const chips = document.querySelectorAll('.ai-chip');
+
+    if (!aiChatWindow || !aiInput || !aiChatBody) return;
+
+    function openChat() {
+        aiChatWindow.classList.add('open');
+        aiChatWindow.setAttribute('aria-hidden', 'false');
+        setTimeout(() => aiInput.focus(), 100);
+    }
+
+    function closeChat() {
+        aiChatWindow.classList.remove('open');
+        aiChatWindow.setAttribute('aria-hidden', 'true');
+    }
+
+    if (aiTriggerBtn) aiTriggerBtn.addEventListener('click', openChat);
+    if (aiCloseBtn) aiCloseBtn.addEventListener('click', closeChat);
+
+    if (aiClearBtn) {
+        aiClearBtn.addEventListener('click', () => {
+            aiChatBody.innerHTML = `
+                <div class="ai-msg assistant">
+                    <div class="msg-bubble">
+                        Hi! I'm <strong>UV-AI</strong>, Uppara's portfolio assistant. Ask me anything about his projects, skills, CGPA, or availability!
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const prompt = chip.getAttribute('data-prompt');
+            if (prompt) {
+                handleUserQuery(prompt);
+            }
+        });
+    });
+
+    if (aiSendBtn) {
+        aiSendBtn.addEventListener('click', () => {
+            const val = aiInput.value.trim();
+            if (val) {
+                aiInput.value = '';
+                handleUserQuery(val);
+            }
+        });
+    }
+
+    if (aiInput) {
+        aiInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const val = aiInput.value.trim();
+                if (val) {
+                    aiInput.value = '';
+                    handleUserQuery(val);
+                }
+            }
+        });
+    }
+
+    function handleUserQuery(query) {
+        appendMessage(query, 'user');
+        showTypingIndicator();
+
+        setTimeout(() => {
+            removeTypingIndicator();
+            const reply = generateAIResponse(query);
+            appendMessage(reply, 'assistant');
+        }, 400);
+    }
+
+    function appendMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `ai-msg ${sender}`;
+        msgDiv.innerHTML = `<div class="msg-bubble">${text}</div>`;
+        aiChatBody.appendChild(msgDiv);
+        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'ai-msg assistant typing-msg';
+        typingDiv.id = 'aiTypingIndicator';
+        typingDiv.innerHTML = `<div class="msg-bubble"><em>UV-AI is thinking...</em></div>`;
+        aiChatBody.appendChild(typingDiv);
+        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const typingDiv = document.getElementById('aiTypingIndicator');
+        if (typingDiv) typingDiv.remove();
+    }
+
+    function generateAIResponse(input) {
+        const q = input.toLowerCase();
+
+        if (q.includes('cgpa') || q.includes('grade') || q.includes('degree') || q.includes('education') || q.includes('college') || q.includes('marks') || q.includes('score')) {
+            return `🎓 <strong>Education & Academic Standing:</strong><br>
+            • <strong>B.Tech Computer Science & Engineering</strong> @ Amrita Vishwa Vidyapeetham (2023 - 2027) | <strong>CGPA: 7.45</strong><br>
+            • <strong>Class XII (Intermediate)</strong> @ Narayana Junior College | <strong>98.2%</strong><br>
+            • <strong>Class X (SSC)</strong> @ Narayana E.M High School | <strong>100%</strong>`;
+        }
+
+        if (q.includes('polyverse') || q.includes('social')) {
+            return `🌐 <strong>Polyverse</strong> is a federated social network built with SvelteKit 5, Fedify, TypeScript, Neon PostgreSQL, and TailwindCSS.<br>
+            Features cross-instance activity pub protocol federation, real-time messaging, and high-performance serverless database queries.<br>
+            <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank" style="color:var(--text-primary); text-decoration:underline;">GitHub Repo</a> | <a href="https://polyverse-pp.vercel.app" target="_blank" style="color:var(--text-primary); text-decoration:underline;">Live Demo</a>`;
+        }
+
+        if (q.includes('cravequick') || q.includes('food') || q.includes('delivery')) {
+            return `🍕 <strong>CraveQuick</strong> is a high-performance food delivery web application engineered with React 19, Node.js, Express, MongoDB, Socket.io, and TailwindCSS.<br>
+            Includes multi-role authorization (Customer, Restaurant Manager, Delivery Driver) and real-time order tracking.<br>
+            <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank" style="color:var(--text-primary); text-decoration:underline;">GitHub Repo</a> | <a href="https://cravequick.vercel.app/" target="_blank" style="color:var(--text-primary); text-decoration:underline;">Live Demo</a>`;
+        }
+
+        if (q.includes('project') || q.includes('work') || q.includes('built') || q.includes('app')) {
+            return `🚀 <strong>Featured Engineering Projects:</strong><br>
+            1. <strong>Polyverse:</strong> Federated Social Network (SvelteKit 5, Fedify, Neon Postgres)<br>
+            2. <strong>CraveQuick:</strong> Multi-Role Food Delivery Platform (React 19, Socket.io, MongoDB)<br>
+            3. <strong>GeoGuide:</strong> AI Travel Companion with smart routing.<br>
+            Scroll to the <a href="#projects" style="color:var(--text-primary); text-decoration:underline;">Selected Work</a> section to explore live demos!`;
+        }
+
+        if (q.includes('skill') || q.includes('stack') || q.includes('tech') || q.includes('language') || q.includes('framework')) {
+            return `💻 <strong>Core Technical Stack:</strong><br>
+            • <strong>Languages:</strong> C, C++, Python, Java, JavaScript (ES6+), TypeScript, SQL<br>
+            • <strong>Full Stack:</strong> React, SvelteKit, Node.js, Express, MongoDB, PostgreSQL, TailwindCSS<br>
+            • <strong>Data & AI:</strong> Data Analytics, Pandas, NumPy, Machine Learning, PowerBI<br>
+            • <strong>DevOps & Tools:</strong> Git, Docker, Postman, Vercel, Socket.io`;
+        }
+
+        if (q.includes('intern') || q.includes('hire') || q.includes('available') || q.includes('role') || q.includes('job') || q.includes('work with')) {
+            return `💼 <strong>Job & Internship Availability:</strong><br>
+            Uppara is <strong>actively open</strong> for Full-Stack Software Engineering, Data Analyst, and AI/ML internship/entry-level positions.<br>
+            Send him an email at <a href="mailto:uupparaveeranji@gmail.com" style="color:var(--text-primary); text-decoration:underline;">uupparaveeranji@gmail.com</a>!`;
+        }
+
+        if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('phone') || q.includes('linkedin') || q.includes('github')) {
+            return `📧 <strong>Get in Touch with Uppara:</strong><br>
+            • <strong>Email:</strong> <a href="mailto:uupparaveeranji@gmail.com" style="color:var(--text-primary); text-decoration:underline;">uupparaveeranji@gmail.com</a><br>
+            • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank" style="color:var(--text-primary); text-decoration:underline;">linkedin.com/in/uppara-veeranjaneyulu</a><br>
+            • <strong>GitHub:</strong> <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" style="color:var(--text-primary); text-decoration:underline;">github.com/Uppara-Veeranjaneyulu</a>`;
+        }
+
+        if (q.includes('resume') || q.includes('cv') || q.includes('pdf')) {
+            return `📄 <strong>Uppara's Resume:</strong><br>
+            You can view or download his official updated resume here:<br>
+            <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" target="_blank" style="color:var(--text-primary); text-decoration:underline; font-weight:600;">Download Official Resume (PDF)</a>`;
+        }
+
+        return `🤖 I'm here to help! Try asking me about:<br>
+        • <em>"What is Uppara's CGPA?"</em><br>
+        • <em>"Tell me about Polyverse or CraveQuick"</em><br>
+        •  short prompt chips below!`;
+    }
+})();
