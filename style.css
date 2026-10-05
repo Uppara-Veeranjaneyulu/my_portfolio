@@ -85,6 +85,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
 }
 
 body {
@@ -98,6 +100,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;

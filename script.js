@@ -24,6 +24,26 @@ document.addEventListener("cut", (e) => e.preventDefault());
 document.addEventListener("paste", (e) => e.preventDefault());
 document.addEventListener("dragstart", (e) => e.preventDefault());
 
+// Block trackpad horizontal swipe navigation (e.g. two-finger slide to go back / forward)
+window.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// Block multi-touch gestures (e.g. two-finger slide gestures)
+window.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
@@ -135,7 +155,10 @@ function navigateTo(route, updateHistory = true) {
             const path = cleanRoute === 'landing' ? '/' : `/${cleanRoute}`;
             if (window.location.pathname !== path) {
                 try {
-                    history.pushState({ route: cleanRoute }, '', path);
+                    // Use replaceState instead of pushState so internal page changes don't add
+                    // history back-stack entries. This blocks two-finger swipe / slide-back gestures
+                    // from traversing pages and ensures navigation is driven only by buttons.
+                    history.replaceState({ route: cleanRoute }, '', path);
                 } catch (e) {
                     const targetHash = cleanRoute === 'landing' ? '' : `#${cleanRoute}`;
                     if (window.location.hash !== targetHash) {
