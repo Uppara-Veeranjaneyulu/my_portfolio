@@ -506,26 +506,32 @@ nav {
 }
 
 .hero-main-title {
-    font-size: clamp(3rem, 6vw, 5.2rem);
+    font-size: clamp(2rem, 4.6vw, 4.8rem);
     font-weight: 800;
-    line-height: 1.04;
-    letter-spacing: -0.05em;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
     text-transform: uppercase;
     color: var(--text-primary);
     margin-bottom: 1.2rem;
 }
 
+.hero-main-title .title-first,
+.hero-main-title .title-last {
+    display: block;
+    white-space: nowrap;
+}
+
 .hero-tagline {
-    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    font-size: clamp(1.05rem, 1.5vw, 1.5rem);
     color: var(--text-secondary);
     font-weight: 500;
-    margin-bottom: 2.8rem;
+    margin-bottom: 2.5rem;
 }
 
 .hero-nav-pills {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.85rem;
     align-items: center;
 }
 
@@ -587,8 +593,8 @@ nav {
 }
 
 .hero-photo-card {
-    width: clamp(340px, 32vw, 500px);
-    height: clamp(340px, 32vw, 500px);
+    width: clamp(260px, 30vw, 480px);
+    height: clamp(260px, 30vw, 480px);
     max-width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
@@ -1686,59 +1692,7 @@ footer {
     color: var(--text-primary);
 }
 
-@media (max-width: 900px) {
-    .framed-card {
-        padding: 2.5rem 1.8rem;
-        border-radius: 20px;
-    }
 
-    .hero-frame-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-    }
-
-    .hero-nav-pills {
-        justify-content: center;
-    }
-
-    .hero-photo-wrapper {
-        order: -1;
-    }
-
-    .hero-photo-card {
-        width: 250px;
-        height: 250px;
-        max-width: 250px;
-    }
-
-    .about-ks-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .education-cards-row {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-msg-card {
-        padding: 2rem 1.5rem;
-    }
-}
-
-@media (max-width: 520px) {
-    .framed-card {
-        padding: 2rem 1.25rem;
-        border-radius: 16px;
-    }
-
-    .hero-main-title {
-        font-size: 2.2rem;
-    }
-
-    .section-center-title {
-        font-size: 1.8rem;
-    }
-}
 
 .portfolio-view {
     display: none;
@@ -1763,7 +1717,8 @@ footer {
 }
 
 body.landing-mode {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     min-height: 100vh;
     overflow: hidden;
@@ -1835,38 +1790,9 @@ body.landing-mode .hero-photo-wrapper {
     width: 100%;
 }
 
-@media (max-height: 720px),
-(max-width: 900px) {
-    body.landing-mode {
-        height: auto;
-        min-height: 100vh;
-        overflow-y: auto;
-        display: block;
-        padding: 1.5rem;
-    }
-
-    body.landing-mode #view-landing {
-        height: auto;
-        display: block !important;
-        padding: 0;
-    }
-
-    body.landing-mode .hero-container {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        max-height: none;
-    }
-
-    body.landing-mode .hero-container .framed-card {
-        height: auto;
-        max-height: none;
-        padding: 2.5rem 1.8rem;
-    }
-}
-
 body.contact-mode {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     min-height: 100vh;
     overflow: hidden;
@@ -1910,33 +1836,6 @@ body.contact-mode .contact-ks-frame {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-}
-
-@media (max-height: 640px), (max-width: 768px) {
-    body.contact-mode {
-        height: auto;
-        min-height: 100vh;
-        overflow-y: auto;
-        display: block;
-        padding: 1.5rem 1rem;
-    }
-
-    body.contact-mode #view-contact {
-        height: auto;
-        display: block !important;
-    }
-
-    body.contact-mode #view-contact .subpage-container {
-        width: 100%;
-        max-height: none;
-        margin: 1.5rem auto;
-    }
-
-    .contact-top-bar {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: space-between;
-    }
 }
 
 .subpage-container {
@@ -2058,4 +1957,474 @@ body.contact-mode .contact-ks-frame {
 
 [data-theme="light"] .project-links a:hover {
     box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM (ALL DEVICE SIZES)
+   ========================================================================== */
+
+/* 1. Desktop & Wide Screens (> 900px) */
+@media (min-width: 901px) {
+    body.landing-mode .hero-frame-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2.5rem, 4vw, 5rem);
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+    }
+
+    body.landing-mode .hero-content {
+        order: 1;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    body.landing-mode .hero-photo-wrapper {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* 2. Tablets & Mobile Devices (<= 900px) */
+@media (max-width: 900px) {
+    body.landing-mode {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2.2rem 1.25rem;
+    }
+
+    body.landing-mode #view-landing {
+        height: auto;
+        width: 100%;
+        display: block !important;
+    }
+
+    body.landing-mode .hero-container {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        padding: 0;
+    }
+
+    body.landing-mode .hero-container .framed-card {
+        height: auto;
+        max-height: none;
+        padding: 2.5rem 1.6rem;
+        border-radius: 24px;
+    }
+
+    body.landing-mode .hero-frame-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.6rem !important;
+        width: 100%;
+    }
+
+    /* TAKE PHOTO TO TOP IN MOBILE VIEW */
+    body.landing-mode .hero-photo-wrapper {
+        order: 1 !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0.5rem 0;
+    }
+
+    body.landing-mode .hero-photo-card {
+        width: min(220px, 48vw);
+        height: min(220px, 48vw);
+        max-width: 240px;
+        max-height: 240px;
+        margin: 0 auto;
+    }
+
+    /* CONTENT BELOW PHOTO IN MOBILE VIEW */
+    body.landing-mode .hero-content {
+        order: 2 !important;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-main-title {
+        font-size: clamp(1.7rem, 6.5vw, 2.6rem);
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+
+    .hero-main-title .title-first,
+    .hero-main-title .title-last {
+        display: block;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .hero-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1.6rem;
+        text-align: center;
+    }
+
+    .hero-nav-pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .nav-box-btn,
+    .nav-pill-btn {
+        width: 100%;
+        padding: 0.75rem 0.6rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+        text-align: center;
+        justify-content: center;
+    }
+
+    body.contact-mode {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        display: block;
+        padding: 2rem 1.25rem;
+    }
+
+    body.contact-mode #view-contact {
+        height: auto;
+        width: 100%;
+        display: block !important;
+    }
+
+    body.contact-mode #view-contact .subpage-container {
+        width: 100%;
+        max-height: none;
+        margin: 1rem auto;
+    }
+
+    body.contact-mode .contact-ks-frame {
+        height: auto;
+        max-height: none;
+        padding: 2.2rem 1.8rem;
+        border-radius: 24px;
+    }
+
+    .subpage-container {
+        width: 94vw;
+        margin: 1.5rem auto 3.5rem auto;
+    }
+
+    .subpage-container .framed-card {
+        padding: 2.2rem 1.6rem;
+        border-radius: 22px;
+    }
+
+    .about-ks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .education-cards-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* 3. Standard Tablets & Phablets (<= 768px) */
+@media (max-width: 768px) {
+    .subpage-container {
+        width: 96vw;
+        margin: 1.2rem auto 2.5rem auto;
+    }
+
+    .subpage-container .framed-card {
+        padding: 1.8rem 1.35rem;
+        border-radius: 20px;
+    }
+
+    .page-top-bar {
+        gap: 0.85rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .page-back-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .section-center-title,
+    .page-title {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+
+    .about-details-card,
+    .about-profile-card,
+    .education-section-card,
+    .tech-section-card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 18px;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-avatar-img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .skill-category {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .skill-cat-label {
+        min-width: unset;
+        padding-top: 0;
+        font-size: 0.82rem;
+    }
+
+    .tech-pills-wrap {
+        justify-content: flex-start;
+    }
+
+    .project-item {
+        padding: 1.35rem 1.15rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .project-name {
+        font-size: 1.45rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .contact-top-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.75rem;
+    }
+
+    .contact-msg-card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 18px;
+    }
+
+    .resume-preview-frame {
+        height: clamp(450px, 65vh, 650px) !important;
+    }
+}
+
+/* 4. Smartphones (<= 520px) */
+@media (max-width: 520px) {
+    body.landing-mode {
+        padding: 1.25rem 0.65rem;
+    }
+
+    body.landing-mode .hero-container .framed-card {
+        padding: 1.8rem 1rem;
+        border-radius: 18px;
+    }
+
+    body.landing-mode .hero-frame-grid {
+        gap: 1.25rem !important;
+    }
+
+    body.landing-mode .hero-photo-card {
+        width: min(180px, 48vw);
+        height: min(180px, 48vw);
+    }
+
+    .hero-main-title {
+        font-size: clamp(1.45rem, 7vw, 2.1rem);
+        line-height: 1.1;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .hero-nav-pills {
+        gap: 0.6rem;
+        max-width: 300px;
+    }
+
+    .nav-box-btn,
+    .nav-pill-btn {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.88rem;
+    }
+
+    .subpage-container {
+        width: 100%;
+        margin: 0.75rem auto 2rem auto;
+        padding: 0 0.4rem;
+    }
+
+    .subpage-container .framed-card {
+        padding: 1.35rem 0.85rem;
+        border-radius: 16px;
+    }
+
+    .about-details-card,
+    .about-profile-card,
+    .education-section-card,
+    .tech-section-card {
+        padding: 1.2rem 0.85rem;
+        border-radius: 14px;
+        margin-bottom: 1rem;
+    }
+
+    .about-details-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .section-subheading-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .edu-pill-card {
+        padding: 1.2rem 0.85rem;
+    }
+
+    .edu-pill-title {
+        font-size: 1.05rem;
+    }
+
+    .tech-pill {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.82rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .project-links a {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.65rem;
+    }
+
+    .resume-actions a {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .resume-preview-frame {
+        height: 420px !important;
+    }
+
+    .contact-msg-card {
+        padding: 1.25rem 0.85rem;
+    }
+
+    .contact-form-control {
+        font-size: 0.88rem;
+        padding: 0.7rem 0.85rem;
+    }
+
+    .deliver-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
+    }
+}
+
+/* 5. Small Mobile Devices (<= 360px) */
+@media (max-width: 360px) {
+    .hero-main-title {
+        font-size: 1.3rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+
+    body.landing-mode .hero-photo-card {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-nav-pills {
+        grid-template-columns: 1fr;
+    }
+
+    .subpage-container .framed-card {
+        padding: 1rem 0.65rem;
+    }
+
+    .section-center-title,
+    .page-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* 6. Short Viewports (<= 700px height) */
+@media (max-height: 700px) {
+    body.landing-mode,
+    body.contact-mode {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 1rem;
+    }
+
+    body.landing-mode #view-landing,
+    body.contact-mode #view-contact {
+        height: auto;
+        width: 100%;
+        display: block !important;
+    }
+
+    body.landing-mode .hero-container,
+    body.contact-mode #view-contact .subpage-container {
+        height: auto;
+        max-height: none;
+    }
+
+    body.landing-mode .hero-container .framed-card,
+    body.contact-mode .contact-ks-frame {
+        height: auto;
+        max-height: none;
+        padding: 1.8rem 1.25rem;
+    }
 }
