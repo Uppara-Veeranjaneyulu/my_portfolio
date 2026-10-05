@@ -6,747 +6,654 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Uppara Veeranjaneyulu – Full Stack Engineer & Data Analyst. Portfolio of professional work, architecture, and engineering.">
-    <title>Portfolio</title>
+    <title>Uppara Veeranjaneyulu</title>
     <script>
         (function () {
-            const saved = localStorage.getItem('portfolio-theme') || 'system';
-            let theme = saved;
-            if (saved === 'system') {
-                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            function getDayNightTheme() {
+                const hour = new Date().getHours();
+                return (hour >= 6 && hour < 18) ? 'light' : 'dark';
             }
-            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.setAttribute('data-theme', getDayNightTheme());
         })();
     </script>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Inter for pristine Apple-like minimalist typography -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Matrix Code Rain Canvas -->
-    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
-    <!-- Minimal Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">Hi<span class="accent-dot">.</span></div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <header id="header">
-        <nav>
-            <a href="#hero" class="logo">UV.</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link" data-section="about">Profile</a></li>
-                <li><a href="#projects" class="nav-link" data-section="projects">Work</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills">Expertise</a></li>
-                <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
-            </ul>
-            <div class="nav-right">
-                <button type="button" class="sfx-toggle-btn" id="sfxToggleBtn" aria-label="Toggle Sound Effects"
-                    title="Sound Effects (SFX Mode: OFF)">
-                    <i class="fas fa-volume-mute" id="sfxIcon"></i>
-                </button>
-                <button type="button" class="cli-trigger-btn" id="cliTriggerBtn" aria-label="Developer Mode"
-                    title="Developer Terminal (Ctrl + ~)">
-                    <i class="fas fa-terminal"></i>
-                </button>
-                <div class="theme-dropdown" id="themeDropdown">
-                    <button type="button" class="theme-dropdown-btn" id="themeDropdownBtn" aria-haspopup="true"
-                        aria-expanded="false" aria-label="Select theme" title="Theme options">
-                        <i class="fas fa-desktop" id="currentThemeIcon"></i>
-                    </button>
-                    <div class="theme-dropdown-menu" id="themeDropdownMenu" role="menu">
-                        <button type="button" class="theme-dropdown-item" data-theme-val="system" role="menuitem">
-                            <i class="fas fa-desktop"></i>
-                            <span>System</span>
-                            <i class="fas fa-check check-icon"></i>
-                        </button>
-                        <button type="button" class="theme-dropdown-item" data-theme-val="light" role="menuitem">
-                            <i class="fas fa-sun"></i>
-                            <span>Light</span>
-                            <i class="fas fa-check check-icon"></i>
-                        </button>
-                        <button type="button" class="theme-dropdown-item" data-theme-val="dark" role="menuitem">
-                            <i class="fas fa-moon"></i>
-                            <span>Dark</span>
-                            <i class="fas fa-check check-icon"></i>
-                        </button>
-                        <button type="button" class="theme-dropdown-item" data-theme-val="matrix" role="menuitem">
-                            <i class="fas fa-code"></i>
-                            <span>Matrix</span>
-                            <i class="fas fa-check check-icon"></i>
-                        </button>
+    
+    <main id="view-landing" class="portfolio-view active">
+        <div class="hero-container">
+            <div class="framed-card hero-frame-grid">
+                <div class="hero-content">
+                    <h1 class="hero-main-title">
+                        UPPARA<br>VEERANJANEYULU
+                    </h1>
+                    <p class="hero-tagline">
+                        Software Engineer
+                    </p>
+                    <div class="hero-nav-pills">
+                        <a href="/resume" data-route="resume" class="nav-box-btn btn-highlight">Resume</a>
+                        <a href="/about" data-route="about" class="nav-box-btn">About</a>
+                        <a href="/projects" data-route="projects" class="nav-box-btn">Projects</a>
+                        <a href="/contact" data-route="contact" class="nav-box-btn">Contact</a>
                     </div>
                 </div>
-                <a href="#contact" class="btn-primary">Get in Touch</a>
-                <button class="hamburger" id="hamburger" aria-label="Menu">
-                    <span></span><span></span>
-                </button>
+                <div class="hero-photo-wrapper">
+                    <div class="hero-photo-card">
+                        <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" draggable="false">
+                    </div>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </main>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#about" onclick="closeMobileMenu()">Profile</a></li>
-            <li><a href="#projects" onclick="closeMobileMenu()">Work</a></li>
-            <li><a href="#skills" onclick="closeMobileMenu()">Expertise</a></li>
-            <li><a href="#resume" onclick="closeMobileMenu()">Resume</a></li>
-            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-        </ul>
-    </div>
+    <section id="view-about" class="portfolio-view">
+        <div class="subpage-container">
+            <div class="framed-card">
+                <div class="page-top-bar">
+                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
+                        aria-label="Back to Home">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h2 class="section-center-title">About Me</h2>
+                </div>
+                
+                <div class="about-ks-grid">
+                    <div class="about-profile-card">
+                        <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" class="about-avatar-img">
 
-    <!-- HERO SECTION -->
-    <section id="hero">
-        <div class="hero-container">
-            <div class="hero-grid">
-                <div class="hero-content reveal">
-                    <h1 class="hero-title">
-                        Uppara<br>Veeranjaneyulu
-                    </h1>
-                    <p class="hero-subtitle">
-                        Software Engineer &amp; Data Analyst
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn-primary">Explore Work</a>
-                        <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary">
-                            <i class="fab fa-github"></i> GitHub Profile
+                        <div class="about-social-circles">
+                            <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-box-btn"
+                                title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
+                                class="social-box-btn" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:uupparaveeranji@gmail.com" class="social-box-btn" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" class="social-box-btn"
+                                title="LeetCode">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-details-card">
+                        <p>
+                            I am a software engineer and data analyst driven by a desire to solve complex
+                            problems.
+                            Currently pursuing my B.Tech in Computer Science &amp; Engineering at <strong>Amrita
+                                Vishwa
+                                Vidyapeetham</strong> with a <strong>7.45 CGPA</strong>.
+                        </p>
+                        <p>
+                            My technical foundation is built on versatility. While I specialize in modern
+                            full-stack web
+                            architectures (<strong>React, SvelteKit, Node.js, Express, TailwindCSS</strong>), I
+                            possess
+                            deep competence in systems, algorithms, and backend engineering (<strong>Java, C,
+
+                                Python, SQL, REST APIs, Redis, Socket.io</strong>). I don't just build
+                            websites—I
+                            engineer complete, reliable systems, evidenced by projects like
+                            <strong>CraveQuick</strong>,
+                            <strong>Polyverse</strong>, and <strong>ThinkBoard</strong>.
+                        </p>
+                        <p>
+                            Beyond standard development, I am deeply invested in intelligent systems, machine
+                            learning,
+                            and data analytics (<strong>Pandas, NumPy, Statistical Analysis</strong>).
+                            Recognized as a
+                            <strong>Top 5 Finalist</strong> out of 100+ teams in the GeoGuide Agentic AI
+                            Hackathon.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="education-section-card">
+                    <h3 class="section-subheading-title">Education</h3>
+                    <div class="education-cards-row">
+                        <div class="edu-pill-card">
+                            <div class="edu-pill-title">Class X</div>
+                            <div class="edu-pill-inst">Narayana E.M High School</div>
+                            <div class="edu-pill-score">Score: 100% (2020 – 2021)</div>
+                        </div>
+                        <div class="edu-pill-card">
+                            <div class="edu-pill-title">Class XII</div>
+                            <div class="edu-pill-inst">Narayana Junior College</div>
+                            <div class="edu-pill-score">Score: 98.2% (2021 – 2023)</div>
+                        </div>
+                        <div class="edu-pill-card">
+                            <div class="edu-pill-title">B.Tech CSE</div>
+                            <div class="edu-pill-inst">Amrita Vishwa Vidyapeetham</div>
+                            <div class="edu-pill-score">CGPA: 7.45 (2023 – 2027)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-section-card" id="skills">
+                    <h3 class="section-subheading-title">Technical Skills</h3>
+                    <div class="skills-categories">
+                        <div class="skill-category">
+                            <span class="skill-cat-label">⌨ Languages</span>
+                            <div class="tech-pills-wrap">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Java</span>
+                                <span class="tech-pill">C</span>
+
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">TypeScript</span>
+                                <span class="tech-pill">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <span class="skill-cat-label">🖥 Frontend</span>
+                            <div class="tech-pills-wrap">
+                                <span class="tech-pill">React.js</span>
+                                <span class="tech-pill">SvelteKit</span>
+                                <span class="tech-pill">TailwindCSS</span>
+                                <span class="tech-pill">HTML/CSS</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <span class="skill-cat-label">⚙ Backend</span>
+                            <div class="tech-pills-wrap">
+                                <span class="tech-pill">Node.js</span>
+                                <span class="tech-pill">Express.js</span>
+                                <span class="tech-pill">Flask</span>
+                                <span class="tech-pill">REST APIs</span>
+                                <span class="tech-pill">Socket.io</span>
+                                <span class="tech-pill">MongoDB</span>
+
+                                <span class="tech-pill">Redis</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <span class="skill-cat-label">∇ Data &amp; ML</span>
+                            <div class="tech-pills-wrap">
+                                <span class="tech-pill">Pandas</span>
+                                <span class="tech-pill">NumPy</span>
+                                <span class="tech-pill">Machine Learning</span>
+                                <span class="tech-pill">Statistical Analysis</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <span class="skill-cat-label">🛠 Tools</span>
+                            <div class="tech-pills-wrap">
+                                <span class="tech-pill">Git</span>
+                                <span class="tech-pill">Docker</span>
+                                <span class="tech-pill">Linux</span>
+                                <span class="tech-pill">Postman</span>
+                                <span class="tech-pill">Vercel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="view-projects" class="portfolio-view">
+        <div class="subpage-container">
+            <div class="framed-card">
+                <div class="page-top-bar">
+                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
+                        aria-label="Back to Home">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h2 class="section-center-title">Projects</h2>
+                </div>
+
+                <div class="projects-list">
+
+                    <div class="project-item reveal">
+                        <div class="project-info">
+                            <span class="project-category">Federated Social Network</span>
+                            <h3 class="project-name">Polyverse</h3>
+                            <p class="project-description">
+                                A federated social network built on ActivityPub, featuring decentralized identity (DID),
+                                cryptographic key management, and data autonomy.
+                            </p>
+                            <ul class="tech-list">
+                                <li>SvelteKit 5</li>
+                                <li>Fedify</li>
+                                <li>Neon PostgreSQL</li>
+                                <li>TailwindCSS 4</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://polyverse-pp.vercel.app" target="_blank" class="link-external">Live
+                                    Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item reveal">
+                        <div class="project-info">
+                            <span class="project-category">Full Stack Architecture</span>
+                            <h3 class="project-name">CraveQuick</h3>
+                            <p class="project-description">
+                                Architected a high-performance food delivery ecosystem featuring a multi-role
+                                architecture
+                                (Consumer, Partner, Admin). Implemented real-time geospatial tracking via Socket.io,
+                                secure
+                                payment processing with Razorpay, and a highly responsive React frontend.
+                            </p>
+                            <ul class="tech-list">
+                                <li>React 19</li>
+                                <li>Node.js</li>
+                                <li>MongoDB</li>
+                                <li>Socket.io</li>
+                                <li>Razorpay</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://cravequick.vercel.app/" target="_blank" class="link-external">Live
+                                    Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item reveal">
+                        <div class="project-info">
+                            <span class="project-category">Full Stack & AI</span>
+                            <h3 class="project-name">GeoGuide – Smart Travel Companion</h3>
+                            <p class="project-description">
+                                Smart travel assistant with real-time weather, navigation, AI-powered travel insights,
+                                and
+                                multilingual support. Built during a hackathon.
+                            </p>
+                            <ul class="tech-list">
+                                <li>React</li>
+                                <li>MongoDB</li>
+                                <li>Gemini API</li>
+                                <li>Firebase</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://geoguidehackathon.vercel.app/" target="_blank"
+                                    class="link-external">Live
+                                    Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item reveal">
+                        <div class="project-info">
+                            <span class="project-category">Security & Backend</span>
+                            <h3 class="project-name">Secure Exam Portal</h3>
+                            <p class="project-description">
+                                A web application for secure online examinations with role-based access control, data
+                                encryption via Fernet, and integrity verification.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Python (Flask)</li>
+                                <li>SQLite</li>
+                                <li>Cryptography</li>
+                                <li>Bcrypt</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="view-more-container reveal" id="viewMoreContainer"
+                        style="display: flex; justify-content: center; padding: 1rem 0;">
+                        <button id="viewMoreBtn" class="btn-primary">View More</button>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Mobile App & AI</span>
+                            <h3 class="project-name">Task Manager App</h3>
+                            <p class="project-description">
+                                A comprehensive Flutter application with cloud sync, offline SQLite support, Google ML
+                                Kit
+                                AI integration, and biometric security.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Flutter</li>
+                                <li>Firebase</li>
+                                <li>SQLite</li>
+                                <li>Provider</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/task-manager-flutter-app"
+                                    target="_blank" class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank"
+                                    class="link-external">Live Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Backend & Infrastructure</span>
+                            <h3 class="project-name">ThinkBoard MERN API</h3>
+                            <p class="project-description">
+                                Designed a resilient RESTful API for a note-taking application. Integrated Upstash Redis
+                                for
+                                distributed rate limiting to ensure high availability.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Express.js</li>
+                                <li>Node.js</li>
+                                <li>MongoDB</li>
+                                <li>Redis</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">AI Integration & SaaS</span>
+                            <h3 class="project-name">AI Fusion</h3>
+                            <p class="project-description">
+                                Developed a production-ready SaaS platform enabling seamless interactions with multiple
+                                LLMs
+                                including GPT, Gemini, and Claude.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Next.js</li>
+                                <li>Firebase</li>
+                                <li>Clerk Auth</li>
+                                <li>LLM APIs</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Data Engineering</span>
+                            <h3 class="project-name">TrendPulse Analytics</h3>
+                            <p class="project-description">
+                                Built a sophisticated data-driven system to track influencer engagement metrics.
+                                Implemented
+                                algorithms to calculate dynamic marketing scores.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Python</li>
+                                <li>Data Structures</li>
+                                <li>Statistical Analysis</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Frontend & API</span>
+                            <h3 class="project-name">CineHub</h3>
+                            <p class="project-description">
+                                Movie & TV discovery platform powered by TMDB API with search, trending titles, and
+                                watchlist management.
+                            </p>
+                            <ul class="tech-list">
+                                <li>React</li>
+                                <li>Tailwind CSS</li>
+                                <li>TMDB API</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://cinehubs.netlify.app/" target="_blank" class="link-external">Live
+                                    Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Frontend App</span>
+                            <h3 class="project-name">E-Commerce App</h3>
+                            <p class="project-description">
+                                Responsive e-commerce platform featuring product browsing, search, cart management, and
+                                a
+                                demo checkout flow.
+                            </p>
+                            <ul class="tech-list">
+                                <li>React</li>
+                                <li>Vite</li>
+                                <li>Tailwind CSS</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank"
+                                    class="link-external">Live
+                                    Deployment ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Algorithm & Data Structures</span>
+                            <h3 class="project-name">DNA Sequence Analysis</h3>
+                            <p class="project-description">
+                                Implemented Brute Force, Rabin-Karp, Boyer-Moore & KMP algorithms to efficiently detect
+                                patterns in DNA sequences for mutation analysis.
+                            </p>
+                            <ul class="tech-list">
+                                <li>Java</li>
+                                <li>Algorithms</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/DNA-Sequence-Analysis" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Embedded Systems</span>
+                            <h3 class="project-name">Smart Home Gas Detection</h3>
+                            <p class="project-description">
+                                Safety system detecting gas leaks, triggering automatic window opening and alarms.
+                                Integrated with fire detection and smart locks.
+                            </p>
+                            <ul class="tech-list">
+                                <li>C Programming</li>
+                                <li>Tinkercad</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
+                                    target="_blank" class="link-external">Live Demo ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Frontend Web App</span>
+                            <h3 class="project-name">LuxuryCarsHub</h3>
+                            <p class="project-description">
+                                Responsive front-end web app showcasing luxury cars with interactive sections,
+                                single-page
+                                navigation, and simulated payment system.
+                            </p>
+                            <ul class="tech-list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item hidden-project reveal">
+                        <div class="project-info">
+                            <span class="project-category">Portfolio</span>
+                            <h3 class="project-name">Personal Portfolio</h3>
+                            <p class="project-description">
+                                The codebase for this portfolio, showcasing advanced CSS, JavaScript animations, clean
+                                architecture, and responsive design.
+                            </p>
+                            <ul class="tech-list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank"
+                                    class="link-source"><i class="fab fa-github"
+                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
+                                <a href="https://veeranji.vercel.app" target="_blank" class="link-external">Live
+                                    Deployment
+                                    ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="projects-footer" style="display: flex; justify-content: center; padding-top: 1.5rem;">
+                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="nav-box-btn">
+                        <i class="fab fa-github"></i> View more on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-resume" class="portfolio-view">
+        <div class="subpage-container">
+            <div class="framed-card" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <div class="page-top-bar">
+                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
+                        aria-label="Back to Home">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h2 class="section-center-title">Resume</h2>
+                </div>
+
+                <div class="resume-actions" style="justify-content: center; margin-bottom: 2rem;">
+                    <a href="Uppara_Veeranjaneyulu_Resume.pdf" download class="btn-primary">
+                        <i class="fas fa-download" style="margin-right: 0.4rem;"></i> Download Resume
+                    </a>
+                    <a href="Uppara_Veeranjaneyulu_Resume.pdf" target="_blank" class="btn-secondary">
+                        <i class="fas fa-external-link-alt" style="margin-right: 0.4rem;"></i> View Document
+                    </a>
+                </div>
+                <div
+                    style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.3); height: 750px;">
+                    <iframe src="Uppara_Veeranjaneyulu_Resume.pdf" width="100%" height="100%"
+                        style="border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-contact" class="portfolio-view">
+        <div class="subpage-container">
+            <div class="framed-card contact-ks-frame">
+                <div class="page-top-bar contact-top-bar">
+                    <div class="contact-header-left">
+                        <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
+                            aria-label="Back to Home">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <h2 class="section-center-title">Contact Me</h2>
+                    </div>
+
+                    <div class="contact-social-top">
+                        <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-box-btn"
+                            title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
+                            class="social-box-btn" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:uupparaveeranji@gmail.com" class="social-box-btn" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" class="social-box-btn"
+                            title="LeetCode">
+                            <i class="fas fa-code"></i>
                         </a>
                     </div>
                 </div>
-                <div class="hero-image reveal">
-                    <div class="hero-img-wrapper">
-                        <div class="hero-img-inner">
-                            <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" draggable="false">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Profile</h2>
-                <p class="section-meta">01 / Overview</p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-bio reveal">
-                    <p class="lead-text">
-                        Currently pursuing a B.Tech in Computer Science & Engineering at Amrita Vishwa Vidyapeetham, I
-                        blend academic rigor with practical, production-level engineering.
-                    </p>
-                    <p>
-                        My expertise spans the complete software lifecycle—from developing robust backend microservices
-                        and designing elegant frontend interfaces, to deploying machine learning models and analyzing
-                        complex datasets. I approach engineering as a craft, focusing on clean architecture, performance
-                        optimization, and seamless user experiences.
-                    </p>
-                    <div class="social-links-inline">
-                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"><i
-                                class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="mailto:uupparaveeranji@gmail.com"><i class="fas fa-envelope"></i>
-                            uupparaveeranji@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="education-timeline reveal">
-                    <h3 class="timeline-title">Education</h3>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 – 2027</div>
-                        <h4 class="timeline-degree">B.Tech – Computer Science & Engineering</h4>
-                        <p class="timeline-inst">Amrita Vishwa Vidyapeetham, Coimbatore</p>
-                        <p class="timeline-grade">CGPA: 7.45</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2021 – 2023</div>
-                        <h4 class="timeline-degree">Higher Secondary – Class XII</h4>
-                        <p class="timeline-inst">Narayana Junior College</p>
-                        <p class="timeline-grade">Score: 98.2%</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2021</div>
-                        <h4 class="timeline-degree">Secondary Education – Class X</h4>
-                        <p class="timeline-inst">Narayana E.M High School</p>
-                        <p class="timeline-grade">Score: 100%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="section-padding dark-surface">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Selected Work</h2>
-                <p class="section-meta">02 / Engineering</p>
-            </div>
-
-            <div class="projects-list">
-
-                <!-- 1. Polyverse -->
-                <div class="project-item reveal">
-                    <div class="project-info">
-                        <span class="project-category">Federated Social Network</span>
-                        <h3 class="project-name">Polyverse</h3>
-                        <p class="project-description">
-                            A federated social network built on ActivityPub, featuring decentralized identity (DID),
-                            cryptographic key management, and data autonomy.
-                        </p>
-                        <ul class="tech-list">
-                            <li>SvelteKit 5</li>
-                            <li>Fedify</li>
-                            <li>Neon PostgreSQL</li>
-                            <li>TailwindCSS 4</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://polyverse-pp.vercel.app" target="_blank" class="link-external">Live
-                                Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. CraveQuick -->
-                <div class="project-item reveal">
-                    <div class="project-info">
-                        <span class="project-category">Full Stack Architecture</span>
-                        <h3 class="project-name">CraveQuick</h3>
-                        <p class="project-description">
-                            Architected a high-performance food delivery ecosystem featuring a multi-role architecture
-                            (Consumer, Partner, Admin). Implemented real-time geospatial tracking via Socket.io, secure
-                            payment processing with Razorpay, and a highly responsive React frontend.
-                        </p>
-                        <ul class="tech-list">
-                            <li>React 19</li>
-                            <li>Node.js</li>
-                            <li>MongoDB</li>
-                            <li>Socket.io</li>
-                            <li>Razorpay</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://cravequick.vercel.app/" target="_blank" class="link-external">Live
-                                Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. GeoGuide -->
-                <div class="project-item reveal">
-                    <div class="project-info">
-                        <span class="project-category">Full Stack & AI</span>
-                        <h3 class="project-name">GeoGuide – Smart Travel Companion</h3>
-                        <p class="project-description">
-                            Smart travel assistant with real-time weather, navigation, AI-powered travel insights, and
-                            multilingual support. Built during a hackathon.
-                        </p>
-                        <ul class="tech-list">
-                            <li>React</li>
-                            <li>MongoDB</li>
-                            <li>Gemini API</li>
-                            <li>Firebase</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://geoguidehackathon.vercel.app/" target="_blank" class="link-external">Live
-                                Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Secure Exam Portal -->
-                <div class="project-item reveal">
-                    <div class="project-info">
-                        <span class="project-category">Security & Backend</span>
-                        <h3 class="project-name">Secure Exam Portal</h3>
-                        <p class="project-description">
-                            A web application for secure online examinations with role-based access control, data
-                            encryption via Fernet, and integrity verification.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Python (Flask)</li>
-                            <li>SQLite</li>
-                            <li>Cryptography</li>
-                            <li>Bcrypt</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="view-more-container reveal" id="viewMoreContainer"
-                    style="display: flex; justify-content: center; padding: 1rem 0;">
-                    <button id="viewMoreBtn" class="btn-primary">View More</button>
-                </div>
-
-                <!-- 5. Task Manager App -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Mobile App & AI</span>
-                        <h3 class="project-name">Task Manager App</h3>
-                        <p class="project-description">
-                            A comprehensive Flutter application with cloud sync, offline SQLite support, Google ML Kit
-                            AI integration, and biometric security.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>SQLite</li>
-                            <li>Provider</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/task-manager-flutter-app" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank"
-                                class="link-external">Live Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. MERN ThinkBoard -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Backend & Infrastructure</span>
-                        <h3 class="project-name">ThinkBoard MERN API</h3>
-                        <p class="project-description">
-                            Designed a resilient RESTful API for a note-taking application. Integrated Upstash Redis for
-                            distributed rate limiting to ensure high availability.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Express.js</li>
-                            <li>Node.js</li>
-                            <li>MongoDB</li>
-                            <li>Redis</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. AI Fusion -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">AI Integration & SaaS</span>
-                        <h3 class="project-name">AI Fusion</h3>
-                        <p class="project-description">
-                            Developed a production-ready SaaS platform enabling seamless interactions with multiple LLMs
-                            including GPT, Gemini, and Claude.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Next.js</li>
-                            <li>Firebase</li>
-                            <li>Clerk Auth</li>
-                            <li>LLM APIs</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. TrendPulse Analytics -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Data Engineering</span>
-                        <h3 class="project-name">TrendPulse Analytics</h3>
-                        <p class="project-description">
-                            Built a sophisticated data-driven system to track influencer engagement metrics. Implemented
-                            algorithms to calculate dynamic marketing scores.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Python</li>
-                            <li>Data Structures</li>
-                            <li>Statistical Analysis</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. CineHub -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Frontend & API</span>
-                        <h3 class="project-name">CineHub</h3>
-                        <p class="project-description">
-                            Movie & TV discovery platform powered by TMDB API with search, trending titles, and
-                            watchlist management.
-                        </p>
-                        <ul class="tech-list">
-                            <li>React</li>
-                            <li>Tailwind CSS</li>
-                            <li>TMDB API</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://cinehubs.netlify.app/" target="_blank" class="link-external">Live
-                                Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10. E-Commerce App -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Frontend App</span>
-                        <h3 class="project-name">E-Commerce App</h3>
-                        <p class="project-description">
-                            Responsive e-commerce platform featuring product browsing, search, cart management, and a
-                            demo checkout flow.
-                        </p>
-                        <ul class="tech-list">
-                            <li>React</li>
-                            <li>Vite</li>
-                            <li>Tailwind CSS</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank" class="link-external">Live
-                                Deployment ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 11. DNA Sequence Analysis -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Algorithm & Data Structures</span>
-                        <h3 class="project-name">DNA Sequence Analysis</h3>
-                        <p class="project-description">
-                            Implemented Brute Force, Rabin-Karp, Boyer-Moore & KMP algorithms to efficiently detect
-                            patterns in DNA sequences for mutation analysis.
-                        </p>
-                        <ul class="tech-list">
-                            <li>Java</li>
-                            <li>Algorithms</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/DNA-Sequence-Analysis" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
-                                GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 12. Smart Home Gas Detection -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Embedded Systems</span>
-                        <h3 class="project-name">Smart Home Gas Detection</h3>
-                        <p class="project-description">
-                            Safety system detecting gas leaks, triggering automatic window opening and alarms.
-                            Integrated with fire detection and smart locks.
-                        </p>
-                        <ul class="tech-list">
-                            <li>C Programming</li>
-                            <li>Tinkercad</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
-                                target="_blank" class="link-external">Live Demo ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 13. LuxuryCarsHub -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Frontend Web App</span>
-                        <h3 class="project-name">LuxuryCarsHub</h3>
-                        <p class="project-description">
-                            Responsive front-end web app showcasing luxury cars with interactive sections, single-page
-                            navigation, and simulated payment system.
-                        </p>
-                        <ul class="tech-list">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 14. Personal Portfolio -->
-                <div class="project-item hidden-project reveal">
-                    <div class="project-info">
-                        <span class="project-category">Portfolio</span>
-                        <h3 class="project-name">Personal Portfolio</h3>
-                        <p class="project-description">
-                            The codebase for this portfolio, showcasing advanced CSS, JavaScript animations, clean
-                            architecture, and responsive design.
-                        </p>
-                        <ul class="tech-list">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank"
-                                class="link-source"><i class="fab fa-github"
-                                    style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            <a href="https://veeranji.vercel.app" target="_blank" class="link-external">Live Deployment
-                                ↗</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="projects-footer reveal" style="display: flex; justify-content: center; padding-top: 0.5rem;">
-                <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="btn-secondary">View more on
-                    Github</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="section-padding">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Core Competencies</h2>
-                <p class="section-meta">03 / Expertise</p>
-            </div>
-
-            <div class="skills-layout">
-                <div class="skill-block reveal">
-                    <h3>Software Engineering</h3>
-                    <p class="skill-desc">Building robust, scalable applications from database to user interface.</p>
-                    <div class="skill-tags">
-                        <span>Python</span>
-                        <span>Java</span>
-                        <span>JavaScript</span>
-                        <span>C</span>
-                        <span>React.js</span>
-                        <span>Next.js</span>
-                        <span>Node.js</span>
-                        <span>Express.js</span>
-                    </div>
-                </div>
-
-                <div class="skill-block reveal">
-                    <h3>Data Architecture & Analytics</h3>
-                    <p class="skill-desc">Extracting insights and modeling complex data structures.</p>
-                    <div class="skill-tags">
-                        <span>MySQL</span>
-                        <span>MongoDB</span>
-                        <span>Pandas</span>
-                        <span>NumPy</span>
-                        <span>Power BI</span>
-                        <span>Statistical Analysis</span>
-                        <span>Redis</span>
-                    </div>
-                </div>
-
-                <div class="skill-block reveal">
-                    <h3>Infrastructure & Tooling</h3>
-                    <p class="skill-desc">Modern deployment, version control, and development environments.</p>
-                    <div class="skill-tags">
-                        <span>Git / GitHub</span>
-                        <span>Docker</span>
-                        <span>Linux</span>
-                        <span>Firebase</span>
-                        <span>Postman</span>
-                        <span>Socket.io</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RESUME & CONTACT SECTION -->
-    <section id="resume" class="section-padding dark-surface">
-        <div class="container">
-            <div class="contact-resume-grid">
-
-                <!-- Resume Side -->
-                <div class="resume-side reveal">
-                    <h2 class="section-title">Resume</h2>
-                    <p class="section-meta">04 / Documentation</p>
-                    <p class="contact-text">
-                        A comprehensive overview of my academic background, technical skills, and engineering projects.
-                        Available for download in PDF format.
-                    </p>
-                    <div class="resume-actions">
-                        <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" download class="btn-primary">Download
-                            Resume</a>
-                        <a href="Uppara_Veeranjaneyulu_Resume_update1.pdf" target="_blank" class="btn-secondary">View
-                            Document</a>
-                    </div>
-                </div>
-
-                <!-- Contact Side -->
-                <div class="contact-side reveal" id="contact">
-                    <h2 class="section-title">Initiate Contact</h2>
-                    <p class="section-meta">05 / Connect</p>
-
-                    <form id="contactForm" class="minimal-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Email" required>
-                            </div>
-                        </div>
+                <div class="contact-msg-card">
+                    <h3 class="contact-msg-title">Send a Message</h3>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <label class="field-label" for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="contact-form-control"
+                                placeholder="Enter your name" required>
                         </div>
+
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                            <label class="field-label" for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="contact-form-control"
+                                placeholder="Enter your email address" required>
                         </div>
-                        <button type="submit" class="btn-primary w-full" id="submitBtn">Transmit Message</button>
-                        <div id="formMessage" class="form-msg"></div>
+
+                        <div class="form-group">
+                            <label class="field-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="contact-form-control" rows="3"
+                                placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <div class="deliver-btn-wrap">
+                            <button type="submit" class="btn-primary deliver-btn" id="submitBtn">
+                                Send Message <i class="fas fa-paper-plane" style="margin-left: 0.4rem;"></i>
+                            </button>
+                        </div>
+                        <div id="formMessage" class="form-msg" style="text-align: center; margin-top: 0.6rem;"></div>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <a href="#hero" class="logo">UV.</a>
-                    <p>&copy; 2025. Trust the process.</p>
-                </div>
-                <div class="footer-right">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank"><i class="fab fa-github"
-                            style="margin-right: 0.3rem;"></i>GitHub</a>
-                    <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"><i
-                            class="fab fa-linkedin" style="margin-right: 0.3rem;"></i>LinkedIn</a>
-                    <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank"><i class="fas fa-code"
-                            style="margin-right: 0.3rem;"></i>LeetCode</a>
-                    <a href="mailto:uupparaveeranji@gmail.com"><i class="fas fa-envelope"
-                            style="margin-right: 0.3rem;"></i>Email</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating Draggable & Resizable Developer CLI Terminal -->
-    <div class="cli-modal" id="cliModal" aria-hidden="true" role="dialog" aria-label="Developer Terminal">
-        <div class="cli-window" id="cliWindow">
-            <div class="cli-header" id="cliHeader">
-                <div class="cli-dots">
-                    <span class="dot red" id="cliCloseDot" title="Close Terminal"></span>
-                    <span class="dot yellow" id="cliMinDot" title="Reset Position & Size"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="cli-title"><i class="fas fa-terminal"></i> uv@portfolio:~ <span class="drag-hint">(drag to
-                        move)</span></div>
-                <button type="button" class="cli-close-btn" id="cliCloseBtn"
-                    aria-label="Close terminal">&times;</button>
-            </div>
-            <div class="cli-body" id="cliBody">
-                <div class="cli-output" id="cliOutput">
-                    <div class="cli-line intro">Welcome to <span class="highlight">UV Developer Terminal v1.0</span>
-                    </div>
-                    <div class="cli-line intro">Type <span class="cmd-text">help</span> to view available commands.
-                    </div>
-                    <div class="cli-line divider">--------------------------------------------------</div>
-                </div>
-                <div class="cli-input-line">
-                    <span class="cli-prompt-user">uv@portfolio:~$</span>
-                    <input type="text" id="cliInput" class="cli-input" autocomplete="off" spellcheck="false"
-                        placeholder="Type a command (e.g. help, projects, skills)...">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- UV-AI Assistant Floating Trigger -->
-    <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Ask UV-AI Assistant"
-        title="Ask UV-AI Assistant">
-        <span class="ai-btn-text">Ask AI</span>
-        <span class="ai-online-pulse"></span>
-    </button>
-
-    <!-- UV-AI Chat Drawer -->
-    <div class="ai-chat-window" id="aiChatWindow" aria-hidden="true">
-        <div class="ai-chat-header">
-            <div class="ai-header-info">
-                <div class="ai-avatar">UV</div>
-                <div>
-                    <h4 class="ai-title">UV-AI Assistant</h4>
-                    <span class="ai-status"><span class="status-dot"></span> Online • Instant Answers</span>
-                </div>
-            </div>
-            <div class="ai-header-actions">
-                <button type="button" class="ai-action-btn" id="aiClearBtn" title="Clear Chat"><i
-                        class="fas fa-trash-alt"></i></button>
-                <button type="button" class="ai-action-btn" id="aiCloseBtn" title="Close Chat">&times;</button>
-            </div>
-        </div>
-        <div class="ai-chat-body" id="aiChatBody">
-            <div class="ai-msg assistant">
-                <div class="msg-bubble">
-                    Hi! I'm <strong>UV-AI</strong>, Uppara's portfolio assistant. Ask me anything about his projects,
-                    skills, CGPA, or availability!
-                </div>
-            </div>
-        </div>
-        <div class="ai-prompt-chips">
-            <button type="button" class="ai-chip" data-prompt="What is Uppara's CGPA and degree?">CGPA & Degree</button>
-            <button type="button" class="ai-chip" data-prompt="What are his top projects?">Top Projects</button>
-            <button type="button" class="ai-chip" data-prompt="What is his tech stack?">Tech Stack</button>
-            <button type="button" class="ai-chip"
-                data-prompt="Is he available for internships or full-time roles?">Availability</button>
-            <button type="button" class="ai-chip" data-prompt="How can I contact Uppara?">Contact Info</button>
-        </div>
-        <div class="ai-chat-input-area">
-            <input type="text" id="aiInput" class="ai-input" placeholder="Ask AI about Uppara..." autocomplete="off">
-            <button type="button" id="aiSendBtn" class="ai-send-btn" aria-label="Send Message"><i
-                    class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>

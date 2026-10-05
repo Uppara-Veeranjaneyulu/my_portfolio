@@ -1,8 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="128" fill="#09090b"/>
-  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
-  <g transform="translate(0, 10)">
-    <text x="225" y="315" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="210" font-weight="800" fill="#ffffff" letter-spacing="-8" text-anchor="middle">UV</text>
-    <circle cx="380" cy="295" r="24" fill="#ffffff"/>
-  </g>
+  <defs>
+    <linearGradient id="faviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#faviconGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="116" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="8"/>
+  <!-- Modern minimalist code glyph: < / > -->
+  <path d="M170 176 L90 256 L170 336" fill="none" stroke="#ffffff" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M342 176 L422 256 L342 336" fill="none" stroke="#ffffff" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="285" y1="160" x2="227" y2="352" stroke="#ffffff" stroke-width="38" stroke-linecap="round"/>
 </svg>
