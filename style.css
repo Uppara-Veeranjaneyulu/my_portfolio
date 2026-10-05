@@ -954,32 +954,39 @@ nav {
     font-size: 0.88rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
+    text-align: left;
 }
 
 .contact-form-control {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
     background: var(--surface-color);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--text-primary);
     font-family: inherit;
-    font-size: 0.92rem;
-    margin-bottom: clamp(0.65rem, 1.2vh, 0.95rem);
+    font-size: 0.95rem;
     outline: none;
     box-sizing: border-box;
-    transition: border-color var(--t-fast);
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.contact-form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
 }
 
 .contact-form-control:focus {
     border-color: var(--text-primary);
+    box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 textarea.contact-form-control {
-    resize: none;
-    height: clamp(85px, 12vh, 115px);
-    margin-bottom: clamp(0.65rem, 1.2vh, 0.95rem);
+    resize: vertical;
+    min-height: 105px;
+    height: 115px;
+    line-height: 1.5;
 }
 
 .deliver-btn-wrap {
@@ -1993,60 +2000,78 @@ body.contact-mode .contact-ks-frame {
     body.landing-mode {
         height: auto;
         min-height: 100vh;
+        min-height: 100dvh;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 2.2rem 1.25rem;
+        padding: 1rem 0.75rem;
+        box-sizing: border-box;
     }
 
     body.landing-mode #view-landing {
-        height: auto;
+        height: 100%;
         width: 100%;
-        display: block !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
     }
 
     body.landing-mode .hero-container {
         width: 100%;
-        height: auto;
-        max-width: 100%;
-        max-height: none;
+        height: 100%;
+        max-width: 640px;
+        margin: auto;
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     body.landing-mode .hero-container .framed-card {
+        width: 100%;
         height: auto;
-        max-height: none;
-        padding: 2.5rem 1.6rem;
-        border-radius: 24px;
+        min-height: calc(100vh - 2rem);
+        min-height: calc(100dvh - 2rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2.8rem 1.6rem;
+        border-radius: 28px;
+        box-sizing: border-box;
     }
 
     body.landing-mode .hero-frame-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: center !important;
         text-align: center !important;
-        gap: 1.6rem !important;
+        gap: 1.8rem !important;
         width: 100%;
+        margin: auto 0;
     }
 
-    /* TAKE PHOTO TO TOP IN MOBILE VIEW */
+    /* TAKE PHOTO TO TOP IN MOBILE VIEW - EXPANDED */
     body.landing-mode .hero-photo-wrapper {
         order: 1 !important;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 0 0.5rem 0;
+        margin: 0;
     }
 
     body.landing-mode .hero-photo-card {
-        width: min(220px, 48vw);
-        height: min(220px, 48vw);
-        max-width: 240px;
-        max-height: 240px;
+        width: clamp(230px, 58vw, 300px);
+        height: clamp(230px, 58vw, 300px);
+        max-width: 300px;
+        max-height: 300px;
         margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
     }
 
     /* CONTENT BELOW PHOTO IN MOBILE VIEW */
@@ -2060,8 +2085,8 @@ body.contact-mode .contact-ks-frame {
     }
 
     .hero-main-title {
-        font-size: clamp(1.7rem, 6.5vw, 2.6rem);
-        line-height: 1.1;
+        font-size: clamp(2rem, 7.8vw, 3rem);
+        line-height: 1.08;
         margin-bottom: 0.75rem;
         text-align: center;
     }
@@ -2074,17 +2099,17 @@ body.contact-mode .contact-ks-frame {
     }
 
     .hero-tagline {
-        font-size: 1.1rem;
-        margin-bottom: 1.6rem;
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        margin-bottom: 2rem;
         text-align: center;
     }
 
     .hero-nav-pills {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
+        gap: 0.85rem;
         width: 100%;
-        max-width: 320px;
+        max-width: 380px;
         margin: 0 auto;
         justify-content: center;
     }
@@ -2092,11 +2117,12 @@ body.contact-mode .contact-ks-frame {
     .nav-box-btn,
     .nav-pill-btn {
         width: 100%;
-        padding: 0.75rem 0.6rem;
-        font-size: 0.92rem;
+        padding: 0.95rem 1rem;
+        font-size: 1.02rem;
         font-weight: 600;
         text-align: center;
         justify-content: center;
+        border-radius: 12px !important;
     }
 
     body.contact-mode {
@@ -2124,6 +2150,46 @@ body.contact-mode .contact-ks-frame {
         max-height: none;
         padding: 2.2rem 1.8rem;
         border-radius: 24px;
+    }
+
+    body.contact-mode .page-top-bar.contact-top-bar,
+    .page-top-bar.contact-top-bar,
+    .contact-top-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+        margin-bottom: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .contact-header-left {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+    }
+
+    .contact-header-left .section-center-title {
+        font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+    }
+
+    .contact-social-top {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+        padding-top: 0.85rem !important;
+        border-top: 1px solid var(--border) !important;
+    }
+
+    .contact-social-top .social-box-btn {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
     }
 
     .subpage-container {
@@ -2220,13 +2286,45 @@ body.contact-mode .contact-ks-frame {
     }
 
     .contact-top-bar {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    .contact-header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        width: 100%;
+    }
+
+    .contact-header-left .section-center-title {
+        font-size: clamp(1.5rem, 5.5vw, 1.9rem);
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .contact-social-top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.85rem;
+        width: 100%;
+        padding-top: 0.85rem;
+        border-top: 1px solid var(--border);
+    }
+
+    .contact-social-top .social-box-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
 
     .contact-msg-card {
-        padding: 1.5rem 1.2rem;
+        padding: 1.5rem 1.25rem;
         border-radius: 18px;
     }
 
@@ -2238,43 +2336,46 @@ body.contact-mode .contact-ks-frame {
 /* 4. Smartphones (<= 520px) */
 @media (max-width: 520px) {
     body.landing-mode {
-        padding: 1.25rem 0.65rem;
+        padding: 0.75rem 0.5rem;
     }
 
     body.landing-mode .hero-container .framed-card {
-        padding: 1.8rem 1rem;
-        border-radius: 18px;
+        min-height: calc(100vh - 1.5rem);
+        min-height: calc(100dvh - 1.5rem);
+        padding: 2.2rem 1.25rem;
+        border-radius: 24px;
     }
 
     body.landing-mode .hero-frame-grid {
-        gap: 1.25rem !important;
+        gap: 1.5rem !important;
     }
 
     body.landing-mode .hero-photo-card {
-        width: min(180px, 48vw);
-        height: min(180px, 48vw);
+        width: clamp(210px, 56vw, 270px);
+        height: clamp(210px, 56vw, 270px);
     }
 
     .hero-main-title {
-        font-size: clamp(1.45rem, 7vw, 2.1rem);
-        line-height: 1.1;
-        margin-bottom: 0.6rem;
+        font-size: clamp(1.85rem, 8vw, 2.5rem);
+        line-height: 1.08;
+        margin-bottom: 0.65rem;
     }
 
     .hero-tagline {
-        font-size: 1rem;
-        margin-bottom: 1.35rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.6rem;
     }
 
     .hero-nav-pills {
-        gap: 0.6rem;
-        max-width: 300px;
+        gap: 0.75rem;
+        max-width: 360px;
     }
 
     .nav-box-btn,
     .nav-pill-btn {
-        padding: 0.7rem 0.5rem;
-        font-size: 0.88rem;
+        padding: 0.9rem 0.85rem;
+        font-size: 0.98rem;
+        border-radius: 10px !important;
     }
 
     .subpage-container {
@@ -2349,39 +2450,94 @@ body.contact-mode .contact-ks-frame {
         height: 420px !important;
     }
 
+    body.contact-mode {
+        padding: 1rem 0.65rem;
+    }
+
+    body.contact-mode #view-contact .subpage-container {
+        width: 100%;
+        margin: 0.5rem auto 2rem auto;
+        padding: 0;
+    }
+
+    body.contact-mode .contact-ks-frame {
+        padding: 1.35rem 0.95rem;
+        border-radius: 18px;
+    }
+
     .contact-msg-card {
-        padding: 1.25rem 0.85rem;
+        padding: 1.25rem 0.9rem;
+        border-radius: 14px;
+    }
+
+    .contact-msg-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.95rem;
+    }
+
+    .field-label {
+        font-size: 0.84rem;
+        margin-bottom: 0.35rem;
     }
 
     .contact-form-control {
-        font-size: 0.88rem;
-        padding: 0.7rem 0.85rem;
+        font-size: 0.92rem;
+        padding: 0.75rem 0.85rem;
+        border-radius: 8px;
+    }
+
+    textarea.contact-form-control {
+        height: 100px;
+        min-height: 90px;
+    }
+
+    .deliver-btn-wrap {
+        margin-top: 0.5rem;
     }
 
     .deliver-btn {
         width: 100%;
         justify-content: center;
-        padding: 0.8rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
     }
 }
 
 /* 5. Small Mobile Devices (<= 360px) */
 @media (max-width: 360px) {
-    .hero-main-title {
-        font-size: 1.3rem;
-    }
-
-    .hero-tagline {
-        font-size: 0.9rem;
+    body.landing-mode .hero-container .framed-card {
+        padding: 1.8rem 0.85rem;
+        border-radius: 20px;
     }
 
     body.landing-mode .hero-photo-card {
-        width: 150px;
-        height: 150px;
+        width: 190px;
+        height: 190px;
+    }
+
+    .hero-main-title {
+        font-size: 1.65rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+        margin-bottom: 1.35rem;
     }
 
     .hero-nav-pills {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .nav-box-btn,
+    .nav-pill-btn {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.9rem;
     }
 
     .subpage-container .framed-card {
