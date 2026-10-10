@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Testing / QA Badge -->
+  <rect x="6" y="5" width="20" height="23" rx="2" fill="#edf2f7" stroke="#4a5568" stroke-width="1.5"/>
+  <rect x="11" y="3" width="10" height="4" rx="1" fill="#718096"/>
+  <line x1="10" y1="12" x2="22" y2="12" stroke="#cbd5e0" stroke-width="2"/>
+  <line x1="10" y1="17" x2="22" y2="17" stroke="#cbd5e0" stroke-width="2"/>
+  <circle cx="21" cy="22" r="6" fill="#38a169"/>
+  <path d="M 18.5 22 L 20.2 23.8 L 23.5 20" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <!-- Retro pixel brain / AI -->
+  <circle cx="6" cy="6" r="3" fill="#ff99bb"/>
+  <circle cx="10" cy="6" r="3" fill="#ff99bb"/>
+  <circle cx="5" cy="9" r="3" fill="#ff77aa"/>
+  <circle cx="11" cy="9" r="3" fill="#ff77aa"/>
+  <circle cx="7" cy="12" r="2" fill="#ff5588"/>
+  <circle cx="9" cy="12" r="2" fill="#ff5588"/>
+  <path d="M 4 6 Q 8 8 7 13" fill="none" stroke="#d04070" stroke-width="1"/>
+  <path d="M 12 6 Q 8 8 9 13" fill="none" stroke="#d04070" stroke-width="1"/>
+</svg>

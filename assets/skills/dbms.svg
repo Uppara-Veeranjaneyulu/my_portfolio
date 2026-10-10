@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- DBMS Server Database Tower -->
+  <rect x="5" y="4" width="22" height="7" rx="2" fill="#2b579a" stroke="#102b54" stroke-width="1.2"/>
+  <circle cx="9" cy="7.5" r="1.5" fill="#00ff66"/>
+  <circle cx="14" cy="7.5" r="1.5" fill="#ffaa00"/>
+  <rect x="5" y="13" width="22" height="7" rx="2" fill="#3664a8" stroke="#102b54" stroke-width="1.2"/>
+  <circle cx="9" cy="16.5" r="1.5" fill="#00ff66"/>
+  <circle cx="14" cy="16.5" r="1.5" fill="#ffaa00"/>
+  <rect x="5" y="22" width="22" height="7" rx="2" fill="#1b3f73" stroke="#102b54" stroke-width="1.2"/>
+  <circle cx="9" cy="25.5" r="1.5" fill="#00ff66"/>
+  <circle cx="14" cy="25.5" r="1.5" fill="#ffaa00"/>
+</svg>

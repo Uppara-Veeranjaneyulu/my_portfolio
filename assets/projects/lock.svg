@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <!-- Retro pixel gold padlock -->
+  <path d="M5 7 V4 A3 3 0 0 1 11 4 V7" fill="none" stroke="#71717a" stroke-width="2"/>
+  <rect x="3" y="7" width="10" height="8" fill="#eab308"/>
+  <rect x="7" y="9" width="2" height="3" fill="#000000"/>
+</svg>

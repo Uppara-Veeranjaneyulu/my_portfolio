@@ -1,663 +1,1360 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Uppara Veeranjaneyulu – Full Stack Engineer & Data Analyst. Portfolio of professional work, architecture, and engineering.">
+    <meta name="description" content="Uppara Veeranjaneyulu – Student, Developer, Learner.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Uppara Veeranjaneyulu</title>
-    <script>
-        (function () {
-            function getDayNightTheme() {
-                const hour = new Date().getHours();
-                return (hour >= 6 && hour < 18) ? 'light' : 'dark';
-            }
-            document.documentElement.setAttribute('data-theme', getDayNightTheme());
-        })();
-    </script>
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="alternate icon" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
-
+    <link rel="icon" type="image/svg+xml" href="assets/retro-globe.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;800;900&family=Oxanium:wght@700;800&family=Righteous&family=Share+Tech+Mono&family=Space+Grotesk:wght@600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
-    <main id="view-landing" class="portfolio-view active">
-        <div class="hero-container">
-            <div class="framed-card hero-frame-grid">
-                <div class="hero-photo-wrapper">
-                    <div class="hero-photo-card">
-                        <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" draggable="false">
-                    </div>
+    <!-- Retro Windows Desktop Window Container (1024x768 composition) -->
+    <div class="retro-window-container" id="retroApp">
+
+
+        <!-- Top Header Banner -->
+        <div class="retro-header-banner">
+            <div class="banner-bg-graphics">
+                <img src="assets/header-sky-globe.svg" alt="Sky and Globe Banner" draggable="false">
+            </div>
+
+            <div class="banner-content">
+                <div class="banner-pc-graphic">
+                    <img src="assets/retro-laptop.svg" alt="Retro Laptop" draggable="false">
                 </div>
-                <div class="hero-content">
-                    <h1 class="hero-main-title">
-                        <span class="title-first">UPPARA</span>
-                        <span class="title-last">VEERANJANEYULU</span>
+                <div class="banner-text-group">
+                    <h1 class="banner-main-title">
+                        <span class="title-first">Uppara Veeranjaneyulu</span>
                     </h1>
-                    <p class="hero-tagline">
+                    <p class="banner-subtitle">
                         Software Engineer
                     </p>
-                    <div class="hero-nav-pills">
-                        <a href="/resume" data-route="resume" class="nav-box-btn btn-highlight">Resume</a>
-                        <a href="/about" data-route="about" class="nav-box-btn">About</a>
-                        <a href="/projects" data-route="projects" class="nav-box-btn">Projects</a>
-                        <a href="/contact" data-route="contact" class="nav-box-btn">Contact</a>
-                    </div>
                 </div>
             </div>
+
+            <div class="banner-welcome-note">
+                Welcome to<br>my world!
+            </div>
         </div>
-    </main>
 
-    <section id="view-about" class="portfolio-view">
-        <div class="subpage-container">
-            <div class="framed-card">
-                <div class="page-top-bar">
-                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
-                        aria-label="Back to Home">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    <h2 class="section-center-title">About Me</h2>
-                </div>
-                
-                <div class="about-ks-grid">
-                    <div class="about-profile-card">
-                        <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu" class="about-avatar-img">
+        <!-- Main Body: Sidebar + Content Area -->
+        <div class="retro-main-layout">
 
-                        <div class="about-social-circles">
-                            <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-box-btn"
-                                title="GitHub">
-                                <i class="fab fa-github"></i>
+            <!-- Left Sidebar Navigation -->
+            <aside class="retro-sidebar">
+                <nav class="sidebar-nav-panel">
+                    <ul class="nav-links-list">
+                        <li>
+                            <a href="#home" class="nav-link-item active" data-route="landing" id="nav-home">
+                                <span class="nav-icon"><img src="assets/nav/home.svg" alt="Home"></span>
+                                <span>Home</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
-                                class="social-box-btn" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
+                        </li>
+                        <li>
+                            <a href="#about" class="nav-link-item" data-route="about" id="nav-about">
+                                <span class="nav-icon"><img src="assets/nav/user.svg" alt="About"></span>
+                                <span>About Me</span>
                             </a>
-                            <a href="mailto:uupparaveeranji@gmail.com" class="social-box-btn" title="Email">
-                                <i class="fas fa-envelope"></i>
+                        </li>
+                        <li>
+                            <a href="#education" class="nav-link-item" data-route="education" id="nav-education">
+                                <span class="nav-icon"><img src="assets/nav/education.svg" alt="Education"></span>
+                                <span>Education</span>
                             </a>
-                            <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" class="social-box-btn"
-                                title="LeetCode">
-                                <i class="fas fa-code"></i>
+                        </li>
+                        <li>
+                            <a href="#projects" class="nav-link-item" data-route="projects" id="nav-projects">
+                                <span class="nav-icon"><img src="assets/nav/folder.svg" alt="Projects"></span>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#skills" class="nav-link-item" data-route="skills" id="nav-skills">
+                                <span class="nav-icon"><img src="assets/nav/gear.svg" alt="Skills"></span>
+                                <span>Skills</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#gallery" class="nav-link-item" data-route="gallery" id="nav-gallery">
+                                <span class="nav-icon"><img src="assets/nav/camera.svg" alt="Gallery"></span>
+                                <span>Gallery</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#resume" class="nav-link-item" data-route="resume" id="nav-resume">
+                                <span class="nav-icon"><img src="assets/nav/doc.svg" alt="Resume"></span>
+                                <span>Resume</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link-item" data-route="contact" id="nav-contact">
+                                <span class="nav-icon"><img src="assets/nav/mail.svg" alt="Contact"></span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Retro Visitor Counter -->
+                <div class="sidebar-counter-panel">
+                    <div class="counter-title">Unique Visitors</div>
+                    <div class="counter-led-display">
+                        <span class="counter-digits" id="visitorCounter">0000000</span>
+                    </div>
+                    <div class="counter-subtext">Thanks for visiting!</div>
+                    <div class="counter-globe">
+                        <img src="assets/retro-globe.svg" alt="Globe">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="retro-content-area">
+
+                <!-- Notice Bar Aligned with Content Column -->
+                <div class="retro-ticker-bar">
+                    <img src="assets/nav/doc.svg" class="ticker-icon" alt="Doc">
+                    <div class="ticker-content">
+                        <a href="#home" class="ticker-link" data-route="landing">Welcome to My Personal Web Page!</a>
+                    </div>
+                </div>
+
+                <!-- 1. HOME VIEW (6 PANELS GRID MATCHING MOCKUP) -->
+                <div class="content-view active portfolio-view" id="view-landing">
+                    <div class="retro-panels-grid">
+
+                        <!-- Panel 1: About Me -->
+                        <section class="retro-panel">
+                            <div class="panel-titlebar">
+                                <div class="panel-titlebar-title">
+                                    <img src="assets/projects/globe.svg" class="panel-titlebar-icon" alt="Globe">
+                                    <span>About Me</span>
+                                </div>
+                                <div class="window-controls">
+                                    <button class="win-btn">_</button>
+                                    <button class="win-btn">□</button>
+                                    <button class="win-btn close">×</button>
+                                </div>
+                            </div>
+                            <div class="panel-body about-panel-body">
+                                <div class="about-photo-frame">
+                                    <img src="Profile-1.jpeg" alt="Veeranji">
+                                </div>
+                                <div class="about-text-content">
+                                    <div class="about-greeting">
+                                        Hi! I'm <span class="author-name">Veeranji</span> 👋
+                                    </div>
+                                    <p class="about-bio">
+                                        A Computer Science student who loves building things with code, exploring new
+                                        technologies, and learning every day.
+                                    </p>
+                                    <div class="about-interests">
+                                        <strong>Interests:</strong> Web Development, AI/ML, Open Source, and Everything
+                                        Tech!
+                                    </div>
+                                    <div class="profile-links-row">
+                                        <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" rel="noopener noreferrer"
+                                            class="retro-badge-btn" title="GitHub">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/"
+                                            target="_blank" rel="noopener noreferrer" class="retro-badge-btn" title="LinkedIn">LinkedIn</a>
+                                        <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" rel="noopener noreferrer"
+                                            class="retro-badge-btn" title="LeetCode">
+                                            <img src="assets/nav/leetcode.svg" alt="LeetCode" width="12" height="12"
+                                                style="vertical-align: -2px;"> LeetCode
+                                        </a>
+                                        <a href="mailto:uupparaveeranji@gmail.com" class="retro-badge-btn"
+                                            title="Email">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Panel 2: My Journey -->
+                        <section class="retro-panel">
+                            <div class="panel-titlebar">
+                                <div class="panel-titlebar-title">
+                                    <span style="color: #ffaa00; font-size: 13px;">⭐</span>
+                                    <span>My Journey</span>
+                                </div>
+                                <div class="window-controls">
+                                    <button class="win-btn">_</button>
+                                    <button class="win-btn">□</button>
+                                    <button class="win-btn close">×</button>
+                                </div>
+                            </div>
+                            <div class="panel-body journey-panel-body">
+                                <ul class="journey-bullets-list">
+                                    <li>
+                                        <span class="green-bead"></span>
+                                        <span>Student at Amrita Vishwa Vidyapeetham</span>
+                                    </li>
+                                    <li>
+                                        <span class="green-bead"></span>
+                                        <span>Love solving problems</span>
+                                    </li>
+                                    <li>
+                                        <span class="green-bead"></span>
+                                        <span>Building projects</span>
+                                    </li>
+                                    <li>
+                                        <span class="green-bead"></span>
+                                        <span>Exploring new technologies</span>
+                                    </li>
+                                    <li>
+                                        <span class="green-bead"></span>
+                                        <span>Trying to be 1% better everyday</span>
+                                    </li>
+                                </ul>
+                                <div class="journey-pc-container">
+                                    <img src="assets/retro-pc.svg" alt="Retro PC">
+                                    <div class="journey-learn-note">Keep Learning...</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Panel 3: My Projects -->
+                        <section class="retro-panel">
+                            <div class="panel-titlebar">
+                                <div class="panel-titlebar-title">
+                                    <img src="assets/nav/folder.svg" class="panel-titlebar-icon" alt="Folder">
+                                    <span>My Projects</span>
+                                </div>
+                                <div class="window-controls">
+                                    <button class="win-btn">_</button>
+                                    <button class="win-btn">□</button>
+                                    <button class="win-btn close">×</button>
+                                </div>
+                            </div>
+                            <div class="panel-body projects-panel-body">
+                                <ul class="featured-projects-list">
+                                    <li class="project-entry">
+                                        <span class="project-entry-icon"><img src="assets/projects/network.svg"
+                                                alt="Network"></span>
+                                        <div>
+                                            <a href="https://polyverse-pp.vercel.app" target="_blank" rel="noopener noreferrer"
+                                                class="project-entry-title">Polyverse</a>
+                                            <span class="project-entry-desc">— Federated social network
+                                                (ActivityPub)</span>
+                                        </div>
+                                    </li>
+                                    <li class="project-entry">
+                                        <span class="project-entry-icon"><img src="assets/projects/food.svg"
+                                                alt="Food"></span>
+                                        <div>
+                                            <a href="https://cravequick.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                                class="project-entry-title">CraveQuick</a>
+                                            <span class="project-entry-desc">— Full stack food delivery web
+                                                application</span>
+                                        </div>
+                                    </li>
+                                    <li class="project-entry">
+                                        <span class="project-entry-icon"><img src="assets/projects/globe.svg"
+                                                alt="Globe"></span>
+                                        <div>
+                                            <a href="https://geoguidehackathon.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                                class="project-entry-title">GeoGuide</a>
+                                            <span class="project-entry-desc">— Smart AI travel companion platform</span>
+                                        </div>
+                                    </li>
+                                    <li class="project-entry">
+                                        <span class="project-entry-icon"><img src="assets/projects/lock.svg"
+                                                alt="Lock"></span>
+                                        <div>
+                                            <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal"
+                                                target="_blank" rel="noopener noreferrer" class="project-entry-title">Secure Exam Portal</a>
+                                            <span class="project-entry-desc">— Security &amp; cryptography web
+                                                application</span>
+                                        </div>
+                                    </li>
+                                    <li class="project-entry">
+                                        <span class="project-entry-icon"><img src="assets/projects/task.svg"
+                                                alt="Task"></span>
+                                        <div>
+                                            <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank" rel="noopener noreferrer"
+                                                class="project-entry-title">Task Manager App</a>
+                                            <span class="project-entry-desc">— Flutter app with cloud sync &amp;
+                                                AI</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="view-all-projects-link">
+                                    <a href="#projects" data-route="projects">View All Projects &gt;&gt;</a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Panel 4: Skills -->
+                        <section class="retro-panel">
+                            <div class="panel-titlebar">
+                                <div class="panel-titlebar-title">
+                                    <img src="assets/nav/gear.svg" class="panel-titlebar-icon" alt="Gear">
+                                    <span>Skills</span>
+                                </div>
+                                <div class="window-controls">
+                                    <button class="win-btn">_</button>
+                                    <button class="win-btn">□</button>
+                                    <button class="win-btn close">×</button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="skills-grid-container">
+                                    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Python Official Website">
+                                        <img src="assets/skills/python.svg" alt="Python">
+                                        <span>Python</span>
+                                    </a>
+                                    <a href="https://dev.java/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Java Official Documentation">
+                                        <img src="assets/skills/java.svg" alt="Java">
+                                        <span>Java</span>
+                                    </a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                                        rel="noopener noreferrer" class="skill-badge"
+                                        title="JavaScript MDN Documentation">
+                                        <img src="assets/skills/javascript.svg" alt="JavaScript">
+                                        <span>JavaScript</span>
+                                    </a>
+                                    <a href="https://react.dev/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="React Official Website">
+                                        <img src="assets/skills/react.svg" alt="React">
+                                        <span>React</span>
+                                    </a>
+                                    <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Node.js Official Website">
+                                        <img src="assets/skills/nodejs.svg" alt="Node.js">
+                                        <span>Node.js</span>
+                                    </a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                                        rel="noopener noreferrer" class="skill-badge" title="HTML5 MDN Documentation">
+                                        <img src="assets/skills/html.svg" alt="HTML5">
+                                        <span>HTML5</span>
+                                    </a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                                        rel="noopener noreferrer" class="skill-badge" title="CSS3 MDN Documentation">
+                                        <img src="assets/skills/css.svg" alt="CSS3">
+                                        <span>CSS3</span>
+                                    </a>
+                                    <a href="https://en.wikipedia.org/wiki/SQL" target="_blank"
+                                        rel="noopener noreferrer" class="skill-badge" title="SQL Documentation">
+                                        <img src="assets/skills/sql.svg" alt="SQL">
+                                        <span>SQL</span>
+                                    </a>
+                                    <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Git Official Website">
+                                        <img src="assets/skills/git.svg" alt="Git">
+                                        <span>Git</span>
+                                    </a>
+                                    <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Firebase Official Website">
+                                        <img src="assets/skills/firebase.svg" alt="Firebase">
+                                        <span>Firebase</span>
+                                    </a>
+                                    <a href="https://www.kernel.org/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Linux Official Kernel">
+                                        <img src="assets/skills/linux.svg" alt="Linux">
+                                        <span>Linux</span>
+                                    </a>
+                                    <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
+                                        class="skill-badge" title="Docker Official Website">
+                                        <img src="assets/skills/docker.svg" alt="Docker">
+                                        <span>Docker</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Panel 5: Contact Me -->
+                        <section class="retro-panel panel-span-full">
+                            <div class="panel-titlebar">
+                                <div class="panel-titlebar-title">
+                                    <img src="assets/nav/mail.svg" class="panel-titlebar-icon" alt="Mail">
+                                    <span>Contact Me</span>
+                                </div>
+                                <div class="window-controls">
+                                    <button class="win-btn">_</button>
+                                    <button class="win-btn">□</button>
+                                    <button class="win-btn close">×</button>
+                                </div>
+                            </div>
+                            <div class="panel-body contact-panel-body">
+                                <div class="contact-info-list">
+                                    <div class="contact-prompt">Feel free to reach out!</div>
+                                    <div class="contact-row">
+                                        <span class="contact-label">Email:</span>
+                                        <span class="contact-val">
+                                            <a href="mailto:uupparaveeranji@gmail.com">uupparaveeranji@gmail.com</a>
+                                        </span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <span class="contact-label">LinkedIn:</span>
+                                        <span class="contact-val">
+                                            <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/"
+                                                target="_blank" rel="noopener noreferrer">linkedin.com/in/uppara-veeranjaneyulu-44003728b</a>
+                                        </span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <span class="contact-label">GitHub:</span>
+                                        <span class="contact-val">
+                                            <a href="https://github.com/Uppara-Veeranjaneyulu"
+                                                target="_blank" rel="noopener noreferrer">github.com/Uppara-Veeranjaneyulu</a>
+                                        </span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <span class="contact-label">LeetCode:</span>
+                                        <span class="contact-val">
+                                            <a href="https://leetcode.com/u/Veeranji-Uppara/"
+                                                target="_blank" rel="noopener noreferrer">leetcode.com/u/Veeranji-Uppara</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="contact-mailbox-box" title="Click to send a message!" data-route="contact">
+                                    <img src="assets/retro-mailbox.svg" alt="Mailbox">
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+                <!-- 2. ABOUT ME SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-about">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/user.svg" alt="User" width="18" height="18">
+                                <span>About Uppara Veeranjaneyulu</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+                        <div class="about-panel-body" style="margin-bottom: 12px;">
+                            <div class="about-photo-frame"
+                                style="width: 140px; aspect-ratio: 624 / 935; flex-shrink: 0;">
+                                <img src="Profile-1.jpeg" alt="Uppara Veeranjaneyulu"
+                                    style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            </div>
+                            <div class="about-text-content">
+                                <p style="margin-bottom: 8px;">
+                                    I am a software engineer and data analyst driven by a desire to solve complex
+                                    problems.
+                                    Currently pursuing my B.Tech in Computer Science &amp; Engineering at <strong
+                                        style="color: #000088;">Amrita
+                                        Vishwa Vidyapeetham</strong> with a <strong style="color: #007700;">7.45
+                                        CGPA</strong>.
+                                </p>
+                                <p style="margin-bottom: 8px;">
+                                    My technical foundation is built on versatility. While I specialize in modern
+                                    full-stack web
+                                    architectures (<strong style="color: #003366;">React, SvelteKit, Node.js, Express,
+                                        TailwindCSS</strong>), I
+                                    possess deep competence in systems, algorithms, and backend engineering
+                                    (<strong style="color: #003366;">Java, Python, SQL, REST APIs, Redis,
+                                        Socket.io</strong>). I don't just
+                                    build websites—I engineer complete, reliable systems.
+                                </p>
+                                <p style="margin-bottom: 10px;">
+                                    Beyond standard development, I am deeply invested in intelligent systems, machine
+                                    learning, and data analytics (<strong style="color: #551a8b;">Pandas, NumPy,
+                                        Statistical Analysis</strong>).
+                                    Recognized as a <strong style="color: #b80000;">Top 5 Finalist</strong> out of 100+
+                                    teams in the GeoGuide
+                                    Agentic AI Hackathon.
+                                </p>
+                                <div class="about-social-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" rel="noopener noreferrer"
+                                        class="about-social-btn btn-github">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/"
+                                        target="_blank" rel="noopener noreferrer" class="about-social-btn btn-linkedin">
+                                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                                    </a>
+                                    <a href="mailto:uupparaveeranji@gmail.com" class="about-social-btn btn-email">
+                                        <i class="fas fa-envelope"></i> Email
+                                    </a>
+                                    <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" rel="noopener noreferrer"
+                                        class="about-social-btn btn-leetcode">
+                                        <i class="fas fa-code"></i> LeetCode
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. EDUCATION SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-education">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/education.svg" alt="Education" width="18" height="18">
+                                <span>Educational Background</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+                        <div class="education-grid">
+                            <div class="edu-card">
+                                <div class="edu-level">B.Tech CSE</div>
+                                <div class="edu-institution">Amrita Vishwa Vidyapeetham, Coimbatore</div>
+                                <div class="edu-score">CGPA: 7.45 (2023 – 2027)</div>
+                            </div>
+                            <div class="edu-card">
+                                <div class="edu-level">Class XII (Senior Secondary)</div>
+                                <div class="edu-institution">Narayana Junior College, Hyderabad</div>
+                                <div class="edu-score">Score: 98.2% (2021 – 2023)</div>
+                            </div>
+                            <div class="edu-card">
+                                <div class="edu-level">Class X (Secondary)</div>
+                                <div class="edu-institution">Narayana E.M High School</div>
+                                <div class="edu-score">Score: 100% (2020 – 2021)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ALL PROJECTS SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-projects">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/folder.svg" alt="Projects" width="18" height="18">
+                                <span>All Projects Archive</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+                        <div class="all-projects-catalog">
+
+                            <!-- Project 1: Polyverse -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://polyverse-pp.vercel.app" target="_blank" rel="noopener noreferrer">Polyverse</a>
+                                    <span class="project-catalog-badge">Federated Social Network</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    A federated social network built on ActivityPub, featuring decentralized identity
+                                    (DID), cryptographic key management, and data autonomy.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">SvelteKit 5</span>
+                                    <span class="project-tag">Fedify</span>
+                                    <span class="project-tag">Neon PostgreSQL</span>
+                                    <span class="project-tag">TailwindCSS 4</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://polyverse-pp.vercel.app" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: CraveQuick -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://cravequick.vercel.app/" target="_blank" rel="noopener noreferrer">CraveQuick</a>
+                                    <span class="project-catalog-badge">Full Stack Architecture</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Architected a high-performance food delivery ecosystem featuring a multi-role
+                                    architecture (Consumer, Partner, Admin). Implemented real-time geospatial tracking
+                                    via Socket.io, secure payment processing with Razorpay, and a highly responsive
+                                    React frontend.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">React 19</span>
+                                    <span class="project-tag">Node.js</span>
+                                    <span class="project-tag">MongoDB</span>
+                                    <span class="project-tag">Socket.io</span>
+                                    <span class="project-tag">Razorpay</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://cravequick.vercel.app/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: GeoGuide -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://geoguidehackathon.vercel.app/" target="_blank" rel="noopener noreferrer">GeoGuide – Smart
+                                        Travel Companion</a>
+                                    <span class="project-catalog-badge">Full Stack &amp; AI</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Smart travel assistant with real-time weather, navigation, AI-powered travel
+                                    insights, and multilingual support. Top 5 Finalist out of 100+ teams.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">MongoDB</span>
+                                    <span class="project-tag">Gemini API</span>
+                                    <span class="project-tag">Firebase</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://geoguidehackathon.vercel.app/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 4: Secure Exam Portal -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal"
+                                        target="_blank" rel="noopener noreferrer">Secure Exam Portal</a>
+                                    <span class="project-catalog-badge">Security &amp; Backend</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    A web application for secure online examinations with role-based access control,
+                                    data encryption via Fernet, and integrity verification.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Python (Flask)</span>
+                                    <span class="project-tag">SQLite</span>
+                                    <span class="project-tag">Cryptography</span>
+                                    <span class="project-tag">Bcrypt</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 5: Task Manager App -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank" rel="noopener noreferrer">Task
+                                        Manager App</a>
+                                    <span class="project-catalog-badge">Mobile App &amp; AI</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    A comprehensive Flutter application with cloud sync, offline SQLite support, Google
+                                    ML Kit AI integration, and biometric security.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Flutter</span>
+                                    <span class="project-tag">Firebase</span>
+                                    <span class="project-tag">SQLite</span>
+                                    <span class="project-tag">Provider</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/task-manager-flutter-app"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 6: ThinkBoard MERN API -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard"
+                                        target="_blank" rel="noopener noreferrer">ThinkBoard MERN API</a>
+                                    <span class="project-catalog-badge">Backend &amp; Infrastructure</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Designed a resilient RESTful API for a note-taking application. Integrated Upstash
+                                    Redis
+                                    for distributed rate limiting to ensure high availability.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Express.js</span>
+                                    <span class="project-tag">Node.js</span>
+                                    <span class="project-tag">MongoDB</span>
+                                    <span class="project-tag">Redis</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 7: AI Fusion -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank" rel="noopener noreferrer">AI
+                                        Fusion</a>
+                                    <span class="project-catalog-badge">AI Integration &amp; SaaS</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Developed a production-ready SaaS platform enabling seamless interactions with
+                                    multiple LLMs including GPT, Gemini, and Claude for idea evaluation.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Next.js</span>
+                                    <span class="project-tag">Firebase</span>
+                                    <span class="project-tag">Clerk Auth</span>
+                                    <span class="project-tag">LLM APIs</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 8: TrendPulse Analytics -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse"
+                                        target="_blank" rel="noopener noreferrer">TrendPulse Analytics</a>
+                                    <span class="project-catalog-badge">Data Engineering</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Built a sophisticated data-driven system to track influencer engagement metrics.
+                                    Implemented algorithms to calculate dynamic marketing scores.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Data Structures</span>
+                                    <span class="project-tag">Statistical Analysis</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 9: CineHub -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://cinehubs.netlify.app/" target="_blank" rel="noopener noreferrer">CineHub</a>
+                                    <span class="project-catalog-badge">Frontend &amp; API</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Movie &amp; TV discovery platform powered by TMDB API with search, trending titles,
+                                    and
+                                    watchlist management.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">Tailwind CSS</span>
+                                    <span class="project-tag">TMDB API</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://cinehubs.netlify.app/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 10: E-Commerce App -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank" rel="noopener noreferrer">E-Commerce App</a>
+                                    <span class="project-catalog-badge">Frontend App</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Responsive e-commerce platform featuring product browsing, search, cart management,
+                                    and
+                                    a demo checkout flow.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">Vite</span>
+                                    <span class="project-tag">Tailwind CSS</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 11: DNA Sequence Analysis -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/DNA-Sequence-Analysis"
+                                        target="_blank" rel="noopener noreferrer">DNA Sequence Analysis</a>
+                                    <span class="project-catalog-badge">Algorithm &amp; Data Structures</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Implemented Brute Force, Rabin-Karp, Boyer-Moore &amp; KMP algorithms to efficiently
+                                    detect patterns in DNA sequences for mutation analysis.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Java</span>
+                                    <span class="project-tag">Algorithms</span>
+                                    <span class="project-tag">String Matching</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/DNA-Sequence-Analysis"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 12: Smart Home Gas Detection -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
+                                        target="_blank" rel="noopener noreferrer">Smart Home Gas Detection</a>
+                                    <span class="project-catalog-badge">Embedded Systems &amp; IoT</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Safety system detecting gas leaks, triggering automatic window opening and alarms.
+                                    Integrated with fire detection and smart locks.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">Embedded Systems</span>
+                                    <span class="project-tag">Tinkercad</span>
+                                    <span class="project-tag">IoT Hardware</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
+                                        target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Tinkercad Demo</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 13: LuxuryCarsHub -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project"
+                                        target="_blank" rel="noopener noreferrer">LuxuryCarsHub</a>
+                                    <span class="project-catalog-badge">Frontend Web App</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    Responsive front-end web app showcasing luxury cars with interactive sections,
+                                    single-page navigation, and simulated payment system.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                </div>
+                            </div>
+
+                            <!-- Project 14: Personal Portfolio -->
+                            <div class="project-catalog-card">
+                                <div class="project-catalog-title">
+                                    <a href="https://veeranji.vercel.app" target="_blank" rel="noopener noreferrer">Personal Portfolio</a>
+                                    <span class="project-catalog-badge">Portfolio</span>
+                                </div>
+                                <p class="project-catalog-desc">
+                                    The codebase for this portfolio, showcasing advanced CSS, JavaScript animations,
+                                    clean
+                                    architecture, and responsive design.
+                                </p>
+                                <div class="project-catalog-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <div class="project-catalog-links">
+                                    <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank" rel="noopener noreferrer"><i
+                                            class="fab fa-github"></i> GitHub</a>
+                                    <a href="https://veeranji.vercel.app" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Live Deployment</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. SKILLS SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-skills">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/gear.svg" alt="Skills" width="18" height="18">
+                                <span>Technical Skills</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+                        <div class="skills-grid-container"
+                            style="grid-template-columns: repeat(7, 1fr); gap: 14px 6px;">
+                            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Python Official Website">
+                                <img src="assets/skills/python.svg" alt="Python">
+                                <span>Python</span>
+                            </a>
+                            <a href="https://dev.java/" target="_blank" rel="noopener noreferrer" class="skill-badge"
+                                title="Java Official Documentation">
+                                <img src="assets/skills/java.svg" alt="Java">
+                                <span>Java</span>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="JavaScript MDN Documentation">
+                                <img src="assets/skills/javascript.svg" alt="JavaScript">
+                                <span>JavaScript</span>
+                            </a>
+                            <a href="https://www.geeksforgeeks.org/learn-data-structures-and-algorithms/"
+                                target="_blank" rel="noopener noreferrer" class="skill-badge"
+                                title="Data Structures & Algorithms Guide">
+                                <img src="assets/skills/dsa.svg" alt="DSA">
+                                <span>DSA</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Object-Oriented Programming">
+                                <img src="assets/skills/oop.svg" alt="OOP">
+                                <span>OOP</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="SQL Documentation">
+                                <img src="assets/skills/sql.svg" alt="SQL">
+                                <span>SQL</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Database#Database_management_system" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Database Management Systems">
+                                <img src="assets/skills/dbms.svg" alt="DBMS">
+                                <span>DBMS</span>
+                            </a>
+
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="HTML5 MDN Documentation">
+                                <img src="assets/skills/html.svg" alt="HTML5">
+                                <span>HTML5</span>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="CSS3 MDN Documentation">
+                                <img src="assets/skills/css.svg" alt="CSS3">
+                                <span>CSS3</span>
+                            </a>
+                            <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="skill-badge"
+                                title="React Official Website">
+                                <img src="assets/skills/react.svg" alt="React">
+                                <span>React</span>
+                            </a>
+                            <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" class="skill-badge"
+                                title="Node.js Official Website">
+                                <img src="assets/skills/nodejs.svg" alt="Node.js">
+                                <span>Node.js</span>
+                            </a>
+                            <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="REST API Guide">
+                                <img src="assets/skills/restapi.svg" alt="REST APIs">
+                                <span>REST APIs</span>
+                            </a>
+                            <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Flask Official Website">
+                                <img src="assets/skills/flask.svg" alt="Flask">
+                                <span>Flask</span>
+                            </a>
+                            <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="MongoDB Official Website">
+                                <img src="assets/skills/mongodb.svg" alt="MongoDB">
+                                <span>MongoDB</span>
+                            </a>
+
+                            <a href="https://en.wikipedia.org/wiki/Operating_system" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Operating Systems">
+                                <img src="assets/skills/os.svg" alt="OS">
+                                <span>OS</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Computer_network" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Computer Networks">
+                                <img src="assets/skills/networks.svg" alt="Computer Networks">
+                                <span>Computer Networks</span>
+                            </a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="skill-badge"
+                                title="Git Official Website">
+                                <img src="assets/skills/git.svg" alt="Git">
+                                <span>Git</span>
+                            </a>
+                            <a href="https://www.kernel.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Linux Official Kernel">
+                                <img src="assets/skills/linux.svg" alt="Linux">
+                                <span>Linux</span>
+                            </a>
+                            <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Firebase Official Website">
+                                <img src="assets/skills/firebase.svg" alt="Firebase">
+                                <span>Firebase</span>
+                            </a>
+                            <a href="https://aws.amazon.com/what-is-cloud-computing/" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Cloud Computing Fundamentals">
+                                <img src="assets/skills/cloud.svg" alt="Cloud fundamentals">
+                                <span>Cloud fundamentals</span>
+                            </a>
+
+                            <a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Software Testing">
+                                <img src="assets/skills/testing.svg" alt="Testing">
+                                <span>Testing</span>
+                            </a>
+                            <a href="https://scikit-learn.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Machine Learning (Scikit-Learn)">
+                                <img src="assets/skills/ml.svg" alt="ML">
+                                <span>ML</span>
+                            </a>
+                            <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Deep Learning (TensorFlow)">
+                                <img src="assets/skills/deeplearning.svg" alt="Deep Learning">
+                                <span>Deep Learning</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Reinforcement_learning" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Reinforcement Learning">
+                                <img src="assets/skills/reinforcement.svg" alt="Reinforcement Learning">
+                                <span>Reinforcement Learning</span>
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Edge_computing" target="_blank"
+                                rel="noopener noreferrer" class="skill-badge" title="Edge Computing">
+                                <img src="assets/skills/edge.svg" alt="Edge Computing">
+                                <span>Edge Computing</span>
+                            </a>
+                            <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-badge" title="Docker Official Website">
+                                <img src="assets/skills/docker.svg" alt="Docker">
+                                <span>Docker</span>
                             </a>
                         </div>
                     </div>
-
-                    <div class="about-details-card">
-                        <p>
-                            I am a software engineer and data analyst driven by a desire to solve complex
-                            problems.
-                            Currently pursuing my B.Tech in Computer Science &amp; Engineering at <strong>Amrita
-                                Vishwa
-                                Vidyapeetham</strong> with a <strong>7.45 CGPA</strong>.
-                        </p>
-                        <p>
-                            My technical foundation is built on versatility. While I specialize in modern
-                            full-stack web
-                            architectures (<strong>React, SvelteKit, Node.js, Express, TailwindCSS</strong>), I
-                            possess
-                            deep competence in systems, algorithms, and backend engineering (<strong>Java, C,
-
-                                Python, SQL, REST APIs, Redis, Socket.io</strong>). I don't just build
-                            websites—I
-                            engineer complete, reliable systems, evidenced by projects like
-                            <strong>CraveQuick</strong>,
-                            <strong>Polyverse</strong>, and <strong>ThinkBoard</strong>.
-                        </p>
-                        <p>
-                            Beyond standard development, I am deeply invested in intelligent systems, machine
-                            learning,
-                            and data analytics (<strong>Pandas, NumPy, Statistical Analysis</strong>).
-                            Recognized as a
-                            <strong>Top 5 Finalist</strong> out of 100+ teams in the GeoGuide Agentic AI
-                            Hackathon.
-                        </p>
-                    </div>
                 </div>
 
-                <div class="education-section-card">
-                    <h3 class="section-subheading-title">Education</h3>
-                    <div class="education-cards-row">
-                        <div class="edu-pill-card">
-                            <div class="edu-pill-title">Class X</div>
-                            <div class="edu-pill-inst">Narayana E.M High School</div>
-                            <div class="edu-pill-score">Score: 100% (2020 – 2021)</div>
-                        </div>
-                        <div class="edu-pill-card">
-                            <div class="edu-pill-title">Class XII</div>
-                            <div class="edu-pill-inst">Narayana Junior College</div>
-                            <div class="edu-pill-score">Score: 98.2% (2021 – 2023)</div>
-                        </div>
-                        <div class="edu-pill-card">
-                            <div class="edu-pill-title">B.Tech CSE</div>
-                            <div class="edu-pill-inst">Amrita Vishwa Vidyapeetham</div>
-                            <div class="edu-pill-score">CGPA: 7.45 (2023 – 2027)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-section-card" id="skills">
-                    <h3 class="section-subheading-title">Technical Skills</h3>
-                    <div class="skills-categories">
-                        <div class="skill-category">
-                            <span class="skill-cat-label">⌨ Languages</span>
-                            <div class="tech-pills-wrap">
-                                <span class="tech-pill">Python</span>
-                                <span class="tech-pill">Java</span>
-                                <span class="tech-pill">C</span>
-
-                                <span class="tech-pill">JavaScript</span>
-                                <span class="tech-pill">TypeScript</span>
-                                <span class="tech-pill">SQL</span>
+                <!-- 6. RESUME SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-resume">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/doc.svg" alt="Resume" width="18" height="18">
+                                <span>Official Curriculum Vitae</span>
                             </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
                         </div>
-                        <div class="skill-category">
-                            <span class="skill-cat-label">🖥 Frontend</span>
-                            <div class="tech-pills-wrap">
-                                <span class="tech-pill">React.js</span>
-                                <span class="tech-pill">SvelteKit</span>
-                                <span class="tech-pill">TailwindCSS</span>
-                                <span class="tech-pill">HTML/CSS</span>
+                        <div class="resume-view-wrap">
+                            <div class="resume-btn-row">
+                                <a href="Uppara_Veeranjaneyulu_Resume.pdf" download class="retro-btn">
+                                    <i class="fas fa-download"></i> Download Resume
+                                </a>
+                                <a href="Uppara_Veeranjaneyulu_Resume.pdf" target="_blank" rel="noopener noreferrer" class="retro-btn">
+                                    <i class="fas fa-external-link-alt"></i> Open in New Window
+                                </a>
                             </div>
-                        </div>
-                        <div class="skill-category">
-                            <span class="skill-cat-label">⚙ Backend</span>
-                            <div class="tech-pills-wrap">
-                                <span class="tech-pill">Node.js</span>
-                                <span class="tech-pill">Express.js</span>
-                                <span class="tech-pill">Flask</span>
-                                <span class="tech-pill">REST APIs</span>
-                                <span class="tech-pill">Socket.io</span>
-                                <span class="tech-pill">MongoDB</span>
-
-                                <span class="tech-pill">Redis</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <span class="skill-cat-label">∇ Data &amp; ML</span>
-                            <div class="tech-pills-wrap">
-                                <span class="tech-pill">Pandas</span>
-                                <span class="tech-pill">NumPy</span>
-                                <span class="tech-pill">Machine Learning</span>
-                                <span class="tech-pill">Statistical Analysis</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <span class="skill-cat-label">🛠 Tools</span>
-                            <div class="tech-pills-wrap">
-                                <span class="tech-pill">Git</span>
-                                <span class="tech-pill">Docker</span>
-                                <span class="tech-pill">Linux</span>
-                                <span class="tech-pill">Postman</span>
-                                <span class="tech-pill">Vercel</span>
+                            <div class="resume-frame-box">
+                                <iframe src="Uppara_Veeranjaneyulu_Resume.pdf" title="Resume Document"></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <!-- 7. CONTACT SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-contact">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/mail.svg" alt="Contact" width="18" height="18">
+                                <span>Drop a Message</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+
+                        <div class="contact-subview-layout">
+                            <!-- Direct Channels Card -->
+                            <div class="contact-sidebar-card">
+                                <div class="contact-sidebar-header">
+                                    <i class="fas fa-address-card" style="color: #000088;"></i>
+                                    <span>Direct Channels</span>
+                                </div>
+                                <p class="contact-sidebar-desc">
+                                    Feel free to send a message via the form, or reach out directly through any of these
+                                    platforms:
+                                </p>
+                                <div class="contact-channel-list">
+                                    <div class="contact-channel-item">
+                                        <span class="channel-label"><i class="fas fa-envelope"
+                                                style="color: #b80000;"></i> Email:</span>
+                                        <a href="mailto:uupparaveeranji@gmail.com"
+                                            class="channel-link">uupparaveeranji@gmail.com</a>
+                                    </div>
+                                    <div class="contact-channel-item">
+                                        <span class="channel-label"><i class="fab fa-linkedin"
+                                                style="color: #0077b5;"></i> LinkedIn:</span>
+                                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="channel-link">https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/</a>
+                                    </div>
+                                    <div class="contact-channel-item">
+                                        <span class="channel-label"><i class="fab fa-github"
+                                                style="color: #222222;"></i> GitHub:</span>
+                                        <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="channel-link">github.com/Uppara-Veeranjaneyulu</a>
+                                    </div>
+                                    <div class="contact-channel-item">
+                                        <span class="channel-label"><i class="fas fa-code" style="color: #ffa116;"></i>
+                                            LeetCode:</span>
+                                        <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="channel-link">leetcode.com/u/Veeranji-Uppara</a>
+                                    </div>
+                                </div>
+                                <div class="contact-mailbox-center">
+                                    <img src="assets/retro-mailbox.svg" alt="Mailbox" class="contact-mailbox-art">
+                                </div>
+                            </div>
+
+                            <!-- Expanded Form Card -->
+                            <div class="contact-form-container">
+                                <form id="contactForm">
+                                    <!-- Honeypot anti-spam field for bots -->
+                                    <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off"
+                                        style="display:none !important; position: absolute; left: -9999px;" aria-hidden="true">
+
+                                    <div class="form-row-retro">
+                                        <div class="form-group-retro">
+                                            <label for="name">Your Name:</label>
+                                            <input type="text" id="name" name="name" class="retro-input"
+                                                placeholder="e.g. John Doe" maxlength="100" required>
+                                        </div>
+                                        <div class="form-group-retro">
+                                            <label for="email">Email Address:</label>
+                                            <input type="email" id="email" name="email" class="retro-input"
+                                                placeholder="e.g. visitor@geocities.com" maxlength="120" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group-retro">
+                                        <label for="subject">Subject:</label>
+                                        <input type="text" id="subject" name="subject" class="retro-input"
+                                            placeholder="e.g. Project Opportunity / Collaboration" maxlength="150">
+                                    </div>
+                                    <div class="form-group-retro">
+                                        <label for="message">Message:</label>
+                                        <textarea id="message" name="message" class="retro-input" rows="5"
+                                            placeholder="Leave your message here..." minlength="5" maxlength="3000" required></textarea>
+                                    </div>
+                                    <div class="form-btn-center">
+                                        <button type="submit" class="retro-btn submit-lg" id="submitBtn">
+                                            <i class="fas fa-paper-plane"></i> Send Message
+                                        </button>
+                                    </div>
+                                    <div id="formMessage" class="form-status-msg"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. GALLERY SUB-VIEW -->
+                <div class="content-view portfolio-view" id="view-gallery">
+                    <div class="subview-window">
+                        <div class="subview-header-row">
+                            <div class="subview-title">
+                                <img src="assets/nav/camera.svg" alt="Gallery" width="18" height="18">
+                                <span>Certifications &amp; Credentials Gallery</span>
+                            </div>
+                            <a href="#home" class="subview-back-btn" data-route="landing">« Back to Home</a>
+                        </div>
+                        <div class="gallery-grid">
+
+                            <!-- Certificate 1: Oracle Cloud Data Science -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/oracle_cert.png"
+                                    data-title="Oracle Certified Professional: OCI 2025 Data Science Professional"
+                                    data-link="assets/gallery/oracle_cert.pdf">
+                                    <img src="assets/gallery/oracle_cert.png"
+                                        alt="Oracle Certified Data Science Professional" loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag">Oracle University</span>
+                                    <h4 class="gallery-cert-title">OCI 2025 Certified Data Science Professional</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 27, 2025</span>
+                                        <a href="assets/gallery/oracle_cert.pdf" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-file-pdf"></i> View PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 2: AWS Certified Cloud Practitioner -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/aws_cert.png"
+                                    data-title="AWS Certified Cloud Practitioner (CLF-C02) - Completion Certificate"
+                                    data-link="assets/gallery/aws_cert.pdf">
+                                    <img src="assets/gallery/aws_cert.png" alt="AWS Certified Cloud Practitioner"
+                                        loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #ec7211;">AWS Training</span>
+                                    <h4 class="gallery-cert-title">AWS Certified Cloud Practitioner (CLF-C02)</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Aug 28, 2025</span>
+                                        <a href="assets/gallery/aws_cert.pdf" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-file-pdf"></i> View PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 3: Stanford Online & DeepLearning.AI ML -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/stanford_ml_cert.jpg"
+                                    data-title="Stanford Online & DeepLearning.AI: Supervised Machine Learning"
+                                    data-link="https://coursera.org/verify/H2A4212I42I6">
+                                    <img src="assets/gallery/stanford_ml_cert.jpg"
+                                        alt="Stanford Supervised Machine Learning" loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #8c1515;">Stanford Online</span>
+                                    <h4 class="gallery-cert-title">Supervised Machine Learning: Regression &amp;
+                                        Classification</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Sep 2, 2025</span>
+                                        <a href="https://coursera.org/verify/H2A4212I42I6" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 4: Deloitte Data Analytics -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/deloitte_cert.png"
+                                    data-title="Deloitte: Data Analytics Job Simulation Certificate of Completion"
+                                    data-link="assets/gallery/deloitte_cert.pdf">
+                                    <img src="assets/gallery/deloitte_cert.png" alt="Deloitte Data Analytics"
+                                        loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #86bc25; color: #000;">Deloitte</span>
+                                    <h4 class="gallery-cert-title">Data Analytics Job Simulation</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Aug 10, 2025</span>
+                                        <a href="assets/gallery/deloitte_cert.pdf" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-file-pdf"></i> View PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 5: Amrita & IETE WebDev Challenge -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/amrita_devx_cert.png"
+                                    data-title="Amrita Vishwa Vidyapeetham & IETE: DevX WebDevelopment Challenge"
+                                    data-link="assets/gallery/amrita_devx_cert.png">
+                                    <img src="assets/gallery/amrita_devx_cert.png" alt="DevX WebDevelopment Challenge"
+                                        loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #a41d36;">Amrita &amp; IETE</span>
+                                    <h4 class="gallery-cert-title">DevX: Code, Create, Conquer (3-hr Challenge)</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Mar 18, 2025</span>
+                                        <a href="assets/gallery/amrita_devx_cert.png" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-image"></i> View Image</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 6: IIIT Sri City Agentica Hackathon -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/iiit_sricity_agentica_cert.jpg"
+                                    data-title="IIIT Sri City: Agentica 60-Hour Hackathon (Abhisarga 2025)"
+                                    data-link="assets/gallery/iiit_sricity_agentica_cert.jpg">
+                                    <img src="assets/gallery/iiit_sricity_agentica_cert.jpg"
+                                        alt="Agentica 60-Hour Hackathon Certificate" loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #0d9488;">IIIT Sri City</span>
+                                    <h4 class="gallery-cert-title">Agentica: 60-Hour Hackathon (Abhisarga 2025)</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Mar 2, 2025</span>
+                                        <a href="assets/gallery/iiit_sricity_agentica_cert.jpg" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-image"></i> View Image</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 7: SkillCraft Technology Internship -->
+                            <div class="gallery-item">
+                                <div class="gallery-img-wrap" data-img="assets/gallery/skillcraft_internship_cert.jpg"
+                                    data-title="SkillCraft Technology: Web Development Internship Certificate"
+                                    data-link="assets/gallery/skillcraft_internship_cert.jpg">
+                                    <img src="assets/gallery/skillcraft_internship_cert.jpg"
+                                        alt="SkillCraft Web Development Internship Certificate" loading="lazy">
+                                    <div class="gallery-zoom-overlay"><i class="fas fa-search-plus"></i> View
+                                        Certificate</div>
+                                </div>
+                                <div class="gallery-info">
+                                    <span class="gallery-tag" style="background: #2563eb;">SkillCraft Tech</span>
+                                    <h4 class="gallery-cert-title">Web Development 1-Month Internship</h4>
+                                    <div class="gallery-cert-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Aug 16, 2025</span>
+                                        <a href="assets/gallery/skillcraft_internship_cert.jpg" target="_blank" rel="noopener noreferrer"
+                                            class="gallery-pdf-link"><i class="fas fa-image"></i> View Image</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </main>
         </div>
-    </section>
 
-    <section id="view-projects" class="portfolio-view">
-        <div class="subpage-container">
-            <div class="framed-card">
-                <div class="page-top-bar">
-                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
-                        aria-label="Back to Home">
-                        <i class="fas fa-arrow-left"></i>
+        <!-- Retro Footer -->
+        <footer class="retro-footer">
+            <div class="footer-status-panel footer-centered">
+                <span>© 2025 Veeranji. All Rights Reserved.</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Certificate Lightbox Modal -->
+    <div class="gallery-modal" id="certModal" aria-hidden="true">
+        <div class="gallery-modal-content">
+            <div class="gallery-modal-titlebar">
+                <span id="modalCertTitle">Certificate Viewer</span>
+                <button type="button" class="win-btn close" id="closeCertModal" title="Close"
+                    style="background: #c0c0c0; border: 1px outset #fff; font-weight: bold; cursor: pointer; padding: 0 4px; font-size: 11px;">✕</button>
+            </div>
+            <div class="gallery-modal-body">
+                <img id="modalCertImg" src="" alt="Certificate Preview">
+            </div>
+            <div class="gallery-modal-footer">
+                <span style="font-size: 11px; color: #222;">Click below to open high-resolution document</span>
+                <div style="display: flex; gap: 8px;">
+                    <a id="modalCertLink" href="#" target="_blank" rel="noopener noreferrer" class="retro-btn">
+                        <i class="fas fa-external-link-alt"></i> Open Document
                     </a>
-                    <h2 class="section-center-title">Projects</h2>
-                </div>
-
-                <div class="projects-list">
-
-                    <div class="project-item reveal">
-                        <div class="project-info">
-                            <span class="project-category">Federated Social Network</span>
-                            <h3 class="project-name">Polyverse</h3>
-                            <p class="project-description">
-                                A federated social network built on ActivityPub, featuring decentralized identity (DID),
-                                cryptographic key management, and data autonomy.
-                            </p>
-                            <ul class="tech-list">
-                                <li>SvelteKit 5</li>
-                                <li>Fedify</li>
-                                <li>Neon PostgreSQL</li>
-                                <li>TailwindCSS 4</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/PiedPipers5/polyverse.git" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://polyverse-pp.vercel.app" target="_blank" class="link-external">Live
-                                    Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item reveal">
-                        <div class="project-info">
-                            <span class="project-category">Full Stack Architecture</span>
-                            <h3 class="project-name">CraveQuick</h3>
-                            <p class="project-description">
-                                Architected a high-performance food delivery ecosystem featuring a multi-role
-                                architecture
-                                (Consumer, Partner, Admin). Implemented real-time geospatial tracking via Socket.io,
-                                secure
-                                payment processing with Razorpay, and a highly responsive React frontend.
-                            </p>
-                            <ul class="tech-list">
-                                <li>React 19</li>
-                                <li>Node.js</li>
-                                <li>MongoDB</li>
-                                <li>Socket.io</li>
-                                <li>Razorpay</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/cravequick" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://cravequick.vercel.app/" target="_blank" class="link-external">Live
-                                    Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item reveal">
-                        <div class="project-info">
-                            <span class="project-category">Full Stack & AI</span>
-                            <h3 class="project-name">GeoGuide – Smart Travel Companion</h3>
-                            <p class="project-description">
-                                Smart travel assistant with real-time weather, navigation, AI-powered travel insights,
-                                and
-                                multilingual support. Built during a hackathon.
-                            </p>
-                            <ul class="tech-list">
-                                <li>React</li>
-                                <li>MongoDB</li>
-                                <li>Gemini API</li>
-                                <li>Firebase</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/Geoguide_Hackathon" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://geoguidehackathon.vercel.app/" target="_blank"
-                                    class="link-external">Live
-                                    Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item reveal">
-                        <div class="project-info">
-                            <span class="project-category">Security & Backend</span>
-                            <h3 class="project-name">Secure Exam Portal</h3>
-                            <p class="project-description">
-                                A web application for secure online examinations with role-based access control, data
-                                encryption via Fernet, and integrity verification.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Python (Flask)</li>
-                                <li>SQLite</li>
-                                <li>Cryptography</li>
-                                <li>Bcrypt</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/secure_exam_portal" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="view-more-container reveal" id="viewMoreContainer"
-                        style="display: flex; justify-content: center; padding: 1rem 0;">
-                        <button id="viewMoreBtn" class="btn-primary">View More</button>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Mobile App & AI</span>
-                            <h3 class="project-name">Task Manager App</h3>
-                            <p class="project-description">
-                                A comprehensive Flutter application with cloud sync, offline SQLite support, Google ML
-                                Kit
-                                AI integration, and biometric security.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Flutter</li>
-                                <li>Firebase</li>
-                                <li>SQLite</li>
-                                <li>Provider</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/task-manager-flutter-app"
-                                    target="_blank" class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://task-manager-flutter-app-9d761.web.app/" target="_blank"
-                                    class="link-external">Live Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Backend & Infrastructure</span>
-                            <h3 class="project-name">ThinkBoard MERN API</h3>
-                            <p class="project-description">
-                                Designed a resilient RESTful API for a note-taking application. Integrated Upstash Redis
-                                for
-                                distributed rate limiting to ensure high availability.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Express.js</li>
-                                <li>Node.js</li>
-                                <li>MongoDB</li>
-                                <li>Redis</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/mern-thinkboard" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">AI Integration & SaaS</span>
-                            <h3 class="project-name">AI Fusion</h3>
-                            <p class="project-description">
-                                Developed a production-ready SaaS platform enabling seamless interactions with multiple
-                                LLMs
-                                including GPT, Gemini, and Claude.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Next.js</li>
-                                <li>Firebase</li>
-                                <li>Clerk Auth</li>
-                                <li>LLM APIs</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/FusionAiLab" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Data Engineering</span>
-                            <h3 class="project-name">TrendPulse Analytics</h3>
-                            <p class="project-description">
-                                Built a sophisticated data-driven system to track influencer engagement metrics.
-                                Implemented
-                                algorithms to calculate dynamic marketing scores.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Python</li>
-                                <li>Data Structures</li>
-                                <li>Statistical Analysis</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/TrendPulse" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Frontend & API</span>
-                            <h3 class="project-name">CineHub</h3>
-                            <p class="project-description">
-                                Movie & TV discovery platform powered by TMDB API with search, trending titles, and
-                                watchlist management.
-                            </p>
-                            <ul class="tech-list">
-                                <li>React</li>
-                                <li>Tailwind CSS</li>
-                                <li>TMDB API</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/CineHub" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://cinehubs.netlify.app/" target="_blank" class="link-external">Live
-                                    Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Frontend App</span>
-                            <h3 class="project-name">E-Commerce App</h3>
-                            <p class="project-description">
-                                Responsive e-commerce platform featuring product browsing, search, cart management, and
-                                a
-                                demo checkout flow.
-                            </p>
-                            <ul class="tech-list">
-                                <li>React</li>
-                                <li>Vite</li>
-                                <li>Tailwind CSS</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/ecommerce-app" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://ecommerce-app-a3ne.vercel.app/" target="_blank"
-                                    class="link-external">Live
-                                    Deployment ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Algorithm & Data Structures</span>
-                            <h3 class="project-name">DNA Sequence Analysis</h3>
-                            <p class="project-description">
-                                Implemented Brute Force, Rabin-Karp, Boyer-Moore & KMP algorithms to efficiently detect
-                                patterns in DNA sequences for mutation analysis.
-                            </p>
-                            <ul class="tech-list">
-                                <li>Java</li>
-                                <li>Algorithms</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/DNA-Sequence-Analysis" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
-                                    GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Embedded Systems</span>
-                            <h3 class="project-name">Smart Home Gas Detection</h3>
-                            <p class="project-description">
-                                Safety system detecting gas leaks, triggering automatic window opening and alarms.
-                                Integrated with fire detection and smart locks.
-                            </p>
-                            <ul class="tech-list">
-                                <li>C Programming</li>
-                                <li>Tinkercad</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://www.tinkercad.com/things/fPdcc2IY9q8-c-project-gas-sensor-final"
-                                    target="_blank" class="link-external">Live Demo ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Frontend Web App</span>
-                            <h3 class="project-name">LuxuryCarsHub</h3>
-                            <p class="project-description">
-                                Responsive front-end web app showcasing luxury cars with interactive sections,
-                                single-page
-                                navigation, and simulated payment system.
-                            </p>
-                            <ul class="tech-list">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/SEM-2-Project" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-item hidden-project reveal">
-                        <div class="project-info">
-                            <span class="project-category">Portfolio</span>
-                            <h3 class="project-name">Personal Portfolio</h3>
-                            <p class="project-description">
-                                The codebase for this portfolio, showcasing advanced CSS, JavaScript animations, clean
-                                architecture, and responsive design.
-                            </p>
-                            <ul class="tech-list">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Uppara-Veeranjaneyulu/my_portfolio" target="_blank"
-                                    class="link-source"><i class="fab fa-github"
-                                        style="font-size: 1.5rem; margin-right: 0.5rem;"></i> GitHub</a>
-                                <a href="https://veeranji.vercel.app" target="_blank" class="link-external">Live
-                                    Deployment
-                                    ↗</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="projects-footer" style="display: flex; justify-content: center; padding-top: 1.5rem;">
-                    <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="nav-box-btn">
-                        <i class="fab fa-github"></i> View more on GitHub
-                    </a>
+                    <button type="button" class="retro-btn" id="closeCertModalBtn">Close</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="view-resume" class="portfolio-view">
-        <div class="subpage-container">
-            <div class="framed-card" style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <div class="page-top-bar">
-                    <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
-                        aria-label="Back to Home">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    <h2 class="section-center-title">Resume</h2>
-                </div>
-
-                <div class="resume-actions" style="justify-content: center; margin-bottom: 2rem;">
-                    <a href="Uppara_Veeranjaneyulu_Resume.pdf" download class="btn-primary">
-                        <i class="fas fa-download" style="margin-right: 0.4rem;"></i> Download Resume
-                    </a>
-                    <a href="Uppara_Veeranjaneyulu_Resume.pdf" target="_blank" class="btn-secondary">
-                        <i class="fas fa-external-link-alt" style="margin-right: 0.4rem;"></i> View Document
-                    </a>
-                </div>
-                <div class="resume-preview-frame"
-                    style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.3); height: 750px;">
-                    <iframe src="Uppara_Veeranjaneyulu_Resume.pdf" width="100%" height="100%"
-                        style="border: none;"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="view-contact" class="portfolio-view">
-        <div class="subpage-container">
-            <div class="framed-card contact-ks-frame">
-                <div class="page-top-bar contact-top-bar">
-                    <div class="contact-header-left">
-                        <a href="#" data-route="landing" class="page-back-btn" title="Back to Home"
-                            aria-label="Back to Home">
-                            <i class="fas fa-arrow-left"></i>
-                        </a>
-                        <h2 class="section-center-title">Contact Me</h2>
-                    </div>
-
-                    <div class="contact-social-top">
-                        <a href="https://github.com/Uppara-Veeranjaneyulu" target="_blank" class="social-box-btn"
-                            title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/uppara-veeranjaneyulu-44003728b/" target="_blank"
-                            class="social-box-btn" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:uupparaveeranji@gmail.com" class="social-box-btn" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://leetcode.com/u/Veeranji-Uppara/" target="_blank" class="social-box-btn"
-                            title="LeetCode">
-                            <i class="fas fa-code"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-msg-card">
-                    <h3 class="contact-msg-title">Send a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label class="field-label" for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="contact-form-control"
-                                placeholder="Enter your name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="field-label" for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="contact-form-control"
-                                placeholder="Enter your email address" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="field-label" for="message">Message</label>
-                            <textarea id="message" name="message" class="contact-form-control" rows="3"
-                                placeholder="Write your message here..." required></textarea>
-                        </div>
-
-                        <div class="deliver-btn-wrap">
-                            <button type="submit" class="btn-primary deliver-btn" id="submitBtn">
-                                Send Message <i class="fas fa-paper-plane" style="margin-left: 0.4rem;"></i>
-                            </button>
-                        </div>
-                        <div id="formMessage" class="form-msg" style="text-align: center; margin-top: 0.6rem;"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Vercel Web Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script type="module">
+        import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics/+esm';
+        try { inject(); } catch (err) { /* local dev fallback */ }
+    </script>
 </body>
 
 </html>

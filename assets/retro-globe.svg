@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" shape-rendering="crispEdges">
+  <!-- Retro Pixel Art Earth Globe -->
+  <defs>
+    <radialGradient id="globeSphere" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#55aaff"/>
+      <stop offset="60%" stop-color="#1055cc"/>
+      <stop offset="100%" stop-color="#001855"/>
+    </radialGradient>
+  </defs>
+  <!-- Outer circle shadow/outline -->
+  <circle cx="16" cy="16" r="15" fill="#000000" opacity="0.4"/>
+  <!-- Planet ocean -->
+  <circle cx="16" cy="16" r="14" fill="url(#globeSphere)"/>
+  
+  <!-- Continents in pixel green -->
+  <!-- North & South America / Europe / Asia shapes -->
+  <rect x="9" y="8" width="5" height="4" fill="#30a830"/>
+  <rect x="7" y="11" width="6" height="5" fill="#30a830"/>
+  <rect x="11" y="15" width="4" height="4" fill="#208820"/>
+  <rect x="10" y="18" width="5" height="6" fill="#208820"/>
+  <rect x="12" y="24" width="3" height="3" fill="#156015"/>
+
+  <rect x="18" y="7" width="5" height="3" fill="#30a830"/>
+  <rect x="22" y="9" width="4" height="4" fill="#30a830"/>
+  <rect x="17" y="12" width="7" height="6" fill="#208820"/>
+  <rect x="19" y="17" width="6" height="5" fill="#208820"/>
+  <rect x="21" y="22" width="4" height="4" fill="#156015"/>
+
+  <!-- Atmosphere ring highlight -->
+  <path d="M 5 16 A 11 11 0 0 1 23 6" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <!-- Pixel grid longitude & latitude lines -->
+  <ellipse cx="16" cy="16" rx="14" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <line x1="2" y1="16" x2="30" y2="16" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <line x1="16" y1="2" x2="16" y2="30" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+</svg>

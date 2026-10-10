@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Java Cup with Red Steam -->
+  <path d="M 12 3 Q 15 5 13 8 Q 11 11 15 13" fill="none" stroke="#ea2d2e" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 17 2 Q 20 4 18 7 Q 16 10 20 12" fill="none" stroke="#ea2d2e" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 7 14 L 8 23 C 8 26 12 28 17 28 C 22 28 25 26 25 23 L 26 14 Z" fill="#5382a1"/>
+  <!-- Cup handle -->
+  <path d="M 24 16 Q 29 16 29 20 Q 29 23 23 23" fill="none" stroke="#5382a1" stroke-width="3" stroke-linecap="round"/>
+  <!-- Cup saucer plate -->
+  <ellipse cx="16" cy="28" rx="13" ry="3" fill="#335d7a"/>
+</svg>

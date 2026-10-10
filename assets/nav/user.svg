@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <!-- Retro pixel user -->
+  <circle cx="8" cy="5" r="3" fill="#ffccaa"/>
+  <rect x="6" y="2" width="4" height="2" fill="#5c3818"/>
+  <rect x="5" y="4" width="1" height="2" fill="#5c3818"/>
+  <rect x="10" y="4" width="1" height="2" fill="#5c3818"/>
+  <path d="M 3 15 L 3 12 C 3 10 5 9 8 9 C 11 9 13 10 13 12 L 13 15 Z" fill="#0055ea"/>
+  <rect x="7" y="9" width="2" height="3" fill="#ffffff"/>
+  <rect x="7.5" y="11" width="1" height="3" fill="#cc0000"/>
+</svg>

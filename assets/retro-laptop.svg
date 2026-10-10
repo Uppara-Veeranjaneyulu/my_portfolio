@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="120" height="100" shape-rendering="crispEdges">
+  <!-- Retro Isometric Laptop / Portable PC (1990s-2000s style) -->
+  <defs>
+    <filter id="pixelate">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise"/>
+    </filter>
+  </defs>
+
+  <!-- Laptop Base Shadow -->
+  <polygon points="12,88 78,98 114,84 48,74" fill="#303030"/>
+
+  <!-- Laptop Base Body (Beige/Gray) -->
+  <polygon points="10,84 76,95 112,81 46,71" fill="#dcd7c9"/>
+  <polygon points="10,84 76,95 76,89 10,78" fill="#bcbaaf"/>
+  <polygon points="76,95 112,81 112,76 76,89" fill="#9e9b90"/>
+  <!-- Base bevel highlights -->
+  <line x1="10" y1="78" x2="46" y2="71" stroke="#ffffff" stroke-width="1.5"/>
+  <line x1="46" y1="71" x2="112" y2="76" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Keyboard area -->
+  <polygon points="26,79 72,87 98,78 52,71" fill="#75736b"/>
+  <polygon points="28,79 70,86 96,78 54,72" fill="#3a3935"/>
+  <!-- Key rows in perspective -->
+  <g stroke="#9c9a91" stroke-width="1.2">
+    <line x1="32" y1="77" x2="56" y2="72"/>
+    <line x1="38" y1="79" x2="63" y2="73"/>
+    <line x1="44" y1="81" x2="70" y2="74"/>
+    <line x1="50" y1="83" x2="77" y2="76"/>
+    <line x1="58" y1="85" x2="85" y2="77"/>
+  </g>
+  <!-- Trackpad & buttons -->
+  <polygon points="40,88 56,91 66,88 50,85" fill="#aaa79b"/>
+  <polygon points="41,88 48,89 45,86 38,85" fill="#88857a"/>
+
+  <!-- Laptop Screen Lid (Angled back) -->
+  <polygon points="36,20 100,26 100,68 36,62" fill="#dcd7c9"/>
+  <!-- Screen Outer Bezel Outline -->
+  <polygon points="35,19 101,25 101,69 35,63" fill="none" stroke="#6b6960" stroke-width="1.5"/>
+  <!-- Bevel highlights on screen lid -->
+  <polyline points="35,63 35,19 101,25" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <polyline points="101,25 101,69 35,63" fill="none" stroke="#504e47" stroke-width="1.5"/>
+
+  <!-- Screen Glass (Deep Blue Windows display) -->
+  <polygon points="43,26 94,31 94,61 43,56" fill="#000080"/>
+  <!-- Screen Desktop elements: retro window and wallpaper -->
+  <polygon points="45,28 92,32 92,59 45,55" fill="#0055aa"/>
+  
+  <!-- Windows 98/2000 style Window on screen -->
+  <polygon points="50,33 85,36 85,52 50,49" fill="#c0c0c0"/>
+  <!-- Window titlebar -->
+  <polygon points="51,34 84,37 84,39 51,36" fill="#0000aa"/>
+  <!-- Window content white area -->
+  <polygon points="52,38 83,41 83,50 52,47" fill="#ffffff"/>
+  <!-- Retro pixel globe / logo inside window -->
+  <circle cx="68" cy="44" r="3.5" fill="#3a80df"/>
+  <circle cx="67" cy="43.5" r="2" fill="#50cf50"/>
+  
+  <!-- Screen Gloss Reflection -->
+  <polygon points="44,27 68,29 52,57 44,55" fill="rgba(255,255,255,0.2)"/>
+
+  <!-- Screen Hinge -->
+  <polygon points="40,65 52,67 52,70 40,68" fill="#55534c"/>
+  <polygon points="86,69 98,71 98,74 86,72" fill="#55534c"/>
+</svg>

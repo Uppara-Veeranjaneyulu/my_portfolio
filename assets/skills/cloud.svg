@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Cloud Fundamentals Retro Cloud -->
+  <path d="M 10 23 L 23 23 C 26 23 28 21 28 18 C 28 15.5 26.2 13.5 24 13.1 C 23.5 9 20 6 16 6 C 12.8 6 10 8 9.2 11.2 C 6.5 11.8 4 14 4 17 C 4 20.5 6.8 23 10 23 Z" fill="#4299e1" stroke="#2b6cb0" stroke-width="1.5"/>
+  <ellipse cx="16" cy="11" rx="4" ry="2" fill="#bee3f8" opacity="0.6"/>
+  <circle cx="10" cy="17" r="1.5" fill="#ebf8ff"/>
+  <circle cx="16" cy="17" r="1.5" fill="#ebf8ff"/>
+  <circle cx="22" cy="17" r="1.5" fill="#ebf8ff"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Reinforcement Learning Agent Loop -->
+  <circle cx="16" cy="16" r="10" fill="none" stroke="#dd6b20" stroke-width="2.5" stroke-dasharray="14 3"/>
+  <circle cx="16" cy="16" r="4.5" fill="#3182ce" stroke="#ffffff" stroke-width="1.2"/>
+  <polygon points="16,5 20,2 20,8" fill="#dd6b20"/>
+  <polygon points="16,27 12,24 12,30" fill="#dd6b20"/>
+</svg>

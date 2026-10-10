@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Tux Penguin -->
+  <!-- Feet -->
+  <ellipse cx="10" cy="28" rx="6" ry="2.5" fill="#f5a623"/>
+  <ellipse cx="22" cy="28" rx="6" ry="2.5" fill="#f5a623"/>
+  <!-- Body -->
+  <ellipse cx="16" cy="18" rx="10" ry="11" fill="#111111"/>
+  <!-- White belly -->
+  <ellipse cx="16" cy="20" rx="7" ry="8" fill="#ffffff"/>
+  <!-- Head -->
+  <circle cx="16" cy="9" r="6.5" fill="#111111"/>
+  <!-- Eyes -->
+  <ellipse cx="14" cy="8" rx="1.5" ry="2.5" fill="#ffffff"/>
+  <ellipse cx="18" cy="8" rx="1.5" ry="2.5" fill="#ffffff"/>
+  <circle cx="14" cy="8.5" r="1" fill="#000000"/>
+  <circle cx="18" cy="8.5" r="1" fill="#000000"/>
+  <!-- Beak -->
+  <polygon points="13,11 19,11 16,14" fill="#f5a623"/>
+  <!-- Flippers -->
+  <path d="M 6 15 C 4 19 6 24 9 22" fill="#111111"/>
+  <path d="M 26 15 C 28 19 26 24 23 22" fill="#111111"/>
+</svg>

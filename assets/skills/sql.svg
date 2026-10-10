@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Retro database cylinders -->
+  <ellipse cx="16" cy="7" rx="11" ry="4" fill="#00758f"/>
+  <ellipse cx="16" cy="6" rx="10" ry="3.5" fill="#339bb3"/>
+  <path d="M 5 7 L 5 14 C 5 17 10 18 16 18 C 22 18 27 17 27 14 L 27 7 Z" fill="#00758f"/>
+  <ellipse cx="16" cy="14" rx="11" ry="3.5" fill="none" stroke="#225b6a" stroke-width="1.5"/>
+  <path d="M 5 14 L 5 22 C 5 25 10 26 16 26 C 22 26 27 25 27 22 L 27 14 Z" fill="#006077"/>
+  <ellipse cx="16" cy="22" rx="11" ry="3.5" fill="none" stroke="#225b6a" stroke-width="1.5"/>
+  <text x="16" y="16" font-family="'Courier New', monospace" font-size="8" font-weight="bold" fill="#ffffff" text-anchor="middle">SQL</text>
+</svg>

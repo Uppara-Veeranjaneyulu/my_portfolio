@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <!-- Retro pixel home -->
+  <polygon points="8,1 1,8 3,8 3,15 13,15 13,8 15,8" fill="#c02828"/>
+  <polygon points="8,3 3,8 4,8 4,14 12,14 12,8 13,8" fill="#d83838"/>
+  <rect x="6" y="9" width="4" height="5" fill="#442211"/>
+  <rect x="7" y="10" width="2" height="4" fill="#663311"/>
+  <rect x="10" y="3" width="2" height="3" fill="#888888"/>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 110" width="150" height="110" shape-rendering="crispEdges">
+  <!-- Wooden Post -->
+  <rect x="52" y="60" width="12" height="48" fill="#7d7b73"/>
+  <rect x="52" y="60" width="12" height="48" fill="none" stroke="#333333" stroke-width="1.5"/>
+  <line x1="56" y1="62" x2="56" y2="105" stroke="#9e9b90" stroke-width="1"/>
+
+  <!-- Mailbox Body (Silver/Gray classic tunnel shape in perspective) -->
+  <!-- Shadow under mailbox -->
+  <ellipse cx="65" cy="62" rx="36" ry="7" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- Tunnel Barrel -->
+  <path d="M 40 28 L 86 28 C 96 28 100 36 100 46 L 100 58 L 40 58 Z" fill="#d0d0d0"/>
+  <!-- Top Highlight -->
+  <path d="M 40 28 L 86 28 C 96 28 100 36 100 40 L 40 40 Z" fill="#f0f0f0"/>
+  <!-- Bottom Shadow -->
+  <rect x="40" y="48" width="60" height="10" fill="#a0a0a0"/>
+  <!-- Outline -->
+  <path d="M 40 28 L 86 28 C 96 28 100 36 100 46 L 100 58 L 40 58" fill="none" stroke="#222222" stroke-width="2"/>
+
+  <!-- Open Door (Hinged Down) -->
+  <path d="M 40 28 C 28 28 24 38 24 48 L 24 64 C 28 66 36 66 40 58 Z" fill="#b0b0b0" stroke="#222222" stroke-width="1.8"/>
+  <ellipse cx="32" cy="46" rx="8" ry="14" fill="#303030"/>
+
+  <!-- White Letter Envelope peeking out -->
+  <g transform="rotate(-12 36 46)">
+    <!-- Envelope Shadow & Body -->
+    <rect x="22" y="36" width="30" height="20" rx="1" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+    <!-- Envelope flap folds -->
+    <polyline points="22,36 37,47 52,36" fill="none" stroke="#888888" stroke-width="1.2"/>
+    <line x1="22" y1="56" x2="33" y2="44" stroke="#cccccc" stroke-width="1"/>
+    <line x1="52" y1="56" x2="41" y2="44" stroke="#cccccc" stroke-width="1"/>
+    <!-- Red stamp -->
+    <rect x="44" y="38" width="6" height="5" fill="#e63946"/>
+  </g>
+
+  <!-- Red Mailbox Flag (Raised) -->
+  <rect x="80" y="16" width="4" height="26" fill="#e63946" stroke="#222222" stroke-width="1.2"/>
+  <polygon points="84,16 98,16 98,26 84,26" fill="#e63946" stroke="#222222" stroke-width="1.2"/>
+  <circle cx="82" cy="42" r="3" fill="#222222"/>
+
+  <!-- "Drop a Message!" handwritten speech bubble text -->
+  <g transform="rotate(8 115 50)">
+    <text x="100" y="44" font-family="'Comic Sans MS', 'Caveat', cursive, sans-serif" font-size="12" font-weight="bold" fill="#0033aa">Drop a</text>
+    <text x="98" y="58" font-family="'Comic Sans MS', 'Caveat', cursive, sans-serif" font-size="12" font-weight="bold" fill="#0033aa">Message!</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 115" width="130" height="115" shape-rendering="crispEdges">
+  <!-- Retro CRT Monitor, Desktop Chassis, Keyboard and Mouse -->
+  
+  <!-- CRT Monitor Case -->
+  <!-- Top & Left highlights, Dark Bottom & Right for 3D Bevel -->
+  <polygon points="35,10 95,10 105,25 25,25" fill="#f0ede1"/>
+  <polygon points="25,25 105,25 105,72 25,72" fill="#dcd7c9"/>
+  <polygon points="105,25 115,15 115,62 105,72" fill="#bcbaaf"/>
+  <polygon points="95,10 115,15 105,25" fill="#e5e0d4"/>
+  <rect x="25" y="25" width="80" height="47" fill="none" stroke="#68655e" stroke-width="2"/>
+  <line x1="25" y1="25" x2="105" y2="25" stroke="#ffffff" stroke-width="2"/>
+  <line x1="25" y1="25" x2="25" y2="72" stroke="#ffffff" stroke-width="2"/>
+  <line x1="25" y1="72" x2="105" y2="72" stroke="#403f3a" stroke-width="2"/>
+  <line x1="105" y1="25" x2="105" y2="72" stroke="#403f3a" stroke-width="2"/>
+
+  <!-- CRT Screen Inset Bezel -->
+  <rect x="33" y="32" width="64" height="34" rx="3" fill="#303030"/>
+  <rect x="35" y="34" width="60" height="30" rx="2" fill="#0055ea"/>
+  
+  <!-- CRT Scanlines / Content -->
+  <!-- Retro Window on CRT screen -->
+  <rect x="39" y="38" width="40" height="22" fill="#c0c0c0"/>
+  <rect x="40" y="39" width="38" height="4" fill="#000080"/>
+  <rect x="40" y="44" width="38" height="15" fill="#ffffff"/>
+  <!-- Code lines inside window -->
+  <line x1="43" y1="47" x2="65" y2="47" stroke="#0000aa" stroke-width="1.5"/>
+  <line x1="43" y1="51" x2="72" y2="51" stroke="#008000" stroke-width="1.5"/>
+  <line x1="43" y1="55" x2="58" y2="55" stroke="#aa0000" stroke-width="1.5"/>
+
+  <!-- Screen Glass Curved Reflection -->
+  <path d="M 37 36 Q 65 37 92 42 Q 65 47 37 42 Z" fill="rgba(255,255,255,0.25)"/>
+
+  <!-- Monitor Power Button & LED -->
+  <rect x="86" y="68" width="4" height="2" fill="#505050"/>
+  <rect x="92" y="68" width="3" height="2" fill="#00ff00"/>
+
+  <!-- Monitor Stand -->
+  <polygon points="55,72 75,72 78,80 52,80" fill="#bcbaaf"/>
+  <polygon points="45,80 85,80 88,84 42,84" fill="#dcd7c9"/>
+  <line x1="42" y1="84" x2="88" y2="84" stroke="#403f3a" stroke-width="1.5"/>
+
+  <!-- Keyboard in Perspective -->
+  <!-- Drop shadow -->
+  <polygon points="20,93 100,93 108,107 12,107" fill="#404040"/>
+  <!-- Base -->
+  <polygon points="18,91 98,91 106,105 10,105" fill="#dcd7c9"/>
+  <polygon points="18,91 98,91 98,89 18,89" fill="#f0ede1"/>
+  <!-- Key rows -->
+  <polygon points="22,93 94,93 101,103 15,103" fill="#55534c"/>
+  <g stroke="#dcd7c9" stroke-width="1.4">
+    <line x1="22" y1="95" x2="95" y2="95"/>
+    <line x1="20" y1="98" x2="97" y2="98"/>
+    <line x1="18" y1="101" x2="99" y2="101"/>
+    <!-- Key columns -->
+    <line x1="30" y1="93" x2="26" y2="103"/>
+    <line x1="42" y1="93" x2="39" y2="103"/>
+    <line x1="54" y1="93" x2="52" y2="103"/>
+    <line x1="66" y1="93" x2="65" y2="103"/>
+    <line x1="78" y1="93" x2="78" y2="103"/>
+    <line x1="88" y1="93" x2="89" y2="103"/>
+  </g>
+
+  <!-- Mouse & Cable -->
+  <!-- Wire curling from computer -->
+  <path d="M 100 80 Q 115 88 116 95" fill="none" stroke="#68655e" stroke-width="1.5"/>
+  <!-- Mouse body -->
+  <ellipse cx="118" cy="100" rx="8" ry="11" fill="#dcd7c9"/>
+  <ellipse cx="118" cy="100" rx="8" ry="11" fill="none" stroke="#403f3a" stroke-width="1.2"/>
+  <!-- Mouse buttons line -->
+  <line x1="118" y1="89" x2="118" y2="97" stroke="#403f3a" stroke-width="1.2"/>
+  <line x1="110" y1="97" x2="126" y2="97" stroke="#403f3a" stroke-width="1.2"/>
+</svg>

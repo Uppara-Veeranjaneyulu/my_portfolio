@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- REST API Endpoint Cloud Sync -->
+  <path d="M 9 13 L 4 16 L 9 19" fill="none" stroke="#e05d44" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 23 13 L 28 16 L 23 19" fill="none" stroke="#e05d44" stroke-width="2" stroke-linecap="round"/>
+  <rect x="10" y="10" width="12" height="12" rx="2" fill="#2d3748" stroke="#1a202c" stroke-width="1.5"/>
+  <text x="16" y="19" font-family="'Courier New', monospace" font-size="8" font-weight="bold" fill="#63b3ed" text-anchor="middle">API</text>
+</svg>
