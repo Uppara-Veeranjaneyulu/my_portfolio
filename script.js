@@ -359,9 +359,38 @@ function disableImageDrag() {
 }
 
 // -----------------------------------------------------------------------------
+// Disable Right-Click Context Menu & Developer Shortcuts
+// -----------------------------------------------------------------------------
+function disableRightClick() {
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener('keydown', (e) => {
+        // Block F12 (Inspect)
+        if (e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+        // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (DevTools)
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
+            e.preventDefault();
+            return false;
+        }
+        // Block Ctrl+U (View Source)
+        if ((e.ctrlKey || e.metaKey) && ['u', 'U'].includes(e.key)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+}
+
+// -----------------------------------------------------------------------------
 // DOM Ready
 // -----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+    disableRightClick();
     disableImageDrag();
     initVisitorCounter();
     initContactForm();
