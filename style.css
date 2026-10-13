@@ -1,7 +1,4 @@
-/* ==========================================================================
-   EARLY 2000s RETRO PORTFOLIO DESIGN SYSTEM (1999–2005)
-   Inspired by Windows 98/2000/XP, GeoCities, Internet Explorer 6, & Vintage Web
-   ========================================================================== */
+/* EARLY 2000s RETRO PORTFOLIO DESIGN SYSTEM (1999–2005) */
 
 :root {
     /* Windows 98 / 2000 Classic Color Palette */
@@ -98,7 +95,7 @@ textarea,
     user-select: text;
 }
 
-/* Classic Desktop Browser / Window Frame */
+/* Window Frame */
 .retro-window-container {
     width: 100%;
     max-width: 900px;
@@ -113,34 +110,6 @@ textarea,
     overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-/* Classic Top Window Titlebar (Explorer Frame) */
-.desktop-window-titlebar {
-    background: linear-gradient(90deg, var(--win-title-blue-start) 0%, var(--win-title-blue-end) 100%);
-    color: var(--win-white);
-    padding: 3px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 11px;
-    letter-spacing: 0.3px;
-    user-select: none;
-}
-
-.desktop-window-title {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
-
-.desktop-window-title img,
-.desktop-window-title svg {
-    width: 14px;
-    height: 14px;
-    vertical-align: middle;
 }
 
 .window-controls {
@@ -176,9 +145,7 @@ textarea,
     font-size: 10px;
 }
 
-/* ==========================================================================
-   HEADER BANNER
-   ========================================================================== */
+/* Header Banner */
 
 .retro-header-banner {
     position: relative;
@@ -281,9 +248,7 @@ textarea,
     text-align: right;
 }
 
-/* ==========================================================================
-   SUB-HEADER / MARQUEE TICKER BAR
-   ========================================================================== */
+/* Ticker Bar */
 
 .retro-ticker-bar {
     background-color: var(--win-gray-light);
@@ -324,17 +289,7 @@ textarea,
     color: var(--link-hover);
 }
 
-.ticker-marquee {
-    display: inline-block;
-    padding-left: 20px;
-    color: #444444;
-    font-family: var(--font-mono);
-    font-size: 11px;
-}
-
-/* ==========================================================================
-   MAIN LAYOUT (SIDEBAR + CONTENT PANELS)
-   ========================================================================== */
+/* Main Layout */
 
 .retro-main-layout {
     flex: 1;
@@ -347,9 +302,7 @@ textarea,
     overflow: hidden;
 }
 
-/* --------------------------------------------------------------------------
-   LEFT SIDEBAR
-   -------------------------------------------------------------------------- */
+/* Sidebar */
 
 .retro-sidebar {
     width: 195px;
@@ -425,7 +378,7 @@ textarea,
     image-rendering: pixelated;
 }
 
-/* Visitor Counter Box */
+/* Visitor Counter */
 .sidebar-counter-panel {
     background-color: var(--win-gray);
     border: 2px solid;
@@ -494,9 +447,7 @@ textarea,
     }
 }
 
-/* --------------------------------------------------------------------------
-   MAIN CONTENT AREA (PANELS GRID)
-   -------------------------------------------------------------------------- */
+/* Content Area */
 
 .retro-content-area {
     flex-grow: 1;
@@ -529,7 +480,7 @@ textarea,
     overflow-y: auto;
 }
 
-/* 2-Column Panels Grid */
+
 .retro-panels-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -537,7 +488,7 @@ textarea,
     width: 100%;
 }
 
-/* Windows 98/2000 Panel Box */
+
 .retro-panel {
     background-color: var(--win-gray-light);
     border: 2px solid;
@@ -584,9 +535,7 @@ textarea,
     line-height: 1.45;
 }
 
-/* --------------------------------------------------------------------------
-   PANEL 1: ABOUT ME
-   -------------------------------------------------------------------------- */
+/* Panel: About Me */
 
 .about-panel-body {
     display: flex;
@@ -692,9 +641,7 @@ textarea,
     border-color: var(--win-gray-dark) var(--win-white) var(--win-white) var(--win-gray-dark);
 }
 
-/* --------------------------------------------------------------------------
-   PANEL 2: MY JOURNEY
-   -------------------------------------------------------------------------- */
+/* Panel: My Journey */
 
 .journey-panel-body {
     display: flex;
@@ -754,9 +701,7 @@ textarea,
     margin-top: -4px;
 }
 
-/* --------------------------------------------------------------------------
-   PANEL 3: MY PROJECTS
-   -------------------------------------------------------------------------- */
+/* Panel: My Projects */
 
 .projects-panel-body {
     display: flex;
@@ -826,65 +771,7 @@ textarea,
     color: var(--link-hover);
 }
 
-/* --------------------------------------------------------------------------
-   PANEL 4: SKILLS
-   -------------------------------------------------------------------------- */
-
-.skills-grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 6px 4px;
-    text-align: center;
-    padding: 4px 0;
-}
-
-.skill-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    padding: 4px 2px;
-    background: transparent;
-    border: 2px solid transparent;
-    cursor: pointer;
-    border-radius: 1px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.1s ease;
-}
-
-.skill-badge:hover {
-    background: var(--win-gray);
-    border: 2px solid;
-    border-color: var(--win-white) var(--win-gray-dark) var(--win-gray-dark) var(--win-white);
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
-    color: inherit;
-}
-
-.skill-badge:active {
-    border-color: var(--win-gray-dark) var(--win-white) var(--win-white) var(--win-gray-dark);
-    box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.35);
-}
-
-.skill-badge img {
-    width: 22px;
-    height: 22px;
-    display: block;
-    image-rendering: auto;
-}
-
-.skill-badge span {
-    font-size: 9.5px;
-    font-family: var(--font-system);
-    font-weight: bold;
-    color: #222222;
-    line-height: 1.1;
-    white-space: nowrap;
-}
-
-/* --------------------------------------------------------------------------
-   PANEL 5: CONTACT ME
-   -------------------------------------------------------------------------- */
+/* Panel: Contact Me */
 
 .contact-panel-body {
     display: flex;
@@ -947,50 +834,7 @@ textarea,
     filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.3));
 }
 
-/* --------------------------------------------------------------------------
-   PANEL 6: FAVOURITE QUOTE
-   -------------------------------------------------------------------------- */
-
-.quote-panel-body {
-    padding: 6px;
-    display: flex;
-    align-items: stretch;
-}
-
-.retro-sticky-note {
-    background-color: var(--note-yellow);
-    border: 1px solid var(--note-border);
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
-    padding: 14px 14px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: "Georgia", "Times New Roman", serif;
-    position: relative;
-}
-
-.quote-text {
-    font-size: 13px;
-    font-style: italic;
-    font-weight: bold;
-    color: #222222;
-    text-align: center;
-    line-height: 1.4;
-}
-
-.quote-author {
-    margin-top: 8px;
-    text-align: right;
-    font-size: 12px;
-    font-weight: bold;
-    color: #444444;
-    font-family: var(--font-system);
-}
-
-/* ==========================================================================
-   SUB-VIEWS (EDUCATION, ALL PROJECTS, RESUME, CONTACT FORM, GALLERY)
-   ========================================================================== */
+/* Sub-Views */
 
 .subview-window {
     background-color: var(--win-gray-light);
@@ -1039,7 +883,7 @@ textarea,
     border-color: var(--win-gray-dark) var(--win-white) var(--win-white) var(--win-gray-dark);
 }
 
-/* About Social Buttons with Brand Colors */
+/* Social Buttons */
 .about-social-btn {
     border: 2px solid;
     border-color: var(--win-white) var(--win-gray-dark) var(--win-gray-dark) var(--win-white);
@@ -1120,9 +964,7 @@ textarea,
     color: #92400e;
 }
 
-/* ==========================================================================
-   SUB-VIEWS: ABOUT, EDUCATION, SKILLS, CONTACT (RETRO WINDOWS 98/2000 THEME)
-   ========================================================================== */
+
 
 #view-about,
 #view-education,
@@ -1252,7 +1094,7 @@ textarea,
     margin-top: 10px;
 }
 
-/* All Projects Catalog - THE ONLY SECTION THAT SCROLLS */
+/* Projects Catalog */
 .all-projects-catalog {
     flex: 1;
     min-height: 0;
@@ -1369,26 +1211,6 @@ textarea,
     gap: 10px;
 }
 
-.retro-btn {
-    background: var(--win-gray);
-    border: 2px solid;
-    border-color: var(--win-white) var(--win-gray-dark) var(--win-gray-dark) var(--win-white);
-    padding: 4px 12px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--win-black);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.retro-btn:active {
-    border-color: var(--win-gray-dark) var(--win-white) var(--win-white) var(--win-gray-dark);
-    padding: 5px 11px 3px 13px;
-}
-
 .resume-frame-box {
     width: 100%;
     height: 520px;
@@ -1403,18 +1225,7 @@ textarea,
     border: none;
 }
 
-/* About View Profile Card Styles */
-.about-ks-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 1.25rem;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-}
-
-/* ==========================================================================
-   CONTACT SUB-VIEW (RETRO WINDOWS 98/2000 EXPANDED LAYOUT)
-   ========================================================================== */
+/* Contact Sub-View */
 
 .contact-subview-layout {
     display: grid;
@@ -1514,7 +1325,7 @@ textarea,
     transform: scale(1.05);
 }
 
-/* Right Form Card: Expanded Message Form */
+/* Contact Form */
 .contact-form-container {
     width: 100%;
     background: var(--win-gray);
@@ -1633,7 +1444,7 @@ textarea.retro-input {
     }
 }
 
-/* Gallery View & Certifications */
+/* Gallery */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1769,7 +1580,7 @@ textarea.retro-input {
     color: var(--link-hover);
 }
 
-/* Certificate Lightbox Modal */
+/* Gallery Modal */
 .gallery-modal {
     position: fixed;
     inset: 0;
@@ -1837,9 +1648,7 @@ textarea.retro-input {
     border-top: 2px groove #ffffff;
 }
 
-/* ==========================================================================
-   FOOTER (STATUS BAR & IE BADGE)
-   ========================================================================== */
+/* Footer */
 
 .retro-footer {
     background-color: var(--win-gray);
@@ -1868,34 +1677,7 @@ textarea.retro-input {
     text-align: center;
 }
 
-.footer-signal-icon img {
-    width: 16px;
-    height: 14px;
-    display: block;
-}
-
-.footer-ie-badge {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.footer-ie-badge img {
-    width: 20px;
-    height: 20px;
-    display: block;
-}
-
-.footer-ie-text {
-    font-size: 10.5px;
-    color: #333333;
-    white-space: nowrap;
-}
-
-/* ==========================================================================
-   RESPONSIVENESS (MOBILE / TABLET FALLBACK)
-   Maintains authentic 2000s look while fitting small screens without overflow
-   ========================================================================== */
+/* Responsive */
 
 @media (max-width: 820px) {
 
@@ -1989,9 +1771,6 @@ textarea.retro-input {
         text-align: center;
     }
 
-    .footer-right {
-        justify-content: center;
-    }
 }
 
 @media (max-width: 480px) {

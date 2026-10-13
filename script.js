@@ -1,8 +1,5 @@
 'use strict';
 
-// -----------------------------------------------------------------------------
-// Route Configuration & Mapping
-// -----------------------------------------------------------------------------
 const routeTitles = {
     landing: "Uppara Veeranjaneyulu",
     home: "Uppara Veeranjaneyulu",
@@ -15,33 +12,24 @@ const routeTitles = {
     contact: "Contact"
 };
 
+function normalizeRoute(route) {
+    const r = String(route || '').toLowerCase().trim();
+    if (r === 'home') return 'landing';
+    if (r === 'profile') return 'about';
+    if (r === 'project') return 'projects';
+    return r;
+}
+
 function getRouteFromLocation() {
-    // 1. URL search parameter: ?route=projects
     const urlParams = new URLSearchParams(window.location.search);
-    let paramRoute = (urlParams.get('route') || '').toLowerCase();
-    if (paramRoute) {
-        if (paramRoute === 'home') paramRoute = 'landing';
-        if (paramRoute === 'profile') paramRoute = 'about';
-        if (paramRoute === 'project') paramRoute = 'projects';
-        if (routeTitles[paramRoute]) return paramRoute;
-    }
+    const paramRoute = normalizeRoute(urlParams.get('route') || '');
+    if (paramRoute && routeTitles[paramRoute]) return paramRoute;
 
-    // 2. Hash: #projects
-    let hash = window.location.hash.replace(/^#\/?/g, '').toLowerCase();
-    if (hash) {
-        if (hash === 'home') hash = 'landing';
-        if (hash === 'profile') hash = 'about';
-        if (hash === 'project') hash = 'projects';
-        if (routeTitles[hash]) return hash;
-    }
+    const hash = normalizeRoute(window.location.hash.replace(/^#\/?/g, ''));
+    if (hash && routeTitles[hash]) return hash;
 
-    // 3. Pathname: /projects
     if (window.location.protocol !== 'file:') {
-        let path = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
-        if (path.endsWith('.html')) path = path.replace(/\.html$/, '');
-        if (path === 'home') path = 'landing';
-        if (path === 'profile') path = 'about';
-        if (path === 'project') path = 'projects';
+        const path = normalizeRoute(window.location.pathname.replace(/^\/|\/$/g, '').replace(/\.html$/, ''));
         if (path && routeTitles[path]) return path;
     }
 
@@ -49,90 +37,68 @@ function getRouteFromLocation() {
 }
 
 function navigateTo(route, updateHistory = true) {
-    let cleanRoute = String(route || '').toLowerCase().trim();
-    if (cleanRoute === 'home') cleanRoute = 'landing';
-    if (cleanRoute === 'profile') cleanRoute = 'about';
-    if (cleanRoute === 'project') cleanRoute = 'projects';
-    if (!cleanRoute || !routeTitles[cleanRoute]) cleanRoute = 'landing';
+    const cleanRoute = normalizeRoute(route) || 'landing';
+    const finalRoute = routeTitles[cleanRoute] ? cleanRoute : 'landing';
 
-    // Toggle view elements
     document.querySelectorAll('.portfolio-view').forEach(view => {
         view.classList.remove('active');
         view.style.display = 'none';
     });
 
-    const targetView = document.getElementById(`view-${cleanRoute}`);
+    const targetView = document.getElementById(`view-${finalRoute}`);
     if (targetView) {
         targetView.classList.add('active');
         targetView.style.display = 'block';
     }
 
-    // Update active state in sidebar
     document.querySelectorAll('.nav-link-item').forEach(link => {
         const linkRoute = link.getAttribute('data-route');
-        if (linkRoute === cleanRoute || (cleanRoute === 'landing' && linkRoute === 'home')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        link.classList.toggle('active', linkRoute === finalRoute || (finalRoute === 'landing' && linkRoute === 'home'));
     });
 
-    // Update browser title
-    document.title = routeTitles[cleanRoute] || "Uppara Veeranjaneyulu";
-
-    // Scroll back to top of window
+    document.title = routeTitles[finalRoute] || "Uppara Veeranjaneyulu";
     window.scrollTo({ top: 0, behavior: 'instant' });
 
-    // Update history URL
     if (updateHistory) {
         if (window.location.protocol === 'file:') {
-            const targetHash = cleanRoute === 'landing' ? '' : `#${cleanRoute}`;
+            const targetHash = finalRoute === 'landing' ? '' : `#${finalRoute}`;
             if (window.location.hash !== targetHash) {
                 try {
-                    history.replaceState({ route: cleanRoute }, '', targetHash || window.location.pathname);
-                } catch (e) {
+                    history.replaceState({ route: finalRoute }, '', targetHash || window.location.pathname);
+                } catch {
                     window.location.hash = targetHash;
                 }
             }
         } else {
-            const path = cleanRoute === 'landing' ? '/' : `/${cleanRoute}`;
+            const path = finalRoute === 'landing' ? '/' : `/${finalRoute}`;
             if (window.location.pathname !== path) {
                 try {
-                    history.replaceState({ route: cleanRoute }, '', path);
-                } catch (e) {
-                    const targetHash = cleanRoute === 'landing' ? '' : `#${cleanRoute}`;
-                    if (window.location.hash !== targetHash) {
-                        window.location.hash = targetHash;
-                    }
+                    history.replaceState({ route: finalRoute }, '', path);
+                } catch {
+                    const targetHash = finalRoute === 'landing' ? '' : `#${finalRoute}`;
+                    if (window.location.hash !== targetHash) window.location.hash = targetHash;
                 }
             }
         }
     }
 }
 
-// Global click handler for data-route links
 document.addEventListener('click', (e) => {
     const routeLink = e.target.closest('[data-route]');
     if (routeLink) {
         e.preventDefault();
-        const route = routeLink.getAttribute('data-route');
-        navigateTo(route);
+        navigateTo(routeLink.getAttribute('data-route'));
     }
 });
 
-// History navigation events
 window.addEventListener('popstate', (e) => {
-    let route = (e.state && e.state.route) || getRouteFromLocation();
-    navigateTo(route, false);
+    navigateTo((e.state && e.state.route) || getRouteFromLocation(), false);
 });
 
 window.addEventListener('hashchange', () => {
     navigateTo(getRouteFromLocation(), false);
 });
 
-// -----------------------------------------------------------------------------
-// Real Unique Visitor Counter (Persistent & Unique per Device)
-// -----------------------------------------------------------------------------
 async function initVisitorCounter() {
     const counterEl = document.getElementById('visitorCounter');
     if (!counterEl) return;
@@ -141,7 +107,6 @@ async function initVisitorCounter() {
     const visitedFlagKey = 'has_visited_veeranji_portfolio';
     const cachedCountKey = 'cached_unique_visitor_count';
 
-    // Show cached unique count immediately to eliminate layout shift / flicker
     let currentCount = parseInt(localStorage.getItem(cachedCountKey) || '0', 10);
     if (currentCount > 0) {
         counterEl.textContent = String(currentCount).padStart(7, '0');
@@ -149,8 +114,6 @@ async function initVisitorCounter() {
 
     try {
         const hasVisited = localStorage.getItem(visitedFlagKey);
-        // Only increment (/hit) if this device/browser has never visited before.
-        // If returning visitor or reloading/navigating, simply retrieve (/get) current count.
         const endpoint = hasVisited
             ? `https://countapi.mileshilliard.com/api/v1/get/${counterKey}`
             : `https://countapi.mileshilliard.com/api/v1/hit/${counterKey}`;
@@ -159,33 +122,27 @@ async function initVisitorCounter() {
         if (res.ok) {
             const data = await res.json();
             if (data && typeof data.value === 'number') {
-                const count = data.value;
                 localStorage.setItem(visitedFlagKey, 'true');
-                localStorage.setItem(cachedCountKey, String(count));
-                counterEl.textContent = String(count).padStart(7, '0');
+                localStorage.setItem(cachedCountKey, String(data.value));
+                counterEl.textContent = String(data.value).padStart(7, '0');
                 return;
             }
         }
-    } catch (e) {
-        // Fallback gracefully on local / offline environments
+    } catch {
+        // Fallback gracefully on local/offline environments
     }
 
-    // Default starting point if API is unreachable
     if (!currentCount) {
-        currentCount = 1;
-        counterEl.textContent = String(currentCount).padStart(7, '0');
+        counterEl.textContent = '0000001';
     }
 }
 
-// -----------------------------------------------------------------------------
-// EmailJS Contact Form Integration
-// -----------------------------------------------------------------------------
 (function initEmailJS() {
     if (typeof emailjs !== 'undefined') {
         try {
             emailjs.init('m9PQkiFvTy8n3N7aV');
         } catch (e) {
-            console.warn('EmailJS initialization note:', e);
+            console.warn('EmailJS init:', e);
         }
     }
 })();
@@ -201,10 +158,8 @@ function initContactForm() {
         const formMsg = document.getElementById('formMessage');
         const originalHTML = submitBtn.innerHTML;
 
-        // 1. Honeypot check for spam bots
         const gotcha = document.getElementById('_gotcha');
         if (gotcha && gotcha.value.trim() !== '') {
-            // Silently pretend success to avoid giving hints to bots
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
             setTimeout(() => {
@@ -218,23 +173,20 @@ function initContactForm() {
             return;
         }
 
-        // 2. Client-side Rate Limiting (1 message every 60 seconds)
         const now = Date.now();
         const lastSent = parseInt(sessionStorage.getItem('last_msg_sent_ts') || '0', 10);
         const cooldown = 60000;
         if (now - lastSent < cooldown) {
             const remaining = Math.ceil((cooldown - (now - lastSent)) / 1000);
-            formMsg.textContent = `Security Notice: Please wait ${remaining}s before sending another message.`;
+            formMsg.textContent = `Please wait ${remaining}s before sending another message.`;
             formMsg.className = 'form-msg error';
             formMsg.style.display = 'block';
             return;
         }
 
-        // 3. Email format validation
         const emailInput = document.getElementById('email');
         const emailVal = emailInput ? emailInput.value.trim() : '';
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailVal)) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
             formMsg.textContent = 'Please enter a valid email address.';
             formMsg.className = 'form-msg error';
             formMsg.style.display = 'block';
@@ -245,7 +197,7 @@ function initContactForm() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
 
         if (typeof emailjs === 'undefined') {
-            formMsg.textContent = 'Email service is unavailable. Please email directly to uupparaveeranji@gmail.com';
+            formMsg.textContent = 'Email service unavailable. Please email uupparaveeranji@gmail.com directly.';
             formMsg.className = 'form-msg error';
             formMsg.style.display = 'block';
             submitBtn.disabled = false;
@@ -262,11 +214,9 @@ function initContactForm() {
                 contactForm.reset();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalHTML;
-                setTimeout(() => {
-                    formMsg.style.display = 'none';
-                }, 6000);
-            }, (err) => {
-                formMsg.textContent = 'Failed to deliver message. Please reach out directly to uupparaveeranji@gmail.com';
+                setTimeout(() => { formMsg.style.display = 'none'; }, 6000);
+            }, () => {
+                formMsg.textContent = 'Failed to send. Please reach out directly to uupparaveeranji@gmail.com';
                 formMsg.className = 'form-msg error';
                 formMsg.style.display = 'block';
                 submitBtn.disabled = false;
@@ -275,27 +225,18 @@ function initContactForm() {
     });
 }
 
-// -----------------------------------------------------------------------------
-// Interactive Retro Window Controls (Min/Max/Close Buttons)
-// -----------------------------------------------------------------------------
 function initWindowControls() {
     document.querySelectorAll('.win-btn.close').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const panel = e.target.closest('.retro-panel');
             if (panel) {
-                // If closing a panel on the main page, offer quick minimize
                 panel.style.display = 'none';
-                setTimeout(() => {
-                    panel.style.display = 'flex';
-                }, 4000); // Automatically restore after 4s
+                setTimeout(() => { panel.style.display = 'flex'; }, 4000);
             }
         });
     });
 }
 
-// -----------------------------------------------------------------------------
-// Interactive Certificate Gallery Modal
-// -----------------------------------------------------------------------------
 function initGalleryModal() {
     const modal = document.getElementById('certModal');
     if (!modal) return;
@@ -313,15 +254,9 @@ function initGalleryModal() {
 
     if (closeBtn1) closeBtn1.addEventListener('click', closeModal);
     if (closeBtn2) closeBtn2.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
     document.querySelectorAll('.gallery-img-wrap').forEach(wrap => {
@@ -342,53 +277,26 @@ function initGalleryModal() {
     });
 }
 
-// -----------------------------------------------------------------------------
-// Prevent Image Dragging (Cross-Browser)
-// -----------------------------------------------------------------------------
 function disableImageDrag() {
     document.addEventListener('dragstart', (e) => {
         if (e.target && (e.target.tagName === 'IMG' || e.target.closest('img'))) {
             e.preventDefault();
-            return false;
         }
     });
-
-    document.querySelectorAll('img').forEach(img => {
-        img.setAttribute('draggable', 'false');
-    });
+    document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
 }
 
-// -----------------------------------------------------------------------------
-// Disable Right-Click Context Menu & Developer Shortcuts
-// -----------------------------------------------------------------------------
 function disableRightClick() {
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        return false;
-    });
-
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
     document.addEventListener('keydown', (e) => {
-        // Block F12 (Inspect)
-        if (e.key === 'F12') {
-            e.preventDefault();
-            return false;
-        }
-        // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (DevTools)
+        if (e.key === 'F12') { e.preventDefault(); return; }
         if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
-            e.preventDefault();
-            return false;
+            e.preventDefault(); return;
         }
-        // Block Ctrl+U (View Source)
-        if ((e.ctrlKey || e.metaKey) && ['u', 'U'].includes(e.key)) {
-            e.preventDefault();
-            return false;
-        }
+        if ((e.ctrlKey || e.metaKey) && ['u', 'U'].includes(e.key)) e.preventDefault();
     });
 }
 
-// -----------------------------------------------------------------------------
-// DOM Ready
-// -----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     disableRightClick();
     disableImageDrag();
@@ -398,4 +306,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryModal();
     navigateTo(getRouteFromLocation(), false);
 });
-
