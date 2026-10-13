@@ -101,7 +101,7 @@ textarea,
 /* Classic Desktop Browser / Window Frame */
 .retro-window-container {
     width: 100%;
-    max-width: 1024px;
+    max-width: 900px;
     height: calc(100vh - 20px);
     max-height: calc(100vh - 20px);
     background-color: var(--win-gray);
@@ -594,9 +594,16 @@ textarea,
     align-items: flex-start;
 }
 
-.about-photo-frame {
+.about-left-col {
     flex-shrink: 0;
-    width: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 125px;
+}
+
+.about-photo-frame {
+    width: 100%;
     background: var(--win-gray);
     border: 2px solid;
     border-color: var(--win-gray-dark) var(--win-white) var(--win-white) var(--win-gray-dark);
@@ -606,15 +613,16 @@ textarea,
 
 .about-photo-frame img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 624 / 935;
-    object-fit: contain;
+    height: 100%;
+    aspect-ratio: 332 / 390;
+    object-fit: cover;
     display: block;
     border: 1px solid #777777;
 }
 
 .about-text-content {
     flex-grow: 1;
+    min-width: 0;
 }
 
 .about-greeting {
@@ -650,25 +658,29 @@ textarea,
 }
 
 .profile-links-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-top: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-top: 2px;
+    width: 100%;
 }
 
 .retro-badge-btn {
     background: var(--win-gray);
     border: 1px solid;
     border-color: var(--win-white) var(--win-gray-dark) var(--win-gray-dark) var(--win-white);
-    padding: 2px 6px;
+    padding: 2px 4px;
     font-size: 10px;
     font-weight: bold;
     color: var(--link-blue);
     text-decoration: underline;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 3px;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 }
 
 .retro-badge-btn:hover {
